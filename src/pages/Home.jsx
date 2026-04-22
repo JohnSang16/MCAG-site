@@ -38,7 +38,7 @@ export default function Home() {
 
         <ContainerScale className="z-10 text-center px-6" style={{ width: 'min(100vw, 42rem)' }}>
           <img
-            src="/assets/logos/mcag logo.png"
+            src="/assets/logos/mcag_logo-removebg-preview.png"
             alt="Miracle Center Assembly of God"
             className="h-24 w-auto mx-auto mb-6 drop-shadow-xl"
             onError={e => { e.target.style.display = 'none' }}
