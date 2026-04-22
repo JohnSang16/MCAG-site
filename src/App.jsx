@@ -1,10 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import NotFound from './pages/NotFound'
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<div className="font-body bg-ivory min-h-screen p-8 text-text-primary">Miracle Center AG — scaffold ready</div>} />
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )
