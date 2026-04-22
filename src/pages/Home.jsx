@@ -40,18 +40,18 @@ export default function Home() {
           <img
             src="/assets/logos/mcag logo.png"
             alt="Miracle Center Assembly of God"
-            className="h-24 w-auto mx-auto mb-6 mix-blend-multiply drop-shadow-xl"
+            className="h-24 w-auto mx-auto mb-6 drop-shadow-xl"
             onError={e => { e.target.style.display = 'none' }}
           />
-          <h1 className="font-heading font-bold text-4xl sm:text-5xl text-white leading-tight drop-shadow-lg">
+          <h1 className="font-heading font-bold text-4xl sm:text-5xl text-text-primary leading-tight">
             Miracle Center Assembly of God
           </h1>
-          <p className="font-body text-white/80 italic text-lg mt-4 leading-relaxed drop-shadow">
+          <p className="font-body text-text-primary italic text-lg mt-4 leading-relaxed">
             "Have I not commanded you? Be strong and courageous."
-            <span className="block not-italic text-sm mt-1 text-white/55">Joshua 1:9</span>
+            <span className="block not-italic text-sm mt-1 text-text-secondary">Joshua 1:9</span>
           </p>
           <a href="#services" onClick={scrollToServices} className="inline-block mt-8">
-            <button className="font-body font-medium text-sm px-7 py-3 rounded border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-[#0a0f2e] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-gold">
+            <button className="font-body font-medium text-sm px-7 py-3 rounded border-2 border-text-primary text-text-primary hover:bg-text-primary hover:text-surface transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-text-primary">
               Join Us
             </button>
           </a>
