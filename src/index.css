@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Scroll-linked hero transitions — --sp is set by JS (0 = top, 1 = fully scrolled) */
+.hero-bg-fade {
+  opacity: calc(1 - var(--sp, 0));
+}
+
+.hero-rays-scroll {
+  opacity: calc(1 - var(--sp, 0) * 1.6);
+  transform: scale(calc(1 - var(--sp, 0) * 0.12));
+  transform-origin: center center;
+}
+
+.hero-cross-scroll {
+  opacity: calc(1 - var(--sp, 0) * 1.2);
+  transform: scale(calc(1 - var(--sp, 0) * 0.1)) translateY(calc(var(--sp, 0) * -28px));
+  transform-origin: center center;
+}
