@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import { Navbar } from '../components/Navbar'
 import { Footer } from '../components/Footer'
 import { Card } from '../components/Card'
@@ -7,7 +8,23 @@ import { ValueStrip } from '../components/ValueStrip'
 import { PrayerRequestForm } from '../components/PrayerRequestForm'
 import { FacebookCTAStrip } from '../components/FacebookCTAStrip'
 
+const HERO_IMAGES = [
+  'https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=1920&q=80',
+  'https://images.unsplash.com/photo-1507692812060-98338d07aca3?auto=format&fit=crop&w=1920&q=80',
+  'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1920&q=80',
+  'https://images.unsplash.com/photo-1545987796-200677ee1011?auto=format&fit=crop&w=1920&q=80',
+]
+
 export default function Home() {
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setActiveIndex((i) => (i + 1) % HERO_IMAGES.length)
+    }, 6000)
+    return () => clearInterval(id)
+  }, [])
+
   function scrollToServices(e) {
     e.preventDefault()
     document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })
@@ -18,24 +35,55 @@ export default function Home() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-ivory py-24 px-6 text-center">
-        <div className="max-w-3xl mx-auto flex flex-col items-center gap-6">
+      <section className="relative h-[90vh] min-h-[560px] overflow-hidden">
+        {/* Carousel slides */}
+        {HERO_IMAGES.map((src, i) => (
+          <img
+            key={src}
+            src={src}
+            alt=""
+            aria-hidden="true"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out ${
+              i === activeIndex ? 'opacity-100' : 'opacity-0'
+            }`}
+          />
+        ))}
+
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/55" />
+
+        {/* Content */}
+        <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 text-center gap-6">
           <img
             src="/assets/logo.png"
             alt="Miracle Center Assembly of God"
-            className="h-[120px] w-auto"
+            className="h-[120px] w-auto drop-shadow-lg"
             onError={e => { e.target.style.display = 'none' }}
           />
-          <h1 className="font-heading font-bold text-4xl sm:text-5xl text-text-primary leading-tight">
+          <h1 className="font-heading font-bold text-4xl sm:text-5xl text-surface leading-tight drop-shadow-md">
             Miracle Center Assembly of God
           </h1>
-          <p className="font-body text-text-secondary text-lg leading-relaxed max-w-xl">
+          <p className="font-body text-surface/85 text-lg leading-relaxed max-w-xl drop-shadow">
             "Have I not commanded you? Be strong and courageous."
-            <span className="block text-sm mt-1 text-text-secondary/70">Joshua 1:9</span>
+            <span className="block text-sm mt-1 text-surface/60">Joshua 1:9</span>
           </p>
           <a href="#services" onClick={scrollToServices}>
-            <Button>Join Us</Button>
+            <Button className="mt-2 shadow-lg">Join Us</Button>
           </a>
+        </div>
+
+        {/* Slide dots */}
+        <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-10">
+          {HERO_IMAGES.map((_, i) => (
+            <button
+              key={i}
+              aria-label={`Go to slide ${i + 1}`}
+              onClick={() => setActiveIndex(i)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                i === activeIndex ? 'bg-surface w-6' : 'bg-surface/40'
+              }`}
+            />
+          ))}
         </div>
       </section>
 
