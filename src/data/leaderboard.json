@@ -1,0 +1,18 @@
+{
+  "lastUpdated": "2026-04-22",
+  "members": [
+    { "id": 1, "name": "John Doe" },
+    { "id": 2, "name": "Jane Smith" }
+  ],
+  "tests": [
+    {
+      "id": 1,
+      "name": "Test 1 — Genesis Ch. 1-25",
+      "date": "2026-04-06",
+      "scores": [
+        { "memberId": 1, "score": 95 },
+        { "memberId": 2, "score": 88 }
+      ]
+    }
+  ]
+}
