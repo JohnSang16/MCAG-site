@@ -156,7 +156,7 @@ export default function Home() {
               <Link to="/about/jesus" className="block group flex-1">
                 <Card className="transition-shadow group-hover:shadow-md h-full overflow-hidden p-0">
                   <img
-                    src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=800&q=80"
+                    src="/assets/stockimg/jc1.avif"
                     alt="Jesus Christ"
                     className="w-full h-36 object-cover object-center"
                   />
@@ -227,7 +227,7 @@ export default function Home() {
       </section>
 
       {/* Prayer Request Form */}
-      <section className="pt-2 pb-20 px-6 bg-ivory">
+      <section className="py-20 px-6 bg-ivory">
         <div className="max-w-xl mx-auto text-center mb-10">
           <h2 className="font-heading font-bold text-3xl text-text-primary mb-3">
             Prayer Requests
@@ -241,7 +241,7 @@ export default function Home() {
       </section>
 
       {/* Meet the Pastors */}
-      <section className="py-20 px-6 bg-ivory">
+      <section className="pt-0 pb-20 px-6 bg-ivory">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-heading font-bold text-3xl text-text-primary text-center mb-2">
             Meet the Pastors
@@ -253,15 +253,19 @@ export default function Home() {
             {[
               {
                 name: 'Pastor Abraham Thang', title: 'Lead Pastor',
-                img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
+                img: '/assets/mcaglive/lp1.jpg',
+                imgClass: 'w-full h-full object-cover object-[center_28%] scale-150',
               },
               {
                 name: 'Pastor Sarah Muan Cing', title: 'Pastor',
-                img: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=400&q=80',
+                img: '/assets/mcaglive/ap1.jpg',
+                imgClass: 'w-full h-full object-cover object-center',
               },
-            ].map(({ name, title, img }) => (
+            ].map(({ name, title, img, imgClass }) => (
               <Card key={name} className="flex flex-col items-center text-center gap-4 overflow-hidden p-0">
-                <img src={img} alt={name} className="w-full h-48 object-cover object-top" />
+                <div className="w-full h-64 overflow-hidden shrink-0">
+                  <img src={img} alt={name} className={imgClass} />
+                </div>
                 <div className="px-6 pb-6 flex flex-col items-center gap-3">
                   <div>
                     <h3 className="font-heading font-semibold text-xl text-text-primary">{name}</h3>

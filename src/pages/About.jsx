@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion'
 import { Navbar } from '../components/Navbar'
 import { Footer } from '../components/Footer'
 import { Card } from '../components/Card'
+import { ValueStrip } from '../components/ValueStrip'
 
 function FadeUp({ children, delay = 0 }) {
   const ref = useRef(null)
@@ -26,18 +27,6 @@ const subpages = [
     label: 'Our History',
     description: 'How Miracle Center began — from a living room calling to a growing congregation.',
     img: 'https://images.unsplash.com/photo-1473177104440-ffee2f376098?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    to: '/about/jesus',
-    label: 'More About Jesus Christ',
-    description: 'Who Jesus is, what he did, and what it means to follow him today.',
-    img: 'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    to: '/about/beliefs',
-    label: 'What We Believe',
-    description: 'Our Pentecostal faith, core values, and the Assemblies of God statement of beliefs.',
-    img: 'https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=800&q=80',
   },
 ]
 
@@ -74,33 +63,29 @@ export default function About() {
           </div>
         </div>
 
-        {/* Subpage cards */}
-        <section className="py-20 px-4 max-w-5xl mx-auto">
+        {/* Our History card */}
+        <section className="py-20 px-4 max-w-3xl mx-auto">
           <FadeUp>
-            <h2 className="font-heading text-3xl font-bold text-text-primary mb-10 text-center">Explore</h2>
+            <h2 className="font-heading text-3xl font-bold text-text-primary mb-10 text-center">Our Story</h2>
           </FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {subpages.map(({ to, label, description, img }, i) => (
-              <FadeUp key={to} delay={i * 0.1}>
-                <Link to={to} className="group block h-full">
-                  <Card className="p-0 overflow-hidden h-full flex flex-col transition-shadow group-hover:shadow-lg">
-                    <div className="overflow-hidden">
-                      <img
-                        src={img}
-                        alt={label}
-                        className="w-full h-44 object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                      />
-                    </div>
-                    <div className="p-6 flex flex-col flex-1">
-                      <h3 className="font-heading font-bold text-lg text-text-primary mb-2">{label}</h3>
-                      <p className="font-body text-sm text-text-secondary leading-relaxed flex-1">{description}</p>
-                      <span className="font-body text-sm text-brand-blue mt-4 inline-block group-hover:underline">Read more →</span>
-                    </div>
-                  </Card>
-                </Link>
-              </FadeUp>
-            ))}
-          </div>
+          <FadeUp delay={0.1}>
+            <Link to={subpages[0].to} className="group block">
+              <Card className="p-0 overflow-hidden flex flex-col md:flex-row transition-shadow group-hover:shadow-lg">
+                <div className="overflow-hidden md:w-64 shrink-0">
+                  <img
+                    src={subpages[0].img}
+                    alt={subpages[0].label}
+                    className="w-full h-48 md:h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-6 flex flex-col justify-center flex-1">
+                  <h3 className="font-heading font-bold text-xl text-text-primary mb-2">{subpages[0].label}</h3>
+                  <p className="font-body text-sm text-text-secondary leading-relaxed">{subpages[0].description}</p>
+                  <span className="font-body text-sm text-brand-blue mt-4 inline-block group-hover:underline">Read more →</span>
+                </div>
+              </Card>
+            </Link>
+          </FadeUp>
         </section>
 
         {/* Meet Our Pastors */}
@@ -115,18 +100,22 @@ export default function About() {
                   name: 'Pastor Abraham Thang',
                   title: 'Lead Pastor',
                   bio: 'Pastor Abraham has served the Clarkston community with a shepherd\'s heart for years. His preaching is grounded in Scripture and animated by the Holy Spirit, drawing people into a deeper relationship with God.',
-                  img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
+                  img: '/assets/mcaglive/lp1.jpg',
+                  imgClass: 'w-full h-full object-cover object-[center_28%] scale-150',
                 },
                 {
                   name: 'Pastor Sarah Muan Cing',
                   title: 'Pastor',
                   bio: 'Pastor Sarah is a woman of deep faith and extraordinary compassion. She plays a vital role in shepherding the congregation, leading worship, and nurturing the spiritual growth of every member.',
-                  img: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=400&q=80',
+                  img: '/assets/mcaglive/ap1.jpg',
+                  imgClass: 'w-full h-full object-cover object-center',
                 },
-              ].map(({ name, title, bio, img }, i) => (
+              ].map(({ name, title, bio, img, imgClass }, i) => (
                 <FadeUp key={name} delay={i * 0.1}>
                   <Card className="flex flex-col items-center text-center overflow-hidden p-0">
-                    <img src={img} alt={name} className="w-full h-56 object-cover object-top" />
+                    <div className="w-full h-56 overflow-hidden shrink-0">
+                      <img src={img} alt={name} className={imgClass} />
+                    </div>
                     <div className="p-6">
                       <h3 className="font-heading text-xl font-bold text-text-primary mb-1">{name}</h3>
                       <p className="font-body text-brand-teal text-sm font-medium mb-4">{title}</p>
@@ -135,6 +124,71 @@ export default function About() {
                   </Card>
                 </FadeUp>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Our Values */}
+        <ValueStrip className="py-20" />
+
+        {/* What We Believe */}
+        <section className="py-20 px-4 bg-ivory">
+          <div className="max-w-4xl mx-auto">
+            <FadeUp>
+              <h2 className="font-heading text-3xl font-bold text-text-primary mb-3 text-center">What We Believe</h2>
+              <p className="font-body text-text-secondary text-center mb-10">
+                Our Pentecostal faith is rooted in Scripture, Spirit-filled living, and the Assemblies of God statement of beliefs.
+              </p>
+            </FadeUp>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <FadeUp delay={0.1}>
+                <Link to="/about/jesus" className="group block h-full">
+                  <Card className="p-0 overflow-hidden h-full flex flex-col transition-shadow group-hover:shadow-lg">
+                    <div className="overflow-hidden">
+                      <img
+                        src="/assets/stockimg/jc1.avif"
+                        alt="Jesus Christ"
+                        className="w-full h-44 object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="p-6 flex flex-col flex-1">
+                      <h3 className="font-heading font-bold text-lg text-text-primary mb-2">More About Jesus Christ</h3>
+                      <p className="font-body text-sm text-text-secondary leading-relaxed flex-1">
+                        Who Jesus is, what he did, and what it means to follow him today.
+                      </p>
+                      <span className="font-body text-sm text-brand-blue mt-4 inline-block group-hover:underline">Read more →</span>
+                    </div>
+                  </Card>
+                </Link>
+              </FadeUp>
+              <FadeUp delay={0.2}>
+                <Link to="/about/beliefs" className="group block h-full">
+                  <Card className="p-0 overflow-hidden h-full flex flex-col transition-shadow group-hover:shadow-lg">
+                    <div className="overflow-hidden">
+                      <img
+                        src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=800&q=80"
+                        alt="Assembly of God worship"
+                        className="w-full h-44 object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="p-6 flex flex-col flex-1">
+                      <h3 className="font-heading font-bold text-lg text-text-primary mb-2">What It Means to Be Assembly of God</h3>
+                      <p className="font-body text-sm text-text-secondary leading-relaxed flex-1">
+                        Explore the Pentecostal faith, Spirit-filled living, and the AG statement of beliefs.
+                      </p>
+                      <a
+                        href="https://ag.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={e => e.stopPropagation()}
+                        className="font-body text-xs text-brand-blue hover:underline mt-2 inline-block"
+                      >
+                        Learn more at ag.org →
+                      </a>
+                    </div>
+                  </Card>
+                </Link>
+              </FadeUp>
             </div>
           </div>
         </section>
@@ -170,7 +224,7 @@ export default function About() {
             <div className="rounded-xl overflow-hidden border border-border shadow-md">
               <iframe
                 title="Miracle Center Assembly of God location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26504.98!2d-84.24!3d33.81!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5a5ef5d5cdb09%3A0x6b0cef7f28a7a2c7!2sClarkston%2C%20GA!5e0!3m2!1sen!2sus!4v1700000000000"
+                src="https://www.google.com/maps?q=4113+Church+St,+Clarkston,+GA+30021&output=embed"
                 width="100%"
                 height="400"
                 allowFullScreen=""

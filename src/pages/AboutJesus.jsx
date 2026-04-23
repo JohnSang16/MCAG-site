@@ -24,12 +24,12 @@ const beliefs = [
   {
     title: 'His Divinity',
     body: 'Jesus is not merely a great teacher or moral example. He is the eternal Son of God — "the image of the invisible God" (Colossians 1:15) — who existed before creation and through whom all things were made.',
-    img: 'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=600&q=80',
+    img: '/assets/stockimg/jc1.avif',
   },
   {
     title: 'His Death and Resurrection',
     body: 'Jesus died on the cross as the atoning sacrifice for the sins of the world, and rose bodily from the dead on the third day, conquering sin and death and securing eternal life for all who believe.',
-    img: 'https://images.unsplash.com/photo-1552102764-7f0628efdde6?auto=format&fit=crop&w=600&q=80',
+    img: '/assets/stockimg/jcdr.jpg',
   },
   {
     title: 'Salvation Through Him',
@@ -39,7 +39,7 @@ const beliefs = [
   {
     title: 'His Return',
     body: 'Jesus ascended to heaven after his resurrection and promised to return. We live in anticipation of his Second Coming — when he will establish his Kingdom in fullness and make all things new.',
-    img: 'https://images.unsplash.com/photo-1505506874110-6a7a69069a08?auto=format&fit=crop&w=600&q=80',
+    img: '/assets/stockimg/jcreturn.jpg',
   },
 ]
 
@@ -52,7 +52,7 @@ export default function AboutJesus() {
         {/* Hero */}
         <div className="relative h-[480px] overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1600&q=80"
+            src="/assets/stockimg/jc1.avif"
             alt="Jesus Christ"
             className="w-full h-full object-cover object-center"
           />
