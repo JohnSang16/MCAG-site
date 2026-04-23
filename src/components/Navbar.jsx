@@ -49,8 +49,8 @@ function SlidingNav({ onAboutClick, aboutOpen, onAboutMouseLeave, aboutDropdown 
       )}
       <motion.li
         animate={position}
-        className="absolute z-0 h-7 rounded-full bg-text-primary md:h-8"
-        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+        className="absolute top-1 bottom-1 z-0 rounded-full bg-text-primary pointer-events-none"
+        transition={{ type: 'spring', stiffness: 500, damping: 35 }}
       />
     </ul>
   )
@@ -64,13 +64,12 @@ function AboutTab({ setPosition, onClick, isActive, onMouseLeave, dropdown }) {
       className="relative"
       onMouseEnter={() => {
         if (!ref.current) return
-        const { width } = ref.current.getBoundingClientRect()
-        setPosition({ width, opacity: 1, left: ref.current.offsetLeft })
+        setPosition({ width: ref.current.offsetWidth, opacity: 1, left: ref.current.offsetLeft })
       }}
     >
       <span
         onClick={onClick}
-        className={`relative z-10 block cursor-pointer px-3 py-1 text-xs font-semibold uppercase tracking-wide mix-blend-difference md:px-4 md:py-1.5 md:text-xs select-none ${isActive ? 'text-surface' : 'text-text-secondary'}`}
+        className="relative z-10 block cursor-pointer px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white mix-blend-difference select-none"
       >
         About
       </span>
@@ -86,11 +85,10 @@ function NavItem({ to, children, setPosition, navigate }) {
       ref={ref}
       onMouseEnter={() => {
         if (!ref.current) return
-        const { width } = ref.current.getBoundingClientRect()
-        setPosition({ width, opacity: 1, left: ref.current.offsetLeft })
+        setPosition({ width: ref.current.offsetWidth, opacity: 1, left: ref.current.offsetLeft })
       }}
       onClick={() => navigate(to)}
-      className="relative z-10 block cursor-pointer px-3 py-1 text-xs font-semibold uppercase tracking-wide text-surface mix-blend-difference md:px-4 md:py-1.5 md:text-xs select-none"
+      className="relative z-10 block cursor-pointer px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white mix-blend-difference select-none"
     >
       <NavLink to={to} className={() => ''} tabIndex={-1}>
         {children}
