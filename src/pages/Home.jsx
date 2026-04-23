@@ -105,46 +105,60 @@ export default function Home() {
           <div className="flex flex-col">
             <h2 className="font-heading font-bold text-3xl text-text-primary mb-8">Visit Us</h2>
             <div className="flex flex-col gap-6 flex-1">
-              <Card className="flex-1">
-                <div className="flex items-start gap-4">
+              <Card className="flex-1 flex flex-col">
+                <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 bg-ivory rounded-full border border-border shrink-0">
                     <svg className="w-5 h-5 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <div>
-                    <h3 className="font-heading font-semibold text-lg text-text-primary mb-2">Service Times</h3>
-                    <div className="flex flex-col gap-2 font-body text-sm text-text-secondary">
-                      <div>
-                        <span className="font-medium text-text-primary">Saturday</span>
-                        <p>7:30 – 9:00 pm (Youth Service)</p>
-                      </div>
-                      <div>
-                        <span className="font-medium text-text-primary">Sunday</span>
-                        <p>4:00 – 6:30 pm</p>
+                  <h3 className="font-heading font-semibold text-lg text-text-primary">Congregation Times</h3>
+                </div>
+                <div className="flex flex-col flex-1 divide-y divide-border font-body">
+                  {[
+                    { day: 'Friday', time: '6:00 pm', note: "Women's Night" },
+                    { day: 'Saturday', time: '7:30 – 9:00 pm', note: 'Youth Service' },
+                    { day: 'Sunday', time: '4:00 – 6:30 pm', note: '' },
+                  ].map(({ day, time, note }) => (
+                    <div key={day} className="flex flex-1 items-center justify-between py-3">
+                      <span className="font-bold text-text-primary uppercase tracking-widest text-xs">{day}</span>
+                      <div className="text-right">
+                        <p className="text-sm text-text-primary font-medium">{time}</p>
+                        {note && <p className="text-xs text-text-secondary mt-0.5">{note}</p>}
                       </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
               </Card>
 
-              <Card className="flex-1">
-                <div className="flex items-start gap-4">
+              <Card className="flex-1 flex flex-col p-0 overflow-hidden">
+                <div className="flex items-center gap-3 p-4 border-b border-border">
                   <div className="p-2 bg-ivory rounded-full border border-border shrink-0">
                     <svg className="w-5 h-5 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
-                  <div>
-                    <h3 className="font-heading font-semibold text-lg text-text-primary mb-2">Location</h3>
-                    <p className="font-body text-sm text-text-secondary leading-relaxed">
-                      4113 Church St<br />
-                      Clarkston, GA 30021<br />
-                      United States
-                    </p>
+                  <h3 className="font-heading font-semibold text-lg text-text-primary">Location</h3>
+                </div>
+                <div className="flex flex-col flex-1 divide-y divide-border font-body px-4">
+                  <div className="flex flex-1 items-center justify-between py-3">
+                    <span className="font-bold text-text-primary uppercase tracking-widest text-xs">Address</span>
+                    <div className="text-right">
+                      <p className="text-sm text-text-primary font-medium">4113 Church St</p>
+                      <p className="text-xs text-text-secondary mt-0.5">Clarkston, GA 30021</p>
+                    </div>
                   </div>
                 </div>
+                <iframe
+                  title="Church location"
+                  src="https://www.google.com/maps?q=4113+Church+St,+Clarkston,+GA+30021&output=embed"
+                  className="w-full flex-1 min-h-[160px]"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               </Card>
             </div>
           </div>
@@ -222,6 +236,37 @@ export default function Home() {
               <p className="font-body font-bold text-surface text-sm">Pastor Abraham Thang</p>
               <p className="font-body text-surface/70 text-xs mt-0.5">Lead Pastor, Miracle Center Assembly of God</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Donation CTA */}
+      <section className="py-20 px-6 bg-surface">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="font-heading font-bold text-3xl text-text-primary mb-4">Support the Ministry</h2>
+            <p className="font-body text-text-secondary leading-relaxed mb-6">
+              Your generosity fuels everything we do — from outreach in Clarkston to discipleship, worship,
+              and serving families in need. Every gift, large or small, is an act of faith that advances
+              the Kingdom of God.
+            </p>
+            <p className="font-body text-sm text-text-secondary mb-8">
+              <span className="font-medium text-text-primary">Zelle:</span> 404-207-6509
+            </p>
+            <Link
+              to="/donate"
+              className="inline-block font-body font-semibold text-sm px-8 py-4 rounded-full bg-brand-gold text-text-primary hover:bg-brand-gold/90 transition-colors duration-200"
+            >
+              Give Now →
+            </Link>
+          </div>
+          <div className="relative">
+            <img
+              src="/assets/stockimg/prayer.jpg"
+              alt="Supporting the ministry"
+              className="w-full h-72 object-cover rounded-2xl shadow-lg"
+            />
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-brand-blue/40 to-transparent" />
           </div>
         </div>
       </section>
