@@ -58,14 +58,6 @@ export default function AboutJesus() {
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70 flex flex-col items-center justify-center text-center px-6">
-            <motion.p
-              initial={{ opacity: 0, letterSpacing: '0.4em' }}
-              animate={{ opacity: 1, letterSpacing: '0.2em' }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-              className="font-body text-brand-gold text-xs uppercase tracking-widest mb-4 font-semibold"
-            >
-              Who He Is · What He Did · Why It Matters
-            </motion.p>
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -74,8 +66,49 @@ export default function AboutJesus() {
             >
               More About<br />Jesus Christ
             </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, letterSpacing: '0.4em' }}
+              animate={{ opacity: 1, letterSpacing: '0.2em' }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              className="font-body text-brand-gold text-xs uppercase tracking-widest mb-4 font-semibold"
+            >
+              Who He Is · What He Did · Why It Matters
+            </motion.p>
           </div>
         </div>
+
+        {/* Who is Jesus — text + image side by side */}
+        <section className="py-20 px-4 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <FadeUp delay={0.15}>
+              <img
+                src="/assets/stockimg/jc-cross.jpg"
+                alt="Jesus on the cross"
+                className="w-full h-full object-contain rounded-2xl shadow-lg"
+              />
+            </FadeUp>
+            <FadeUp>
+              <h2 className="font-heading text-3xl font-bold text-text-primary mb-6">Who Is Jesus?</h2>
+              <div className="font-body text-text-secondary leading-relaxed space-y-4">
+                <p>
+                  Jesus Christ is the Son of God, fully God and fully human, who entered history some 2,000
+                  years ago in the person of Jesus of Nazareth. Born of the Virgin Mary in Bethlehem, he lived
+                  a sinless life, taught with unmatched authority, healed the sick, raised the dead, and
+                  demonstrated the Kingdom of God through every word and action.
+                </p>
+                <p>
+                  We believe, as the Bible teaches, that all humanity is separated from God by sin. But God,
+                  in his extraordinary love, did not leave us there. He sent his own Son to close the gap.
+                </p>
+                <p>
+                  Jesus went to the cross voluntarily. He bore the full weight of human sin and died in our
+                  place. Three days later, he rose from the dead, proving that death has been conquered and
+                  new life is available to anyone who turns to him.
+                </p>
+              </div>
+            </FadeUp>
+          </div>
+        </section>
 
         {/* Belief cards with images */}
         <section className="py-20 px-4 relative overflow-hidden" style={{ background: 'linear-gradient(160deg, #f5f0e8 0%, #eaf0fb 60%, #e6f4f1 100%)' }}>
@@ -105,39 +138,6 @@ export default function AboutJesus() {
                 </FadeUp>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* Who is Jesus — text + image side by side */}
-        <section className="py-20 px-4 max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <FadeUp>
-              <h2 className="font-heading text-3xl font-bold text-text-primary mb-6">Who Is Jesus?</h2>
-              <div className="font-body text-text-secondary leading-relaxed space-y-4">
-                <p>
-                  Jesus Christ is the Son of God, fully God and fully human, who entered history some 2,000
-                  years ago in the person of Jesus of Nazareth. Born of the Virgin Mary in Bethlehem, he lived
-                  a sinless life, taught with unmatched authority, healed the sick, raised the dead, and
-                  demonstrated the Kingdom of God through every word and action.
-                </p>
-                <p>
-                  We believe, as the Bible teaches, that all humanity is separated from God by sin. But God,
-                  in his extraordinary love, did not leave us there. He sent his own Son to close the gap.
-                </p>
-                <p>
-                  Jesus went to the cross voluntarily. He bore the full weight of human sin and died in our
-                  place. Three days later, he rose from the dead, proving that death has been conquered and
-                  new life is available to anyone who turns to him.
-                </p>
-              </div>
-            </FadeUp>
-            <FadeUp delay={0.15}>
-              <img
-                src="/assets/stockimg/jc-cross.jpg"
-                alt="Jesus on the cross"
-                className="w-full h-full object-contain rounded-2xl shadow-lg"
-              />
-            </FadeUp>
           </div>
         </section>
 
