@@ -78,7 +78,7 @@ export default function Home() {
 
         <ContainerScale className="z-10 text-center flex flex-col items-center" style={{ width: 'min(100vw, 58rem)' }}>
           {/* Frosted glass card */}
-          <div className="rounded-3xl px-10 py-10 flex flex-col items-center" style={{ background: 'rgba(245,240,232,0.82)', backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)' }}>
+          <div className="rounded-3xl px-10 py-10 flex flex-col items-center" style={{ background: 'rgba(234,240,251,0.88)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', boxShadow: '0 8px 40px rgba(26,58,173,0.10), inset 0 1px 0 rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.6)' }}>
 
             {/* Eyebrow label */}
             <p
@@ -93,7 +93,7 @@ export default function Home() {
               className="font-heading font-black uppercase text-text-primary leading-none tracking-tight"
               style={{ fontSize: 'clamp(2.8rem, 6.5vw, 6rem)', lineHeight: 0.95 }}
             >
-              <span className="block" style={{ fontWeight: 700, fontSize: '0.85em', marginBottom: '0.05em', color: '#4a6080' }}>Welcome to</span>
+              <span className="block" style={{ fontWeight: 700, fontSize: '0.85em', marginBottom: '0.05em', color: 'rgb(90,115,203)' }}>Welcome to</span>
               <span className="block">MIRACLE CENTER</span>
               <span className="block whitespace-nowrap">
                 ASSEMBLY OF{' '}
@@ -128,7 +128,7 @@ export default function Home() {
       </ContainerScroll>
 
       {/* Intro Blurb */}
-      <section className="bg-brand-blue relative overflow-hidden" style={{ minHeight: 320 }}>
+      <section className="relative overflow-hidden" style={{ minHeight: 320, background: 'rgb(90, 115, 203)' }}>
 
         {/* Single carousel strip — all circles, all moving right to left, staggered vertically */}
         <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 0 }}>
@@ -145,13 +145,13 @@ export default function Home() {
         </div>
 
         {/* Fade left and right edges */}
-        <div className="absolute inset-y-0 left-0 w-24 pointer-events-none" style={{ zIndex: 2, background: 'linear-gradient(to right, #1a3aad, transparent)' }} />
-        <div className="absolute inset-y-0 right-0 w-24 pointer-events-none" style={{ zIndex: 2, background: 'linear-gradient(to left, #1a3aad, transparent)' }} />
+        <div className="absolute inset-y-0 left-0 w-24 pointer-events-none" style={{ zIndex: 2, background: 'linear-gradient(to right, rgb(90, 115, 203), transparent)' }} />
+        <div className="absolute inset-y-0 right-0 w-24 pointer-events-none" style={{ zIndex: 2, background: 'linear-gradient(to left, rgb(90, 115, 203), transparent)' }} />
 
         {/* Text — z-10 so circles behind it are at z-0, some visually overlap */}
         <div className="relative z-10 flex items-center justify-center px-6 py-20" style={{ minHeight: 320 }}>
           <div
-            className="max-w-2xl w-full text-center rounded-2xl px-8 py-8"
+            className="relative max-w-2xl w-full text-center rounded-2xl px-8 py-8"
             style={{
               background: 'rgba(255,255,255,0.08)',
               backdropFilter: 'blur(24px)',
@@ -160,38 +160,51 @@ export default function Home() {
               boxShadow: '0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.12)',
             }}
           >
+            <svg
+              viewBox="0 0 24 24"
+              fill="white"
+              className="absolute top-3 right-4 w-5 h-5 opacity-60"
+              aria-hidden="true"
+            >
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
             <p className="font-body text-surface/90 text-lg leading-relaxed">
-              We are a Spirit-filled Pentecostal church in Clarkston, GA, rooted in the Burmese and Chin (Zo) community. We believe in miracles. We believe God heals bodies, minds, and broken lives, and we named this church accordingly. People of every nationality and background are welcome here. Come as you are.
+              We are a Spirit-filled Pentecostal church located in Clarkston, GA. Rooted in the Burmese and Chin (Zo) community. We believe in miracles. We believe God heals bodies, minds, and broken lives, and we named this church accordingly. People of every nationality and background are welcome here. Come as you are.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Visit Us */}
-      <section id="services" className="py-20 px-6 bg-ivory">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+      {/* Visit Us + What We Believe */}
+      <section id="services" className="py-24 px-6" style={{ background: 'linear-gradient(160deg, #eaf0fb 0%, #f5f0e8 60%, #e6f4f1 100%)' }}>
+        <div className="max-w-5xl mx-auto">
 
-          {/* Left — Visit info stacked */}
-          <div className="flex flex-col">
-            <h2 className="font-heading font-bold text-3xl text-text-primary mb-8">Visit Us</h2>
-            <div className="flex flex-col gap-6 flex-1">
-              <Card className="flex-1 flex flex-col">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 bg-ivory rounded-full border border-border shrink-0">
-                    <svg className="w-5 h-5 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          {/* Two-column card panel */}
+          <div className="rounded-3xl shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-2" style={{ background: '#ffffff' }}>
+
+            {/* Left — Visit Us */}
+            <div className="p-8 lg:p-10 flex flex-col border-b lg:border-b-0 lg:border-r border-border">
+              <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-2">Come Join Us</p>
+              <h2 className="font-heading font-bold text-3xl text-text-primary mb-8">Visit Us</h2>
+
+              {/* Congregation Times */}
+              <div className="mb-6">
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-8 h-8 rounded-full bg-brand-blue flex items-center justify-center shrink-0">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <h3 className="font-heading font-semibold text-lg text-text-primary">Congregation Times</h3>
+                  <h3 className="font-heading font-semibold text-base text-text-primary tracking-wide uppercase">Congregation Times</h3>
                 </div>
-                <div className="flex flex-col flex-1 divide-y divide-border font-body">
+                <div className="flex flex-col divide-y divide-border font-body rounded-xl overflow-hidden border border-border">
                   {[
                     { day: 'Friday', time: '6:00 pm', note: "Women's Night" },
                     { day: 'Saturday', time: '7:30 – 9:00 pm', note: 'Youth Service' },
                     { day: 'Sunday', time: '4:00 – 6:30 pm', note: '' },
                   ].map(({ day, time, note }) => (
-                    <div key={day} className="flex flex-1 items-center justify-between py-3">
-                      <span className="font-bold text-text-primary uppercase tracking-widest text-xs">{day}</span>
+                    <div key={day} className="flex items-center justify-between px-4 py-3 bg-ivory/60">
+                      <span className="font-bold text-brand-blue uppercase tracking-widest text-xs">{day}</span>
                       <div className="text-right">
                         <p className="text-sm text-text-primary font-medium">{time}</p>
                         {note && <p className="text-xs text-text-secondary mt-0.5">{note}</p>}
@@ -199,92 +212,75 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-              </Card>
+              </div>
 
-              <Card className="flex-1 flex flex-col p-0 overflow-hidden">
-                <div className="flex items-center gap-3 p-4 border-b border-border">
-                  <div className="p-2 bg-ivory rounded-full border border-border shrink-0">
-                    <svg className="w-5 h-5 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {/* Location */}
+              <div className="flex-1 flex flex-col">
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-8 h-8 rounded-full bg-brand-teal flex items-center justify-center shrink-0">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
-                  <h3 className="font-heading font-semibold text-lg text-text-primary">Location</h3>
+                  <h3 className="font-heading font-semibold text-base text-text-primary tracking-wide uppercase">Location</h3>
                 </div>
-                <div className="flex flex-col flex-1 divide-y divide-border font-body px-4 py-0">
-                  <div className="flex flex-1 items-center justify-between py-3 px-0">
-                    <span className="font-bold text-text-primary uppercase tracking-widest text-xs">Address</span>
-                    <div className="text-right">
-                      <p className="text-sm text-text-primary font-medium">4113 Church St</p>
-                      <p className="text-xs text-text-secondary mt-0.5">Clarkston, GA 30021</p>
+                <div className="flex items-center justify-between px-4 py-3 bg-ivory/60 rounded-xl border border-border mb-3">
+                  <span className="font-bold text-brand-teal uppercase tracking-widest text-xs">Address</span>
+                  <div className="text-right">
+                    <p className="text-sm text-text-primary font-medium">4113 Church St</p>
+                    <p className="text-xs text-text-secondary mt-0.5">Clarkston, GA 30021</p>
+                  </div>
+                </div>
+                <div className="flex-1 rounded-xl overflow-hidden border border-border min-h-[160px]">
+                  <iframe
+                    title="Church location"
+                    src="https://www.google.com/maps?q=4113+Church+St,+Clarkston,+GA+30021&output=embed"
+                    className="w-full h-full min-h-[160px]"
+                    style={{ border: 0 }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Right — What We Believe */}
+            <div className="p-8 lg:p-10 flex flex-col">
+              <p className="font-body text-brand-blue text-xs font-bold uppercase tracking-widest mb-2">Our Faith</p>
+              <h2 className="font-heading font-bold text-3xl text-text-primary mb-8">What We Believe</h2>
+              <div className="flex flex-col gap-5 flex-1">
+                <Link to="/about/jesus" className="block group flex-1">
+                  <div className="relative overflow-hidden rounded-2xl h-full shadow-sm group-hover:shadow-md transition-shadow duration-300" style={{ minHeight: 160 }}>
+                    <img src="/assets/stockimg/jc1.avif" alt="Jesus Christ" className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
+                    <div className="absolute inset-0 flex flex-col justify-end p-5">
+                      <h3 className="font-heading font-bold text-lg text-surface mb-1">Learn About Jesus Christ</h3>
+                      <p className="font-body text-sm text-surface/75 leading-relaxed">Who he is, what he did, and what it means to follow him today.</p>
                     </div>
                   </div>
-                </div>
-                <iframe
-                  title="Church location"
-                  src="https://www.google.com/maps?q=4113+Church+St,+Clarkston,+GA+30021&output=embed"
-                  className="w-full flex-1 min-h-[160px]"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </Card>
-            </div>
-          </div>
+                </Link>
 
-          {/* Right — What We Believe */}
-          <div className="flex flex-col">
-            <h2 className="font-heading font-bold text-3xl text-text-primary mb-8">What We Believe</h2>
-            <div className="flex flex-col gap-6 flex-1">
-              <Link to="/about/jesus" className="block group flex-1">
-                <Card className="transition-shadow group-hover:shadow-md h-full overflow-hidden p-0">
-                  <img
-                    src="/assets/stockimg/jc1.avif"
-                    alt="Jesus Christ"
-                    className="w-full h-36 object-cover object-center"
-                  />
-                  <div className="p-6">
-                    <h3 className="font-heading font-semibold text-lg text-text-primary mb-1">Learn About Jesus Christ</h3>
-                    <p className="font-body text-sm text-text-secondary leading-relaxed">
-                      Discover who Jesus is, what he did, and what it means to follow him today.
-                    </p>
+                <Link to="/about/beliefs" className="block group flex-1">
+                  <div className="relative overflow-hidden rounded-2xl h-full shadow-sm group-hover:shadow-md transition-shadow duration-300" style={{ minHeight: 160 }}>
+                    <img src="/assets/stockimg/holyspirit.webp" alt="Assembly of God worship" className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
+                    <div className="absolute inset-0 flex flex-col justify-end p-5">
+                      <h3 className="font-heading font-bold text-lg text-surface mb-1">What It Means to Be Assembly of God</h3>
+                      <p className="font-body text-sm text-surface/75 leading-relaxed">Pentecostal faith, Spirit-filled living, and the AG statement of beliefs.</p>
+                    </div>
                   </div>
-                </Card>
-              </Link>
-
-              <Link to="/about/beliefs" className="block group flex-1">
-                <Card className="transition-shadow group-hover:shadow-md h-full overflow-hidden p-0">
-                  <img
-                    src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=800&q=80"
-                    alt="Assembly of God worship"
-                    className="w-full h-36 object-cover object-center"
-                  />
-                  <div className="p-6">
-                    <h3 className="font-heading font-semibold text-lg text-text-primary mb-1">What It Means to Be Assembly of God</h3>
-                    <p className="font-body text-sm text-text-secondary leading-relaxed">
-                      Explore the Pentecostal faith, Spirit-filled living, and the AG statement of beliefs.
-                    </p>
-                    <a
-                      href="https://ag.org/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={e => e.stopPropagation()}
-                      className="font-body text-xs text-brand-blue hover:underline mt-2 inline-block"
-                    >
-                      Learn more at ag.org →
-                    </a>
-                  </div>
-                </Card>
-              </Link>
+                </Link>
+              </div>
             </div>
-          </div>
 
+          </div>
         </div>
       </section>
 
       {/* Values Strip */}
-      <ValueStrip />
+      <ValueStrip className="pt-10 pb-20" />
 
       {/* Featured Quote */}
       <section
@@ -297,10 +293,8 @@ export default function Home() {
             We started with a living room and a calling. God has been faithful every step of the way, and we are just getting started.
           </p>
           <div className="mt-8 flex items-center justify-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-surface/20 border border-surface/30 flex items-center justify-center shrink-0">
-              <svg className="w-6 h-6 text-surface/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
+            <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-surface/40 shrink-0">
+              <img src="/assets/mcaglive/lp1.jpg" alt="Pastor Abraham Thang" className="w-full h-full object-cover object-[center_28%] scale-150" />
             </div>
             <div className="text-left">
               <p className="font-body font-bold text-surface text-sm">Pastor Abraham Thang</p>
