@@ -36,49 +36,53 @@ export default function Home() {
           ))}
         </BentoGrid>
 
-        <ContainerScale className="z-10 text-center px-6 flex flex-col items-center" style={{ width: 'min(100vw, 56rem)' }}>
-          {/* Eyebrow label */}
-          <p
-            className="font-body font-semibold tracking-widest text-brand-teal mb-6 uppercase"
-            style={{ fontSize: '0.75rem', letterSpacing: '0.2em' }}
-          >
-            Clarkston, GA · Assemblies of God · Pentecostal
-          </p>
+        <ContainerScale className="z-10 text-center flex flex-col items-center" style={{ width: 'min(100vw, 58rem)' }}>
+          {/* Frosted glass card */}
+          <div className="rounded-3xl px-10 py-10 flex flex-col items-center" style={{ background: 'rgba(245,240,232,0.82)', backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)' }}>
 
-          {/* Main heading */}
-          <h1
-            className="font-heading font-black uppercase text-text-primary leading-none tracking-tight"
-            style={{ fontSize: 'clamp(2.8rem, 6.5vw, 6rem)', lineHeight: 0.95 }}
-          >
-            <span className="block">MIRACLE CENTER</span>
-            <span className="block whitespace-nowrap">
-              ASSEMBLY OF{' '}
-              <span
-                className="inline-block bg-brand-gold text-text-primary rounded-xl px-4 py-1 align-middle"
-                style={{ fontSize: '0.88em', lineHeight: 1.15, verticalAlign: 'middle' }}
-              >
-                GOD
+            {/* Eyebrow label */}
+            <p
+              className="font-body font-bold tracking-widest uppercase mb-6"
+              style={{ fontSize: '0.72rem', letterSpacing: '0.22em', color: '#0e7c6e' }}
+            >
+              Clarkston, GA · Assemblies of God · Pentecostal
+            </p>
+
+            {/* Main heading */}
+            <h1
+              className="font-heading font-black uppercase text-text-primary leading-none tracking-tight"
+              style={{ fontSize: 'clamp(2.8rem, 6.5vw, 6rem)', lineHeight: 0.95 }}
+            >
+              <span className="block">MIRACLE CENTER</span>
+              <span className="block whitespace-nowrap">
+                ASSEMBLY OF{' '}
+                <span
+                  className="inline-block bg-brand-gold text-text-primary rounded-xl px-4 py-1 align-middle"
+                  style={{ fontSize: '0.88em', lineHeight: 1.15, verticalAlign: 'middle' }}
+                >
+                  GOD
+                </span>
               </span>
-            </span>
-          </h1>
+            </h1>
 
-          {/* Verse */}
-          <p
-            className="font-body text-text-primary mt-8 leading-relaxed"
-            style={{ fontSize: '1rem', maxWidth: 500 }}
-          >
-            "Have I not commanded you? Be strong and courageous." — Joshua 1:9
-          </p>
+            {/* Verse */}
+            <p
+              className="font-body text-text-secondary mt-8 leading-relaxed"
+              style={{ fontSize: '1rem', maxWidth: 480 }}
+            >
+              "Have I not commanded you? Be strong and courageous." — Joshua 1:9
+            </p>
 
-          {/* CTA */}
-          <a href="#services" onClick={scrollToServices} className="inline-block mt-10">
-            <button className="font-body font-semibold text-sm px-8 py-4 rounded-full bg-text-primary text-surface flex items-center gap-2 hover:bg-text-secondary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-text-primary">
-              JOIN US
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </button>
-          </a>
+            {/* CTA */}
+            <a href="#services" onClick={scrollToServices} className="inline-block mt-8">
+              <button className="font-body font-semibold text-sm px-8 py-4 rounded-full bg-text-primary text-surface flex items-center gap-2 hover:bg-text-secondary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-text-primary">
+                JOIN US
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </button>
+            </a>
+          </div>
         </ContainerScale>
       </ContainerScroll>
 

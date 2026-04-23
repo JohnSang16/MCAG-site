@@ -1,49 +1,144 @@
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { Navbar } from '../components/Navbar'
 import { Footer } from '../components/Footer'
-import { PageHero } from '../components/PageHero'
 import { Timeline } from '../components/Timeline'
+
+function FadeUp({ children, delay = 0 }) {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-80px' })
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 32 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay, ease: 'easeOut' }}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+const storyImages = [
+  {
+    src: 'https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&w=800&q=80',
+    alt: 'Family home gathering',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=800&q=80',
+    alt: 'Church community worship',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=800&q=80',
+    alt: 'Growing congregation',
+  },
+]
 
 export default function AboutHistory() {
   return (
     <div className="bg-ivory min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1">
-        <PageHero title="Our History" subtitle="From a living room to a congregation — the story of Miracle Center" />
 
-        <section className="py-20 px-4 max-w-3xl mx-auto">
-          <h2 className="font-heading text-3xl font-bold text-text-primary mb-6 text-center">Our Story</h2>
-          <div className="font-body text-text-primary leading-relaxed space-y-4 text-base">
-            <p>
-              The story of Miracle Center Assembly of God begins not with a building, but with a calling.
-              While serving faithfully at another congregation in the metro Atlanta area, Pastors Abraham
-              and Sarah Thang felt a clear and unmistakable stirring from the Holy Spirit — a call to step
-              out in faith and plant a new church in the heart of Clarkston, Georgia.
-            </p>
-            <p>
-              It was not an easy decision. It required laying down the comfort of the familiar and trusting
-              God with the unknown. But in obedience, they said yes. The earliest gatherings were held right
-              in their family home — a living room full of prayer, worship, and the Word of God. The warmth
-              of those first services set the tone for everything that followed: a church where every person
-              is known, welcomed, and loved.
-            </p>
-            <p>
-              Year by year, the congregation grew. Neighbors invited neighbors. Families joined families.
-              The living room gave way to larger rented spaces as the community of believers expanded beyond
-              what any single home could hold. Through every transition, the spirit of the church remained
-              the same — rooted in Scripture, alive in the Holy Spirit, and deeply committed to one another.
-            </p>
-            <p>
-              Today, Miracle Center Assembly of God stands as a living testimony to what God can do when
-              ordinary people walk in extraordinary obedience. The journey from a small home service to an
-              established congregation is a story still being written — and you are invited to be part of it.
-            </p>
+        {/* Hero banner */}
+        <div className="relative h-[420px] overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1473177104440-ffee2f376098?auto=format&fit=crop&w=1600&q=80"
+            alt="Church history"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-brand-blue/70 flex flex-col items-center justify-center text-center px-6">
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
+              className="font-heading text-4xl md:text-5xl font-bold text-surface mb-4"
+            >
+              Our History
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
+              className="font-body text-surface/80 text-lg max-w-xl"
+            >
+              From a living room to a congregation — the story of Miracle Center
+            </motion.p>
+          </div>
+        </div>
+
+        {/* Story + side images */}
+        <section className="py-20 px-4 max-w-5xl mx-auto">
+          <FadeUp>
+            <h2 className="font-heading text-3xl font-bold text-text-primary mb-12 text-center">Our Story</h2>
+          </FadeUp>
+
+          <div className="space-y-20">
+            {[
+              {
+                heading: 'A Calling, Not a Building',
+                body: 'The story of Miracle Center Assembly of God begins not with a building, but with a calling. While serving faithfully at another congregation in the metro Atlanta area, Pastors Abraham and Sarah Thang felt a clear and unmistakable stirring from the Holy Spirit — a call to step out in faith and plant a new church in the heart of Clarkston, Georgia.',
+                img: storyImages[0],
+                reverse: false,
+              },
+              {
+                heading: 'The Living Room Church',
+                body: 'It was not an easy decision. It required laying down the comfort of the familiar and trusting God with the unknown. But in obedience, they said yes. The earliest gatherings were held right in their family home — a living room full of prayer, worship, and the Word of God. The warmth of those first services set the tone for everything that followed: a church where every person is known, welcomed, and loved.',
+                img: storyImages[1],
+                reverse: true,
+              },
+              {
+                heading: 'A Story Still Being Written',
+                body: 'Year by year, the congregation grew. Neighbors invited neighbors. Families joined families. The living room gave way to larger spaces as the community of believers expanded. Today, Miracle Center Assembly of God stands as a living testimony to what God can do when ordinary people walk in extraordinary obedience — and you are invited to be part of it.',
+                img: storyImages[2],
+                reverse: false,
+              },
+            ].map(({ heading, body, img, reverse }, i) => (
+              <FadeUp key={heading} delay={0.1}>
+                <div className={`grid grid-cols-1 md:grid-cols-2 gap-10 items-center ${reverse ? 'md:[direction:rtl]' : ''}`}>
+                  <div className={reverse ? '[direction:ltr]' : ''}>
+                    <h3 className="font-heading text-2xl font-bold text-text-primary mb-4">{heading}</h3>
+                    <p className="font-body text-text-secondary leading-relaxed">{body}</p>
+                  </div>
+                  <div className={reverse ? '[direction:ltr]' : ''}>
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="w-full h-64 object-cover rounded-xl shadow-md"
+                    />
+                  </div>
+                </div>
+              </FadeUp>
+            ))}
           </div>
         </section>
 
-        <section className="py-20 px-4 max-w-4xl mx-auto">
-          <h2 className="font-heading text-3xl font-bold text-text-primary mb-12 text-center">Our Journey</h2>
-          <Timeline />
+        {/* Timeline */}
+        <section className="py-20 px-4 bg-surface">
+          <div className="max-w-4xl mx-auto">
+            <FadeUp>
+              <h2 className="font-heading text-3xl font-bold text-text-primary mb-12 text-center">Our Journey</h2>
+            </FadeUp>
+            <Timeline />
+          </div>
         </section>
+
+        {/* Closing image banner */}
+        <div className="relative h-56 overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1519491050282-cf00c82424b4?auto=format&fit=crop&w=1600&q=80"
+            alt="Church community"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-brand-teal/60 flex items-center justify-center">
+            <FadeUp>
+              <p className="font-heading italic text-surface text-2xl text-center px-6 max-w-2xl">
+                "Have I not commanded you? Be strong and courageous." — Joshua 1:9
+              </p>
+            </FadeUp>
+          </div>
+        </div>
+
       </main>
       <Footer />
     </div>
