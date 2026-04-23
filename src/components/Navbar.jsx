@@ -1,80 +1,39 @@
 import { useRef, useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { FACEBOOK_URL } from '../config'
 
-const aboutItems = [
-  { to: '/about', label: 'About Us' },
-  { to: '/about/history', label: 'Our History' },
-  { to: '/about/jesus', label: 'More About Jesus' },
-  { to: '/about/beliefs', label: 'What We Believe' },
-]
-
-const topNavLinks = [
+const navLinks = [
   { to: '/', label: 'Home' },
+  { to: '/about', label: 'About' },
+  { to: '/about/history', label: 'History' },
+  { to: '/about/jesus', label: 'Jesus' },
+  { to: '/about/beliefs', label: 'Beliefs' },
+  { to: '/faithfulness', label: 'Faithfulness' },
   { to: '/leaderboard', label: 'Leaderboard' },
   { to: '/donate', label: 'Donate' },
 ]
 
-function SlidingNav({ onAboutClick, aboutOpen, onAboutMouseLeave, aboutDropdown }) {
+function SlidingNav() {
   const navigate = useNavigate()
   const [position, setPosition] = useState({ left: 0, width: 0, opacity: 0 })
-  const allItems = [
-    { to: '/', label: 'Home' },
-    { label: 'About', isDropdown: true },
-    { to: '/leaderboard', label: 'Leaderboard' },
-    { to: '/donate', label: 'Donate' },
-  ]
 
   return (
     <ul
       className="relative flex w-fit rounded-full border border-border bg-ivory p-1"
       onMouseLeave={() => setPosition(pv => ({ ...pv, opacity: 0 }))}
     >
-      {allItems.map((item) =>
-        item.isDropdown ? (
-          <AboutTab
-            key="about"
-            setPosition={setPosition}
-            onClick={onAboutClick}
-            isActive={aboutOpen}
-            onMouseLeave={onAboutMouseLeave}
-            dropdown={aboutDropdown}
-          />
-        ) : (
-          <NavItem key={item.to} to={item.to} setPosition={setPosition} navigate={navigate}>
-            {item.label}
-          </NavItem>
-        )
-      )}
+      {navLinks.map((item) => (
+        <NavItem key={item.to} to={item.to} setPosition={setPosition} navigate={navigate}>
+          {item.label}
+        </NavItem>
+      ))}
       <motion.li
         animate={position}
         className="absolute top-1 bottom-1 z-0 rounded-full bg-text-primary pointer-events-none"
         transition={{ type: 'spring', stiffness: 500, damping: 35 }}
       />
     </ul>
-  )
-}
-
-function AboutTab({ setPosition, onClick, isActive, onMouseLeave, dropdown }) {
-  const ref = useRef(null)
-  return (
-    <li
-      ref={ref}
-      className="relative"
-      onMouseEnter={() => {
-        if (!ref.current) return
-        setPosition({ width: ref.current.offsetWidth, opacity: 1, left: ref.current.offsetLeft })
-      }}
-    >
-      <span
-        onClick={onClick}
-        className="relative z-10 block cursor-pointer px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white mix-blend-difference select-none"
-      >
-        About
-      </span>
-      {dropdown}
-    </li>
   )
 }
 
@@ -99,9 +58,6 @@ function NavItem({ to, children, setPosition, navigate }) {
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
-  const [aboutOpen, setAboutOpen] = useState(false)
-  const [mobileAboutOpen, setMobileAboutOpen] = useState(false)
-  const dropdownRef = useRef(null)
 
   return (
     <nav className="bg-surface border-b border-border sticky top-0 z-50">
@@ -119,36 +75,8 @@ export function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-4" ref={dropdownRef}>
-          <SlidingNav
-            onAboutClick={() => setAboutOpen(v => !v)}
-            aboutOpen={aboutOpen}
-            onAboutMouseLeave={() => setAboutOpen(false)}
-            aboutDropdown={
-              <AnimatePresence>
-                {aboutOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute top-full left-0 mt-2 w-52 bg-surface border border-border rounded-xl shadow-lg overflow-hidden z-50"
-                  >
-                    {aboutItems.map(({ to, label }) => (
-                      <Link
-                        key={to}
-                        to={to}
-                        onClick={() => setAboutOpen(false)}
-                        className="block px-5 py-3 font-body text-sm text-text-primary hover:bg-ivory hover:text-brand-blue transition-colors"
-                      >
-                        {label}
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            }
-          />
+        <div className="hidden md:flex items-center gap-4">
+          <SlidingNav />
 
           <a
             href={FACEBOOK_URL !== 'TBD' ? FACEBOOK_URL : '#'}
@@ -174,57 +102,9 @@ export function Navbar() {
       {/* Mobile menu */}
       {open && (
         <div className="md:hidden border-t border-border bg-surface px-6 py-4 flex flex-col gap-1">
-          <NavLink
-            to="/"
-            onClick={() => setOpen(false)}
-            className={({ isActive }) =>
-              `font-body text-sm font-medium py-2 ${isActive ? 'text-brand-blue' : 'text-text-secondary'}`
-            }
-          >
-            Home
-          </NavLink>
-
-          {/* About accordion */}
-          <div>
-            <button
-              onClick={() => setMobileAboutOpen(v => !v)}
-              className="font-body text-sm font-medium text-text-secondary py-2 flex items-center justify-between w-full"
-            >
-              About
-              <svg
-                className={`w-4 h-4 transition-transform ${mobileAboutOpen ? 'rotate-180' : ''}`}
-                fill="none" stroke="currentColor" viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            {mobileAboutOpen && (
-              <div className="pl-4 flex flex-col gap-1 pb-2">
-                {aboutItems.map(({ to, label }) => (
-                  <NavLink
-                    key={to}
-                    to={to}
-                    onClick={() => { setOpen(false); setMobileAboutOpen(false) }}
-                    className={({ isActive }) =>
-                      `font-body text-sm py-1.5 ${isActive ? 'text-brand-blue font-medium' : 'text-text-secondary'}`
-                    }
-                  >
-                    {label}
-                  </NavLink>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {topNavLinks.slice(1).map(({ to, label }) => (
-            <NavLink
-              key={to}
-              to={to}
-              onClick={() => setOpen(false)}
-              className={({ isActive }) =>
-                `font-body text-sm font-medium py-2 ${isActive ? 'text-brand-blue' : 'text-text-secondary'}`
-              }
-            >
+          {navLinks.map(({ to, label }) => (
+            <NavLink key={to} to={to} onClick={() => setOpen(false)}
+              className={({ isActive }) => `font-body text-sm font-medium py-2 ${isActive ? 'text-brand-blue' : 'text-text-secondary'}`}>
               {label}
             </NavLink>
           ))}
