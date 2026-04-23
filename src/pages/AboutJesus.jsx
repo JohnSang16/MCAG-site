@@ -24,7 +24,7 @@ const beliefs = [
   {
     title: 'His Divinity',
     body: 'Jesus is not merely a great teacher or moral example. He is the eternal Son of God — "the image of the invisible God" (Colossians 1:15) — who existed before creation and through whom all things were made.',
-    img: '/assets/stockimg/jc1.avif',
+    img: '/assets/stockimg/divinity.jpg',
   },
   {
     title: 'His Death and Resurrection',
@@ -34,12 +34,13 @@ const beliefs = [
   {
     title: 'Salvation Through Him',
     body: '"For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life." (John 3:16). Salvation is a free gift, received through faith.',
-    img: 'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=600&q=80',
+    img: '/assets/stockimg/salvation.webp',
   },
   {
     title: 'His Return',
     body: 'Jesus ascended to heaven after his resurrection and promised to return. We live in anticipation of his Second Coming — when he will establish his Kingdom in fullness and make all things new.',
     img: '/assets/stockimg/jcreturn.jpg',
+    imgClass: 'object-[center_15%]',
   },
 ]
 
@@ -76,6 +77,37 @@ export default function AboutJesus() {
           </div>
         </div>
 
+        {/* Belief cards with images */}
+        <section className="py-20 px-4 relative overflow-hidden" style={{ background: 'linear-gradient(160deg, #f5f0e8 0%, #eaf0fb 60%, #e6f4f1 100%)' }}>
+          {/* Decorative faint cross */}
+          <svg className="absolute right-0 top-0 w-[420px] h-[520px] opacity-[0.045] pointer-events-none select-none" viewBox="0 0 200 260" fill="none">
+            <rect x="88" y="0" width="24" height="260" rx="4" fill="#1a3aad" />
+            <rect x="10" y="68" width="180" height="24" rx="4" fill="#1a3aad" />
+          </svg>
+          <svg className="absolute left-0 bottom-0 w-[280px] h-[360px] opacity-[0.04] pointer-events-none select-none" viewBox="0 0 200 260" fill="none">
+            <rect x="88" y="0" width="24" height="260" rx="4" fill="#0e7c6e" />
+            <rect x="10" y="68" width="180" height="24" rx="4" fill="#0e7c6e" />
+          </svg>
+          <div className="max-w-5xl mx-auto relative z-10">
+            <FadeUp>
+              <h2 className="font-heading text-3xl font-bold text-text-primary mb-10 text-center">What We Believe About Jesus</h2>
+            </FadeUp>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {beliefs.map(({ title, body, img, imgClass = 'object-center' }, i) => (
+                <FadeUp key={title} delay={i * 0.1}>
+                  <Card className="overflow-hidden p-0 h-full flex flex-col">
+                    <img src={img} alt={title} className={`w-full h-44 object-cover ${imgClass}`} />
+                    <div className="p-6 flex flex-col flex-1">
+                      <h3 className="font-heading text-xl font-bold text-text-primary mb-3">{title}</h3>
+                      <p className="font-body text-text-secondary leading-relaxed text-sm">{body}</p>
+                    </div>
+                  </Card>
+                </FadeUp>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Who is Jesus — text + image side by side */}
         <section className="py-20 px-4 max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -101,33 +133,11 @@ export default function AboutJesus() {
             </FadeUp>
             <FadeUp delay={0.15}>
               <img
-                src="https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=800&q=80"
-                alt="Light through a church"
-                className="w-full h-80 object-cover rounded-2xl shadow-lg"
+                src="/assets/stockimg/jc-cross.jpg"
+                alt="Jesus on the cross"
+                className="w-full h-full object-contain rounded-2xl shadow-lg"
               />
             </FadeUp>
-          </div>
-        </section>
-
-        {/* Belief cards with images */}
-        <section className="py-20 px-4 bg-surface">
-          <div className="max-w-5xl mx-auto">
-            <FadeUp>
-              <h2 className="font-heading text-3xl font-bold text-text-primary mb-10 text-center">What We Believe About Jesus</h2>
-            </FadeUp>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {beliefs.map(({ title, body, img }, i) => (
-                <FadeUp key={title} delay={i * 0.1}>
-                  <Card className="overflow-hidden p-0 h-full flex flex-col">
-                    <img src={img} alt={title} className="w-full h-44 object-cover" />
-                    <div className="p-6 flex flex-col flex-1">
-                      <h3 className="font-heading text-xl font-bold text-text-primary mb-3">{title}</h3>
-                      <p className="font-body text-text-secondary leading-relaxed text-sm">{body}</p>
-                    </div>
-                  </Card>
-                </FadeUp>
-              ))}
-            </div>
           </div>
         </section>
 
