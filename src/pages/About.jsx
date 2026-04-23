@@ -25,7 +25,7 @@ const subpages = [
   {
     to: '/about/history',
     label: 'Our History',
-    description: 'How Miracle Center began — from a living room calling to a growing congregation.',
+    description: 'How Miracle Center began, from a living room calling to a growing congregation.',
     img: 'https://images.unsplash.com/photo-1473177104440-ffee2f376098?auto=format&fit=crop&w=800&q=80',
   },
 ]
@@ -58,7 +58,7 @@ export default function About() {
               transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
               className="font-body text-surface/80 text-lg max-w-xl"
             >
-              A church built on obedience, community, and faith
+              A Burmese and Chin (Zo) congregation open to all
             </motion.p>
           </div>
         </div>
@@ -198,7 +198,12 @@ export default function About() {
           <div className="max-w-2xl mx-auto text-center">
             <FadeUp>
               <h2 className="font-heading text-3xl font-bold text-text-primary mb-8">Service Times</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <Card className="text-center">
+                  <p className="font-heading text-lg font-semibold text-text-primary mb-1">Friday</p>
+                  <p className="font-body text-text-secondary text-sm">6:00 PM</p>
+                  <p className="font-body text-brand-teal text-xs font-medium mt-2">Women's Night</p>
+                </Card>
                 <Card className="text-center">
                   <p className="font-heading text-lg font-semibold text-text-primary mb-1">Saturday</p>
                   <p className="font-body text-text-secondary text-sm">7:30 – 9:00 PM</p>
@@ -219,7 +224,7 @@ export default function About() {
           <FadeUp>
             <h2 className="font-heading text-3xl font-bold text-text-primary mb-4 text-center">Find Us</h2>
             <p className="font-body text-text-secondary text-center mb-8">
-              We are located at 4113 Church St, Clarkston, GA 30021 — a vibrant, diverse community just east of Atlanta.
+              We are located at 4113 Church St, Clarkston, GA 30021, in a vibrant, diverse community just east of Atlanta. Our congregation is predominantly Burmese and Chin (Zo), and we warmly welcome people of every nationality and background.
             </p>
             <div className="rounded-xl overflow-hidden border border-border shadow-md">
               <iframe

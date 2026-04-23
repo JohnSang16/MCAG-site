@@ -4,6 +4,10 @@
 
 Church website for Miracle Center Assembly of God, Clarkston, GA. React + Vite SPA, no backend. 4 pages: Home, About, Leaderboard, Donate. Testimonials deferred to v2. Read spec.md for full product requirements before writing any code.
 
+**Congregation identity:** Miracle Center is a predominantly Burmese/Chin (Zo) congregation, but people of all nationalities and backgrounds are warmly welcomed. This should be reflected naturally in copy wherever the church community is described.
+
+**Name meaning:** The name "Miracle Center Assembly of God" was chosen intentionally. The founders believed God called them to be a center of miracles — healing the sick, restoring the broken, and bringing wholeness to people in every area of life: physical, mental, emotional, and spiritual. The vision from the beginning was that droves of people would come to this church and leave healed and transformed by the power of God.
+
 ## Architecture Decisions
 
 - **No backend.** Leaderboard data lives in `src/data/leaderboard.json`. All computation (averages, ranks) happens client-side at runtime.

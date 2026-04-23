@@ -16,7 +16,7 @@ export default function Leaderboard() {
         <section className="py-14 px-6 bg-surface border-b border-border">
           <div className="max-w-3xl mx-auto text-center space-y-4">
             <p className="font-body text-text-secondary leading-relaxed">
-              We are journeying through the entire Bible — starting from Genesis — with the goal of
+              We are journeying through the entire Bible, starting from Genesis, with the goal of
               teaching every member the full Word of God from cover to cover. Every other week we take
               a test on the passages we've studied together, checking our understanding and keeping
               one another accountable to the Word.

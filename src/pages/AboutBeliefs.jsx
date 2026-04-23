@@ -22,7 +22,7 @@ function FadeUp({ children, delay = 0 }) {
 const values = [
   {
     title: 'Community',
-    body: 'We believe the church is not a building but a people. At Miracle Center, every person is known by name, welcomed without condition, and invited into a family that looks out for one another through every season of life.',
+    body: 'We believe the church is not a building but a people. Rooted in the Burmese and Chin (Zo) community, Miracle Center is a family where every person, of any background or nationality, is known by name, welcomed without condition, and loved.',
     img: '/assets/stockimg/community.jpg',
   },
   {
@@ -32,23 +32,23 @@ const values = [
   },
   {
     title: 'Scripture',
-    body: 'The Bible is the inspired and infallible Word of God — our ultimate authority for faith and practice. Everything we teach and everything we do is tested against and shaped by the truth of God\'s Word.',
+    body: 'The Bible is the inspired and infallible Word of God, our ultimate authority for faith and practice. Everything we teach and everything we do is tested against and shaped by the truth of God\'s Word.',
     img: '/assets/stockimg/scripture.jpg',
   },
   {
     title: 'Baptism in the Holy Spirit',
-    body: 'We teach that after salvation, every believer can receive a second transforming experience — the Baptism in the Holy Spirit. The initial physical evidence of this baptism is speaking in tongues (glossolalia), a gift that empowers believers for bold witness and deeper worship.',
+    body: 'We teach that after salvation, every believer can receive a second transforming experience: the Baptism in the Holy Spirit. The initial physical evidence of this baptism is speaking in tongues (glossolalia), a gift that empowers believers for bold witness and deeper worship.',
     img: '/assets/stockimg/holyspirit2.webp',
     imgClass: 'object-top',
   },
   {
     title: 'Divine Healing',
-    body: 'Healing is a central doctrine of our faith, not a footnote. We believe physical healing was provided for in the atonement of Christ. We regularly lay hands on the sick and anoint with oil, expecting God to move supernaturally — because He still does.',
+    body: 'Healing is not a footnote. It is why we bear the name Miracle Center. We believe physical, mental, and emotional healing was provided for in the atonement of Christ. We regularly lay hands on the sick and anoint with oil, expecting God to move supernaturally. He still does, and this church was built to be a place where that is witnessed.',
     img: '/assets/stockimg/healing.jpg',
   },
   {
     title: 'Expressive, Spirit-Led Worship',
-    body: 'Walk into a Sunday service and you will find people raising hands, praying aloud, and responding openly to God. We encourage the gifts of the Spirit — prophecy, tongues with interpretation, words of knowledge — to flow naturally in the gathered church, because the Holy Spirit is welcome here.',
+    body: 'Walk into a Sunday service and you will find people raising hands, praying aloud, and responding openly to God. We encourage the gifts of the Spirit, including prophecy, tongues with interpretation, and words of knowledge, to flow naturally in the gathered church, because the Holy Spirit is welcome here.',
     img: '/assets/stockimg/worship.jpg',
   },
 ]
@@ -154,7 +154,7 @@ export default function AboutBeliefs() {
             <FadeUp>
               <h2 className="font-heading text-3xl font-bold text-surface mb-6">The 16 Fundamental Truths</h2>
               <p className="font-body text-surface/80 leading-relaxed mb-8">
-                As an Assemblies of God church, we hold to the 16 Fundamental Truths — a statement of
+                As an Assemblies of God church, we hold to the 16 Fundamental Truths, a statement of
                 biblical doctrine covering salvation, the Holy Spirit, divine healing, and the Second Coming
                 of Christ.
               </p>

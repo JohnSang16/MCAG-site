@@ -26,7 +26,7 @@ export default function Donate() {
         <section className="py-20 px-4 max-w-2xl mx-auto text-center">
           <h2 className="font-heading text-3xl font-bold text-text-primary mb-6">Why We Give</h2>
           <p className="font-body text-text-secondary leading-relaxed">
-            Generosity is an act of worship. When we give, we participate in God's work — supporting
+            Generosity is an act of worship. When we give, we participate in God's work, supporting
             the church community, funding outreach, and investing in the lives of people around us.
             Giving is not an obligation; it is a privilege and a joy for those whose hearts God has
             touched. Every contribution, large or small, is received with gratitude and used faithfully.
@@ -40,7 +40,7 @@ export default function Donate() {
               "Each of you should give what you have decided in your heart to give, not reluctantly
               or under compulsion, for God loves a cheerful giver."
             </p>
-            <cite className="font-body text-text-secondary text-sm not-italic">— 2 Corinthians 9:7</cite>
+            <cite className="font-body text-text-secondary text-sm not-italic">(2 Corinthians 9:7)</cite>
           </blockquote>
         </section>
 

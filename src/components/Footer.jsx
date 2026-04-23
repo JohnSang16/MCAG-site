@@ -8,6 +8,7 @@ export function Footer() {
         <div>
           <h3 className="font-heading font-semibold text-base mb-3">Service Times</h3>
           <p className="font-body text-sm text-gray-300 leading-relaxed">
+            Friday: 6:00 pm (Women's Night)<br />
             Saturday: 7:30 – 9:00 pm (Youth)<br />
             Sunday: 4:00 – 6:30 pm
           </p>

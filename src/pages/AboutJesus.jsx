@@ -23,7 +23,7 @@ function FadeUp({ children, delay = 0 }) {
 const beliefs = [
   {
     title: 'His Divinity',
-    body: 'Jesus is not merely a great teacher or moral example. He is the eternal Son of God — "the image of the invisible God" (Colossians 1:15) — who existed before creation and through whom all things were made.',
+    body: 'Jesus is not merely a great teacher or moral example. He is the eternal Son of God, described in Scripture as "the image of the invisible God" (Colossians 1:15), who existed before creation and through whom all things were made.',
     img: '/assets/stockimg/divinity.jpg',
   },
   {
@@ -38,7 +38,7 @@ const beliefs = [
   },
   {
     title: 'His Return',
-    body: 'Jesus ascended to heaven after his resurrection and promised to return. We live in anticipation of his Second Coming — when he will establish his Kingdom in fullness and make all things new.',
+    body: 'Jesus ascended to heaven after his resurrection and promised to return. We live in anticipation of his Second Coming, when he will establish his Kingdom in fullness and make all things new.',
     img: '/assets/stockimg/jcreturn.jpg',
     imgClass: 'object-[center_15%]',
   },
@@ -115,7 +115,7 @@ export default function AboutJesus() {
               <h2 className="font-heading text-3xl font-bold text-text-primary mb-6">Who Is Jesus?</h2>
               <div className="font-body text-text-secondary leading-relaxed space-y-4">
                 <p>
-                  Jesus Christ is the Son of God — fully God and fully human — who entered history some 2,000
+                  Jesus Christ is the Son of God, fully God and fully human, who entered history some 2,000
                   years ago in the person of Jesus of Nazareth. Born of the Virgin Mary in Bethlehem, he lived
                   a sinless life, taught with unmatched authority, healed the sick, raised the dead, and
                   demonstrated the Kingdom of God through every word and action.
@@ -126,7 +126,7 @@ export default function AboutJesus() {
                 </p>
                 <p>
                   Jesus went to the cross voluntarily. He bore the full weight of human sin and died in our
-                  place. Three days later, he rose from the dead — proof that death has been conquered and
+                  place. Three days later, he rose from the dead, proving that death has been conquered and
                   new life is available to anyone who turns to him.
                 </p>
               </div>
@@ -147,7 +147,7 @@ export default function AboutJesus() {
             <p className="font-heading italic text-surface text-2xl md:text-3xl text-center max-w-2xl mx-auto leading-relaxed">
               "I am the way, the truth, and the life. No one comes to the Father except through me."
             </p>
-            <p className="font-body text-surface/60 text-sm text-center mt-4">— John 14:6</p>
+            <p className="font-body text-surface/60 text-sm text-center mt-4">(John 14:6)</p>
           </FadeUp>
         </div>
 
@@ -157,7 +157,7 @@ export default function AboutJesus() {
             <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">Want to Know More?</h2>
             <p className="font-body text-text-secondary leading-relaxed mb-8">
               We would love to talk with you about faith, Jesus, and what a relationship with God can look
-              like in your life. Come visit us or send a prayer request — our church family is here.
+              like in your life. Come visit us or send a prayer request. Our church family is here for you.
             </p>
             <Link
               to="/"

@@ -62,7 +62,7 @@ export default function AboutHistory() {
               transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
               className="font-body text-surface/80 text-lg max-w-xl"
             >
-              From a living room to a congregation — the story of Miracle Center
+              From a living room to a congregation: the story of Miracle Center
             </motion.p>
           </div>
         </div>
@@ -77,21 +77,27 @@ export default function AboutHistory() {
             {[
               {
                 heading: 'A Calling, Not a Building',
-                body: 'The story of Miracle Center Assembly of God begins not with a building, but with a calling. While serving faithfully at another congregation in the metro Atlanta area, Pastors Abraham and Sarah Thang felt a clear and unmistakable stirring from the Holy Spirit — a call to step out in faith and plant a new church in the heart of Clarkston, Georgia.',
+                body: 'The story of Miracle Center Assembly of God begins not with a building, but with a calling. While serving faithfully at another congregation in the metro Atlanta area, Pastors Abraham and Sarah Thang felt a clear and unmistakable stirring from the Holy Spirit, a call to step out in faith and plant a new church in Clarkston, Georgia, serving the Burmese and Chin (Zo) community and anyone God would bring through the door.',
                 img: storyImages[0],
                 reverse: false,
               },
               {
-                heading: 'The Living Room Church',
-                body: 'It was not an easy decision. It required laying down the comfort of the familiar and trusting God with the unknown. But in obedience, they said yes. The earliest gatherings were held right in their family home — a living room full of prayer, worship, and the Word of God. The warmth of those first services set the tone for everything that followed: a church where every person is known, welcomed, and loved.',
+                heading: 'Why We Are Called Miracle Center',
+                body: 'The name was not chosen lightly. From the very beginning, God gave Pastor Abraham and Pastor Sarah a bold vision: that this church would be a center of miracles. They believed God was calling them to see people healed, droves of them, coming broken and leaving whole. Healing in the body. Healing in the mind. Healing from depression, addiction, grief, and pain. The name "Miracle Center" is a declaration of faith that the same God who healed in Scripture heals today, and that this congregation would be a place where His power is on full display.',
                 img: storyImages[1],
                 reverse: true,
               },
               {
-                heading: 'A Story Still Being Written',
-                body: 'Year by year, the congregation grew. Neighbors invited neighbors. Families joined families. The living room gave way to larger spaces as the community of believers expanded. Today, Miracle Center Assembly of God stands as a living testimony to what God can do when ordinary people walk in extraordinary obedience — and you are invited to be part of it.',
+                heading: 'The Living Room Church',
+                body: 'It was not an easy decision. It required laying down the comfort of the familiar and trusting God with the unknown. But in obedience, they said yes. The earliest gatherings were held right in their family home, a living room full of prayer, worship, and the Word of God. The warmth of those first services set the tone for everything that followed: a church where every person is known, welcomed, and loved.',
                 img: storyImages[2],
                 reverse: false,
+              },
+              {
+                heading: 'A Story Still Being Written',
+                body: 'Year by year, the congregation grew. Neighbors invited neighbors. Families joined families. The living room gave way to larger spaces as the community of believers expanded. Today, Miracle Center Assembly of God stands as a living testimony to what God can do when ordinary people walk in extraordinary obedience, and you are invited to be part of it.',
+                img: storyImages[0],
+                reverse: true,
               },
             ].map(({ heading, body, img, reverse }, i) => (
               <FadeUp key={heading} delay={0.1}>
@@ -133,7 +139,7 @@ export default function AboutHistory() {
           <div className="absolute inset-0 bg-brand-teal/60 flex items-center justify-center">
             <FadeUp>
               <p className="font-heading italic text-surface text-2xl text-center px-6 max-w-2xl">
-                "Have I not commanded you? Be strong and courageous." — Joshua 1:9
+                "Have I not commanded you? Be strong and courageous." (Joshua 1:9)
               </p>
             </FadeUp>
           </div>
