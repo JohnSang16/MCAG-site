@@ -7,6 +7,7 @@ function ScrollToTop() {
   return null
 }
 import Home from './pages/Home'
+import Faithfulness from './pages/Faithfulness'
 import About from './pages/About'
 import AboutHistory from './pages/AboutHistory'
 import AboutBeliefs from './pages/AboutBeliefs'
@@ -21,6 +22,7 @@ export default function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/faithfulness" element={<Faithfulness />} />
         <Route path="/about" element={<About />} />
         <Route path="/about/history" element={<AboutHistory />} />
         <Route path="/about/beliefs" element={<AboutBeliefs />} />
