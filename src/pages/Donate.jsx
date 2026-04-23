@@ -68,7 +68,7 @@ export default function Donate() {
             <Card className="text-center">
               <p className="font-body text-text-secondary text-sm mb-2">Send Zelle to</p>
               <p className="font-heading text-4xl font-bold text-brand-teal tracking-wide">{ZELLE_NUMBER}</p>
-              <p className="font-body text-text-secondary text-xs mt-3">Miracle Center Assembly of God · Clarkston, GA</p>
+              <p className="font-body text-text-secondary text-xs mt-3">Miracle Center Assembly of God · 4113 Church St, Clarkston, GA 30021</p>
             </Card>
           </div>
         </section>

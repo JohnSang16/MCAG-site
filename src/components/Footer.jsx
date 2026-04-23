@@ -16,7 +16,9 @@ export function Footer() {
         <div>
           <h3 className="font-heading font-semibold text-base mb-3">Location</h3>
           <p className="font-body text-sm text-gray-300 leading-relaxed">
-            Clarkston, GA
+            4113 Church St<br />
+            Clarkston, GA 30021<br />
+            United States
           </p>
         </div>
 
