@@ -23,22 +23,33 @@ const values = [
   {
     title: 'Community',
     body: 'We believe the church is not a building but a people. At Miracle Center, every person is known by name, welcomed without condition, and invited into a family that looks out for one another through every season of life.',
-    img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80',
+    img: '/assets/stockimg/community.jpg',
   },
   {
     title: 'Prayer',
     body: 'Prayer is the heartbeat of this church. From the earliest home services to today, we have built everything on conversation with God. We pray together, we pray for one another, and we trust that God hears and answers every prayer lifted to Him.',
-    img: 'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=600&q=80',
-  },
-  {
-    title: 'The Holy Spirit',
-    body: 'We believe in the baptism of the Holy Spirit as a gift available to every believer, with the evidence of speaking in tongues and the ongoing operation of the gifts of the Spirit in the life of the church.',
-    img: 'https://images.unsplash.com/photo-1505506874110-6a7a69069a08?auto=format&fit=crop&w=600&q=80',
+    img: '/assets/stockimg/prayer.jpg',
   },
   {
     title: 'Scripture',
     body: 'The Bible is the inspired and infallible Word of God — our ultimate authority for faith and practice. Everything we teach and everything we do is tested against and shaped by the truth of God\'s Word.',
-    img: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=600&q=80',
+    img: '/assets/stockimg/scripture.jpg',
+  },
+  {
+    title: 'Baptism in the Holy Spirit',
+    body: 'We teach that after salvation, every believer can receive a second transforming experience — the Baptism in the Holy Spirit. The initial physical evidence of this baptism is speaking in tongues (glossolalia), a gift that empowers believers for bold witness and deeper worship.',
+    img: '/assets/stockimg/holyspirit2.webp',
+    imgClass: 'object-top',
+  },
+  {
+    title: 'Divine Healing',
+    body: 'Healing is a central doctrine of our faith, not a footnote. We believe physical healing was provided for in the atonement of Christ. We regularly lay hands on the sick and anoint with oil, expecting God to move supernaturally — because He still does.',
+    img: '/assets/stockimg/healing.jpg',
+  },
+  {
+    title: 'Expressive, Spirit-Led Worship',
+    body: 'Walk into a Sunday service and you will find people raising hands, praying aloud, and responding openly to God. We encourage the gifts of the Spirit — prophecy, tongues with interpretation, words of knowledge — to flow naturally in the gathered church, because the Holy Spirit is welcome here.',
+    img: '/assets/stockimg/worship.jpg',
   },
 ]
 
@@ -87,18 +98,21 @@ export default function AboutBeliefs() {
                 authority of Scripture, the transforming power of the Holy Spirit, and the gifts of the Spirit
                 active in the church today.
               </p>
-              <a
-                href="https://ag.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block font-body font-semibold text-sm px-5 py-2.5 rounded-full border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-surface transition-colors"
-              >
-                Learn more at ag.org →
-              </a>
+              <div className="flex items-center gap-5 flex-wrap">
+                <img src="/assets/logos/ag2.png" alt="Assemblies of God" className="h-16 w-auto object-contain" />
+                <a
+                  href="https://ag.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block font-body font-semibold text-sm px-5 py-2.5 rounded-full border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-surface transition-colors"
+                >
+                  Learn more at ag.org →
+                </a>
+              </div>
             </FadeUp>
             <FadeUp delay={0.15}>
               <img
-                src="https://images.unsplash.com/photo-1519491050282-cf00c82424b4?auto=format&fit=crop&w=800&q=80"
+                src="/assets/stockimg/holyspirit.webp"
                 alt="Pentecostal worship"
                 className="w-full h-72 object-cover rounded-2xl shadow-lg"
               />
@@ -113,10 +127,10 @@ export default function AboutBeliefs() {
               <h2 className="font-heading text-3xl font-bold text-text-primary mb-10 text-center">What We Value</h2>
             </FadeUp>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {values.map(({ title, body, img }, i) => (
+              {values.map(({ title, body, img, imgClass = 'object-center' }, i) => (
                 <FadeUp key={title} delay={i * 0.1}>
                   <Card className="overflow-hidden p-0 h-full flex flex-col">
-                    <img src={img} alt={title} className="w-full h-44 object-cover" />
+                    <img src={img} alt={title} className={`w-full h-44 object-cover ${imgClass}`} />
                     <div className="p-6 flex flex-col flex-1">
                       <h3 className="font-heading text-xl font-bold text-text-primary mb-3">{title}</h3>
                       <p className="font-body text-text-secondary leading-relaxed text-sm">{body}</p>
@@ -131,7 +145,7 @@ export default function AboutBeliefs() {
         {/* 16 Truths banner */}
         <div className="relative py-20 overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&w=1600&q=80"
+            src="/assets/stockimg/scripture.jpg"
             alt="Open Bible"
             className="absolute inset-0 w-full h-full object-cover"
           />
