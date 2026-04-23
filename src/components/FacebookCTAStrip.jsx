@@ -2,21 +2,20 @@ import { FACEBOOK_URL } from '../config'
 
 export function FacebookCTAStrip() {
   return (
-    <section className="bg-brand-blue py-16 px-6">
-      <div className="max-w-2xl mx-auto text-center">
-        <p className="font-heading text-xl text-surface mb-6">
-          Stay connected with our church community on Facebook.
+    <div className="py-6 px-6 border-t border-border bg-surface">
+      <div className="max-w-5xl mx-auto flex items-center justify-between gap-4 flex-wrap">
+        <p className="font-body text-sm text-text-secondary">
+          Stay connected with our community on Facebook.
         </p>
         <a
           href={FACEBOOK_URL !== 'TBD' ? FACEBOOK_URL : '#'}
           target="_blank"
           rel="noopener noreferrer"
+          className="font-body font-semibold text-xs px-4 py-2 rounded-full border border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-surface transition-colors shrink-0"
         >
-          <button className="font-body font-medium text-sm px-6 py-3 rounded bg-surface text-brand-blue hover:opacity-90 transition-opacity">
-            Follow Us
-          </button>
+          Follow Us on Facebook →
         </a>
       </div>
-    </section>
+    </div>
   )
 }
