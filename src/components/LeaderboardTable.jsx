@@ -1,15 +1,85 @@
 import { useState, useMemo } from 'react'
 
-const RANK_STYLES = [
-  'bg-brand-gold/20 border-l-4 border-brand-gold',
-  'bg-gray-100 border-l-4 border-gray-400',
-  'bg-orange-50 border-l-4 border-orange-400',
+const GRADE_COLOR = (score) => {
+  if (score >= 90) return 'text-emerald-600'
+  if (score >= 80) return 'text-green-600'
+  if (score >= 70) return 'text-brand-teal'
+  if (score >= 60) return 'text-yellow-600'
+  return 'text-red-500'
+}
+
+const GRADE_BAR = (score) => {
+  if (score >= 90) return 'bg-emerald-500'
+  if (score >= 80) return 'bg-green-500'
+  if (score >= 70) return 'bg-brand-teal'
+  if (score >= 60) return 'bg-yellow-500'
+  return 'bg-red-400'
+}
+
+const TOP3_ROW = [
+  'bg-gradient-to-r from-brand-gold/20 to-transparent border-l-4 border-brand-gold',
+  'bg-gradient-to-r from-slate-200/60 to-transparent border-l-4 border-slate-400',
+  'bg-gradient-to-r from-orange-100/60 to-transparent border-l-4 border-orange-400',
 ]
 
+function GoldMedal() {
+  return (
+    <svg viewBox="0 0 32 32" className="w-7 h-7" fill="none">
+      <circle cx="16" cy="20" r="10" fill="#F5C842" stroke="#C9A84C" strokeWidth="1.5" />
+      <circle cx="16" cy="20" r="7" fill="#FFE066" />
+      <text x="16" y="25" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#9A6F00">1</text>
+      <path d="M11 11 L9 4 L16 7 L23 4 L21 11" fill="#C9A84C" stroke="#9A6F00" strokeWidth="0.8" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+function SilverMedal() {
+  return (
+    <svg viewBox="0 0 32 32" className="w-7 h-7" fill="none">
+      <circle cx="16" cy="20" r="10" fill="#B0B8C1" stroke="#8A9099" strokeWidth="1.5" />
+      <circle cx="16" cy="20" r="7" fill="#D8DEE4" />
+      <text x="16" y="25" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#5A6370">2</text>
+      <path d="M11 11 L9 4 L16 7 L23 4 L21 11" fill="#8A9099" stroke="#5A6370" strokeWidth="0.8" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+function BronzeMedal() {
+  return (
+    <svg viewBox="0 0 32 32" className="w-7 h-7" fill="none">
+      <circle cx="16" cy="20" r="10" fill="#CD7F32" stroke="#A0622A" strokeWidth="1.5" />
+      <circle cx="16" cy="20" r="7" fill="#E8A96A" />
+      <text x="16" y="25" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#7A4A1A">3</text>
+      <path d="M11 11 L9 4 L16 7 L23 4 L21 11" fill="#A0622A" stroke="#7A4A1A" strokeWidth="0.8" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
 function RankBadge({ rank }) {
-  const labels = ['🥇', '🥈', '🥉']
-  if (rank < 3) return <span className="text-lg">{labels[rank]}</span>
-  return <span className="font-body text-text-secondary text-sm">{rank + 1}</span>
+  if (rank === 0) return <GoldMedal />
+  if (rank === 1) return <SilverMedal />
+  if (rank === 2) return <BronzeMedal />
+  return (
+    <span className="w-7 h-7 flex items-center justify-center font-body font-semibold text-sm text-text-secondary">
+      {rank + 1}
+    </span>
+  )
+}
+
+function ScoreBar({ score, max = 100 }) {
+  return (
+    <div className="flex items-center gap-2">
+      <div className="w-20 h-2 rounded-full bg-border overflow-hidden hidden sm:block">
+        <div
+          className={`h-full rounded-full ${GRADE_BAR(score)} transition-all duration-500`}
+          style={{ width: `${(score / max) * 100}%` }}
+        />
+      </div>
+      <span className={`font-body font-semibold text-sm tabular-nums ${GRADE_COLOR(score)}`}>
+        {typeof score === 'number' ? `${score.toFixed(1)}%` : score}
+      </span>
+    </div>
+  )
 }
 
 function OverallTable({ members, tests, search }) {
@@ -42,25 +112,27 @@ function OverallTable({ members, tests, search }) {
   return (
     <>
       {/* Desktop table */}
-      <div className="hidden md:block overflow-x-auto rounded-lg border border-border">
+      <div className="hidden md:block overflow-hidden rounded-xl border border-border shadow-sm">
         <table className="w-full text-sm font-body">
-          <thead className="bg-surface border-b border-border">
-            <tr>
-              <th className="text-left px-4 py-3 text-text-secondary font-medium">Rank</th>
-              <th className="text-left px-4 py-3 text-text-secondary font-medium">Name</th>
-              <th className="text-right px-4 py-3 text-text-secondary font-medium">Avg Score</th>
-              <th className="text-right px-4 py-3 text-text-secondary font-medium">Tests Taken</th>
+          <thead>
+            <tr className="bg-gradient-to-r from-brand-blue to-brand-teal text-surface">
+              <th className="text-left px-5 py-4 font-semibold tracking-wide text-xs uppercase">Rank</th>
+              <th className="text-left px-5 py-4 font-semibold tracking-wide text-xs uppercase">Name</th>
+              <th className="text-right px-5 py-4 font-semibold tracking-wide text-xs uppercase">Avg Score</th>
+              <th className="text-right px-5 py-4 font-semibold tracking-wide text-xs uppercase">Tests</th>
             </tr>
           </thead>
           <tbody>
-            {filtered.map((r, i) => {
+            {filtered.map((r) => {
               const globalRank = rows.indexOf(r)
               return (
-                <tr key={r.id} className={`${RANK_STYLES[globalRank] ?? ''} bg-surface even:bg-ivory`}>
-                  <td className="px-4 py-3 w-16"><RankBadge rank={globalRank} /></td>
-                  <td className="px-4 py-3 text-text-primary font-medium">{r.name}</td>
-                  <td className="px-4 py-3 text-right text-text-primary">{r.avg.toFixed(1)}</td>
-                  <td className="px-4 py-3 text-right text-text-secondary">{r.taken}</td>
+                <tr key={r.id} className={`border-b border-border last:border-0 transition-colors hover:bg-ivory/80 ${TOP3_ROW[globalRank] ?? 'bg-surface even:bg-ivory/40'}`}>
+                  <td className="px-5 py-3.5 w-16"><RankBadge rank={globalRank} /></td>
+                  <td className="px-5 py-3.5 text-text-primary font-semibold">{r.name}</td>
+                  <td className="px-5 py-3.5">
+                    <div className="flex justify-end"><ScoreBar score={r.avg} /></div>
+                  </td>
+                  <td className="px-5 py-3.5 text-right text-text-secondary">{r.taken}</td>
                 </tr>
               )
             })}
@@ -69,19 +141,19 @@ function OverallTable({ members, tests, search }) {
       </div>
 
       {/* Mobile cards */}
-      <div className="md:hidden space-y-3">
-        {filtered.map((r, i) => {
+      <div className="md:hidden space-y-2.5">
+        {filtered.map((r) => {
           const globalRank = rows.indexOf(r)
           return (
-            <div key={r.id} className={`rounded-lg p-4 border border-border bg-surface ${RANK_STYLES[globalRank] ?? ''}`}>
-              <div className="flex items-center justify-between mb-1">
-                <span className="font-body font-semibold text-text-primary">{r.name}</span>
-                <RankBadge rank={globalRank} />
+            <div key={r.id} className={`rounded-xl p-4 border border-border shadow-sm ${TOP3_ROW[globalRank] ?? 'bg-surface'}`}>
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2.5">
+                  <RankBadge rank={globalRank} />
+                  <span className="font-body font-semibold text-text-primary">{r.name}</span>
+                </div>
+                <ScoreBar score={r.avg} />
               </div>
-              <div className="flex gap-6 text-sm font-body text-text-secondary mt-1">
-                <span>Avg: <span className="text-text-primary font-medium">{r.avg.toFixed(1)}</span></span>
-                <span>Tests: <span className="text-text-primary font-medium">{r.taken}</span></span>
-              </div>
+              <p className="font-body text-xs text-text-secondary ml-9">{r.taken} test{r.taken !== 1 ? 's' : ''} taken</p>
             </div>
           )
         })}
@@ -117,23 +189,25 @@ function PerTestTable({ members, test, search }) {
   return (
     <>
       {/* Desktop table */}
-      <div className="hidden md:block overflow-x-auto rounded-lg border border-border">
+      <div className="hidden md:block overflow-hidden rounded-xl border border-border shadow-sm">
         <table className="w-full text-sm font-body">
-          <thead className="bg-surface border-b border-border">
-            <tr>
-              <th className="text-left px-4 py-3 text-text-secondary font-medium">Rank</th>
-              <th className="text-left px-4 py-3 text-text-secondary font-medium">Name</th>
-              <th className="text-right px-4 py-3 text-text-secondary font-medium">Score</th>
+          <thead>
+            <tr className="bg-gradient-to-r from-brand-blue to-brand-teal text-surface">
+              <th className="text-left px-5 py-4 font-semibold tracking-wide text-xs uppercase">Rank</th>
+              <th className="text-left px-5 py-4 font-semibold tracking-wide text-xs uppercase">Name</th>
+              <th className="text-right px-5 py-4 font-semibold tracking-wide text-xs uppercase">Score</th>
             </tr>
           </thead>
           <tbody>
             {filtered.map((r) => {
               const globalRank = rows.indexOf(r)
               return (
-                <tr key={r.id} className={`${RANK_STYLES[globalRank] ?? ''} bg-surface even:bg-ivory`}>
-                  <td className="px-4 py-3 w-16"><RankBadge rank={globalRank} /></td>
-                  <td className="px-4 py-3 text-text-primary font-medium">{r.name}</td>
-                  <td className="px-4 py-3 text-right text-text-primary">{r.score}</td>
+                <tr key={r.id} className={`border-b border-border last:border-0 transition-colors hover:bg-ivory/80 ${TOP3_ROW[globalRank] ?? 'bg-surface even:bg-ivory/40'}`}>
+                  <td className="px-5 py-3.5 w-16"><RankBadge rank={globalRank} /></td>
+                  <td className="px-5 py-3.5 text-text-primary font-semibold">{r.name}</td>
+                  <td className="px-5 py-3.5">
+                    <div className="flex justify-end"><ScoreBar score={r.score} /></div>
+                  </td>
                 </tr>
               )
             })}
@@ -142,17 +216,17 @@ function PerTestTable({ members, test, search }) {
       </div>
 
       {/* Mobile cards */}
-      <div className="md:hidden space-y-3">
+      <div className="md:hidden space-y-2.5">
         {filtered.map((r) => {
           const globalRank = rows.indexOf(r)
           return (
-            <div key={r.id} className={`rounded-lg p-4 border border-border bg-surface ${RANK_STYLES[globalRank] ?? ''}`}>
+            <div key={r.id} className={`rounded-xl p-4 border border-border shadow-sm ${TOP3_ROW[globalRank] ?? 'bg-surface'}`}>
               <div className="flex items-center justify-between">
-                <span className="font-body font-semibold text-text-primary">{r.name}</span>
-                <div className="flex items-center gap-3">
-                  <span className="font-body text-text-primary font-medium">{r.score}</span>
+                <div className="flex items-center gap-2.5">
                   <RankBadge rank={globalRank} />
+                  <span className="font-body font-semibold text-text-primary">{r.name}</span>
                 </div>
+                <ScoreBar score={r.score} />
               </div>
             </div>
           )
@@ -181,10 +255,10 @@ export function LeaderboardTable({ data }) {
       <div className="flex flex-wrap gap-2">
         <button
           onClick={() => setSelectedTest(null)}
-          className={`font-body text-sm px-4 py-2 rounded border transition-colors ${
+          className={`font-body text-sm px-4 py-2 rounded-full border transition-colors ${
             selectedTest === null
-              ? 'bg-brand-blue text-surface border-brand-blue'
-              : 'bg-surface text-text-primary border-border hover:border-brand-blue'
+              ? 'bg-brand-blue text-surface border-brand-blue shadow-sm'
+              : 'bg-surface text-text-primary border-border hover:border-brand-blue hover:text-brand-blue'
           }`}
         >
           Overall
@@ -193,10 +267,10 @@ export function LeaderboardTable({ data }) {
           <button
             key={t.id}
             onClick={() => setSelectedTest(t.id)}
-            className={`font-body text-sm px-4 py-2 rounded border transition-colors ${
+            className={`font-body text-sm px-4 py-2 rounded-full border transition-colors ${
               selectedTest === t.id
-                ? 'bg-brand-blue text-surface border-brand-blue'
-                : 'bg-surface text-text-primary border-border hover:border-brand-blue'
+                ? 'bg-brand-blue text-surface border-brand-blue shadow-sm'
+                : 'bg-surface text-text-primary border-border hover:border-brand-blue hover:text-brand-blue'
             }`}
           >
             {t.name}
@@ -210,7 +284,7 @@ export function LeaderboardTable({ data }) {
         placeholder="Search by name…"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="font-body text-sm w-full max-w-xs px-4 py-2 border border-border rounded bg-surface text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-brand-blue"
+        className="font-body text-sm w-full max-w-xs px-4 py-2.5 border border-border rounded-full bg-surface text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-brand-blue/40 focus:border-brand-blue transition-colors"
       />
 
       {/* Table / empty state */}
