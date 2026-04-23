@@ -16,7 +16,7 @@ const topNavLinks = [
   { to: '/donate', label: 'Donate' },
 ]
 
-function SlidingNav({ onAboutClick, aboutOpen }) {
+function SlidingNav({ onAboutClick, aboutOpen, onAboutMouseLeave, aboutDropdown }) {
   const navigate = useNavigate()
   const [position, setPosition] = useState({ left: 0, width: 0, opacity: 0 })
   const allItems = [
@@ -33,7 +33,14 @@ function SlidingNav({ onAboutClick, aboutOpen }) {
     >
       {allItems.map((item) =>
         item.isDropdown ? (
-          <AboutTab key="about" setPosition={setPosition} onClick={onAboutClick} isActive={aboutOpen} />
+          <AboutTab
+            key="about"
+            setPosition={setPosition}
+            onClick={onAboutClick}
+            isActive={aboutOpen}
+            onMouseLeave={onAboutMouseLeave}
+            dropdown={aboutDropdown}
+          />
         ) : (
           <NavItem key={item.to} to={item.to} setPosition={setPosition} navigate={navigate}>
             {item.label}
@@ -49,20 +56,25 @@ function SlidingNav({ onAboutClick, aboutOpen }) {
   )
 }
 
-function AboutTab({ setPosition, onClick, isActive }) {
+function AboutTab({ setPosition, onClick, isActive, onMouseLeave, dropdown }) {
   const ref = useRef(null)
   return (
     <li
       ref={ref}
+      className="relative"
       onMouseEnter={() => {
         if (!ref.current) return
         const { width } = ref.current.getBoundingClientRect()
         setPosition({ width, opacity: 1, left: ref.current.offsetLeft })
       }}
-      onClick={onClick}
-      className={`relative z-10 block cursor-pointer px-3 py-1 text-xs font-semibold uppercase tracking-wide mix-blend-difference md:px-4 md:py-1.5 md:text-xs select-none ${isActive ? 'text-surface' : 'text-text-secondary'}`}
     >
-      About
+      <span
+        onClick={onClick}
+        className={`relative z-10 block cursor-pointer px-3 py-1 text-xs font-semibold uppercase tracking-wide mix-blend-difference md:px-4 md:py-1.5 md:text-xs select-none ${isActive ? 'text-surface' : 'text-text-secondary'}`}
+      >
+        About
+      </span>
+      {dropdown}
     </li>
   )
 }
@@ -109,33 +121,36 @@ export function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-4 relative" ref={dropdownRef}>
-          <SlidingNav onAboutClick={() => setAboutOpen(v => !v)} aboutOpen={aboutOpen} />
-
-          {/* About dropdown */}
-          <AnimatePresence>
-            {aboutOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: -8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.15 }}
-                className="absolute top-full right-0 mt-2 w-52 bg-surface border border-border rounded-xl shadow-lg overflow-hidden"
-                onMouseLeave={() => setAboutOpen(false)}
-              >
-                {aboutItems.map(({ to, label }) => (
-                  <Link
-                    key={to}
-                    to={to}
-                    onClick={() => setAboutOpen(false)}
-                    className="block px-5 py-3 font-body text-sm text-text-primary hover:bg-ivory hover:text-brand-blue transition-colors"
+        <div className="hidden md:flex items-center gap-4" ref={dropdownRef}>
+          <SlidingNav
+            onAboutClick={() => setAboutOpen(v => !v)}
+            aboutOpen={aboutOpen}
+            onAboutMouseLeave={() => setAboutOpen(false)}
+            aboutDropdown={
+              <AnimatePresence>
+                {aboutOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute top-full left-0 mt-2 w-52 bg-surface border border-border rounded-xl shadow-lg overflow-hidden z-50"
                   >
-                    {label}
-                  </Link>
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
+                    {aboutItems.map(({ to, label }) => (
+                      <Link
+                        key={to}
+                        to={to}
+                        onClick={() => setAboutOpen(false)}
+                        className="block px-5 py-3 font-body text-sm text-text-primary hover:bg-ivory hover:text-brand-blue transition-colors"
+                      >
+                        {label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            }
+          />
 
           <a
             href={FACEBOOK_URL !== 'TBD' ? FACEBOOK_URL : '#'}
