@@ -20,18 +20,10 @@ function FadeUp({ children, delay = 0 }) {
 }
 
 const storyImages = [
-  {
-    src: 'https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&w=800&q=80',
-    alt: 'Family home gathering',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=800&q=80',
-    alt: 'Church community worship',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=800&q=80',
-    alt: 'Growing congregation',
-  },
+  { src: '/assets/stockimg/thecalling.webp',   alt: 'The calling of God' },
+  { src: '/assets/stockimg/jcheaing.webp',        alt: 'Jesus Christ healing' },
+  { src: '/assets/stockimg/homeworship.webp',   alt: 'Home worship gathering' },
+  { src: '/assets/stockimg/beingwritten.jpg',   alt: 'A story still being written' },
 ]
 
 export default function AboutHistory() {
@@ -43,7 +35,7 @@ export default function AboutHistory() {
         {/* Hero banner */}
         <div className="relative h-[420px] overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1473177104440-ffee2f376098?auto=format&fit=crop&w=1600&q=80"
+            src="/assets/mcaglive/groupimg2.jpg"
             alt="Church history"
             className="w-full h-full object-cover object-center"
           />
@@ -96,7 +88,7 @@ export default function AboutHistory() {
               {
                 heading: 'A Story Still Being Written',
                 body: 'Year by year, the congregation grew. Neighbors invited neighbors. Families joined families. The living room gave way to larger spaces as the community of believers expanded. Today, Miracle Center Assembly of God stands as a living testimony to what God can do when ordinary people walk in extraordinary obedience, and you are invited to be part of it.',
-                img: storyImages[0],
+                img: storyImages[3],
                 reverse: true,
               },
             ].map(({ heading, body, img, reverse }, i) => (
@@ -110,7 +102,7 @@ export default function AboutHistory() {
                     <img
                       src={img.src}
                       alt={img.alt}
-                      className="w-full h-64 object-cover rounded-xl shadow-md"
+                      className={img.imgClass ?? "w-full h-64 object-cover rounded-xl shadow-md"}
                     />
                   </div>
                 </div>
@@ -132,14 +124,14 @@ export default function AboutHistory() {
         {/* Closing image banner */}
         <div className="relative h-56 overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1519491050282-cf00c82424b4?auto=format&fit=crop&w=1600&q=80"
-            alt="Church community"
+            src="/assets/mcaglive/groupimg2.jpg"
+            alt="Miracle Center congregation"
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-brand-teal/60 flex items-center justify-center">
             <FadeUp>
               <p className="font-heading italic text-surface text-2xl text-center px-6 max-w-2xl">
-                "Have I not commanded you? Be strong and courageous." (Joshua 1:9)
+                "Jesus Christ is the same yesterday and today and forever." (Hebrews 13:8)
               </p>
             </FadeUp>
           </div>
