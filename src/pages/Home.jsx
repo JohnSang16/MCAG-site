@@ -10,24 +10,24 @@ import { ContainerScroll, BentoGrid, BentoCell, ContainerScale } from '../compon
 
 // size = diameter in px, top = vertical offset from top of section (px)
 const FLOAT_CIRCLES = [
-  { img: '/assets/mcaglive/lp1.jpg',     objPos: 'object-[center_28%]', size: 100, top: 18  },
-  { img: '/assets/mcaglive/bg1.jpg',     objPos: 'object-center',        size: 90,  top: 140 },
-  { img: '/assets/mcaglive/nupite.jpg',  objPos: 'object-center',        size: 118, top: 50  },
-  { img: '/assets/mcaglive/bg2.jpg',     objPos: 'object-center',        size: 80,  top: 190 },
-  { img: '/assets/mcaglive/ap1.jpg',     objPos: 'object-center',        size: 90,  top: 100 },
-  { img: '/assets/mcaglive/bg3.jpg',     objPos: 'object-center',        size: 104, top: 10  },
-  { img: '/assets/mcaglive/papite.jpg',  objPos: 'object-center',        size: 96,  top: 160 },
-  { img: '/assets/mcaglive/bg4.jpg',     objPos: 'object-center',        size: 76,  top: 70  },
-  { img: '/assets/mcaglive/ap2.jpg',     objPos: 'object-center',        size: 84,  top: 210 },
-  { img: '/assets/mcaglive/bg5.jpg',     objPos: 'object-center',        size: 108, top: 30  },
-  { img: '/assets/mcaglive/bg 6.jpg',    objPos: 'object-center',        size: 88,  top: 130 },
-  { img: '/assets/mcaglive/bg7.jpg',     objPos: 'object-center',        size: 96,  top: 180 },
-  { img: '/assets/mcaglive/bg8.jpg',     objPos: 'object-center',        size: 74,  top: 55  },
-  { img: '/assets/mcaglive/bg9.jpg',     objPos: 'object-center',        size: 100, top: 230 },
-  { img: '/assets/mcaglive/bg10.jpg',    objPos: 'object-center',        size: 82,  top: 90  },
-  { img: '/assets/mcaglive/bg11.jpg',    objPos: 'object-center',        size: 112, top: 160 },
-  { img: '/assets/mcaglive/nupite.jpg',  objPos: 'object-center',        size: 70,  top: 20  },
-  { img: '/assets/mcaglive/bg3.jpg',     objPos: 'object-center',        size: 86,  top: 200 },
+  { img: '/assets/mcaglive/lp1.jpg',     objPos: 'object-[center_28%]', size: 150, top: 20  },
+  { img: '/assets/mcaglive/bg1.jpg',     objPos: 'object-center',        size: 110, top: 260 },
+  { img: '/assets/mcaglive/nupite.jpg',  objPos: 'object-center',        size: 180, top: 60  },
+  { img: '/assets/mcaglive/bg2.jpg',     objPos: 'object-center',        size: 95,  top: 360 },
+  { img: '/assets/mcaglive/ap1.jpg',     objPos: 'object-center',        size: 130, top: 150 },
+  { img: '/assets/mcaglive/bg3.jpg',     objPos: 'object-center',        size: 160, top: 10  },
+  { img: '/assets/mcaglive/papite.jpg',  objPos: 'object-center',        size: 140, top: 300 },
+  { img: '/assets/mcaglive/bg4.jpg',     objPos: 'object-center',        size: 100, top: 100 },
+  { img: '/assets/mcaglive/ap2.jpg',     objPos: 'object-center',        size: 120, top: 390 },
+  { img: '/assets/mcaglive/bg5.jpg',     objPos: 'object-center',        size: 165, top: 40  },
+  { img: '/assets/mcaglive/bg 6.jpg',    objPos: 'object-center',        size: 115, top: 220 },
+  { img: '/assets/mcaglive/bg7.jpg',     objPos: 'object-center',        size: 145, top: 330 },
+  { img: '/assets/mcaglive/bg8.jpg',     objPos: 'object-center',        size: 90,  top: 80  },
+  { img: '/assets/mcaglive/bg9.jpg',     objPos: 'object-center',        size: 155, top: 410 },
+  { img: '/assets/mcaglive/bg10.jpg',    objPos: 'object-center',        size: 125, top: 140 },
+  { img: '/assets/mcaglive/bg11.jpg',    objPos: 'object-center',        size: 170, top: 270 },
+  { img: '/assets/mcaglive/nupite.jpg',  objPos: 'object-center',        size: 105, top: 25  },
+  { img: '/assets/mcaglive/bg3.jpg',     objPos: 'object-center',        size: 135, top: 370 },
 ]
 
 const HEART_PATH = "M50,82 C50,82 8,55 8,30 C8,13 21,4 35,11 C42,14 47,21 50,27 C53,21 58,14 65,11 C79,4 92,13 92,30 C92,55 50,82 50,82 Z"
@@ -66,7 +66,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hero — scroll-animated bento gallery */}
-      <ContainerScroll className="h-[350vh]">
+      <ContainerScroll className="h-[200vh]">
         <BentoGrid className="sticky left-0 top-0 z-0 h-screen w-full p-3 gap-3">
           {HERO_IMAGES.map((src, i) => (
             <BentoCell key={i} className="overflow-hidden rounded-xl shadow-lg">
@@ -128,7 +128,7 @@ export default function Home() {
       </ContainerScroll>
 
       {/* Intro Blurb */}
-      <section className="relative overflow-hidden" style={{ minHeight: 320, background: 'rgb(90, 115, 203)' }}>
+      <section className="relative overflow-hidden" style={{ minHeight: 520, background: 'rgb(90, 115, 203)' }}>
 
         {/* Single carousel strip — all circles, all moving right to left, staggered vertically */}
         <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 0 }}>
@@ -149,9 +149,9 @@ export default function Home() {
         <div className="absolute inset-y-0 right-0 w-24 pointer-events-none" style={{ zIndex: 2, background: 'linear-gradient(to left, rgb(90, 115, 203), transparent)' }} />
 
         {/* Text — z-10 so circles behind it are at z-0, some visually overlap */}
-        <div className="relative z-10 flex items-center justify-center px-6 py-20" style={{ minHeight: 320 }}>
+        <div className="relative z-10 flex items-center justify-center px-6 py-28" style={{ minHeight: 520 }}>
           <div
-            className="relative max-w-2xl w-full text-center rounded-2xl px-8 py-8"
+            className="relative max-w-3xl w-full text-center rounded-2xl px-12 py-14"
             style={{
               background: 'rgba(255,255,255,0.08)',
               backdropFilter: 'blur(24px)',
@@ -168,9 +168,63 @@ export default function Home() {
             >
               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
             </svg>
-            <p className="font-body text-surface/90 text-lg leading-relaxed">
+            <p className="font-body text-surface/90 text-xl leading-relaxed">
               We are a Spirit-filled Pentecostal church located in Clarkston, GA. Rooted in the Burmese and Chin (Zo) community. We believe in miracles. We believe God heals bodies, minds, and broken lives, and we named this church accordingly. People of every nationality and background are welcome here. Come as you are.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Upcoming Events */}
+      <section className="py-16 px-6 bg-ivory">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-3">Mark Your Calendar</p>
+            <h2 className="font-heading font-bold text-3xl text-text-primary">Upcoming Events</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {[
+              {
+                date: 'May 11',
+                day: 'Sunday',
+                title: "Mother's Day Celebration",
+                description: "Join us as we honor the mothers and mother-figures in our congregation. Special worship, a message of gratitude, and a time of blessing for every mom.",
+                img: '/assets/stockimg/mothersday.jpeg',
+                accent: '#0e7c6e',
+              },
+              {
+                date: 'Jun 15',
+                day: 'Sunday',
+                title: "Father's Day Celebration",
+                description: "We celebrate the fathers and father-figures who shape our families and community. Come worship together and honor the men God has placed in our lives.",
+                img: '/assets/stockimg/fathersday.webp',
+                accent: '#1a3aad',
+              },
+            ].map(({ date, day, title, description, img, accent }) => (
+              <div key={title} className="rounded-2xl border border-border bg-surface shadow-sm overflow-hidden flex flex-col">
+                <div className="relative h-44 overflow-hidden">
+                  <img src={img} alt={title} className="w-full h-full object-cover object-center" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute bottom-0 left-0 px-5 pb-4">
+                    <span
+                      className="font-body text-xs font-bold uppercase tracking-widest text-white/90"
+                      style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}
+                    >
+                      {day} · {date}
+                    </span>
+                  </div>
+                  <div
+                    className="absolute top-0 left-0 w-full h-1"
+                    style={{ background: accent }}
+                  />
+                </div>
+                <div className="p-6 flex flex-col gap-3">
+                  <h3 className="font-heading font-bold text-xl text-text-primary">{title}</h3>
+                  <p className="font-body text-sm text-text-secondary leading-relaxed">{description}</p>
+                  <p className="font-body text-xs text-text-secondary">4:00 – 6:30 pm · 4113 Church St, Clarkston, GA</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -305,7 +359,7 @@ export default function Home() {
       </section>
 
       {/* Donation CTA */}
-      <section className="py-20 px-6 bg-surface">
+      <section className="py-20 px-6 bg-ivory">
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="font-heading font-bold text-3xl text-text-primary mb-4">Support the Ministry</h2>
@@ -326,7 +380,7 @@ export default function Home() {
           </div>
           <div className="relative">
             <img
-              src="/assets/stockimg/prayer.jpg"
+              src="/assets/stockimg/supportheministry.webp"
               alt="Supporting the ministry"
               className="w-full h-72 object-cover rounded-2xl shadow-lg"
             />
@@ -335,22 +389,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Prayer Request Form */}
-      <section className="py-20 px-6 bg-ivory">
-        <div className="max-w-xl mx-auto text-center mb-10">
-          <h2 className="font-heading font-bold text-3xl text-text-primary mb-3">
-            Prayer Requests
-          </h2>
-          <p className="font-body text-text-secondary">
-            We believe in the power of prayer. Share your request and our church family will
-            pray alongside you.
-          </p>
-        </div>
-        <PrayerRequestForm />
-      </section>
-
       {/* Meet the Pastors */}
-      <section className="pt-0 pb-20 px-6 bg-ivory">
+      <section className="py-20 px-6 bg-ivory">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-heading font-bold text-3xl text-text-primary text-center mb-2">
             Meet the Pastors
@@ -364,13 +404,15 @@ export default function Home() {
                 name: 'Pastor Abraham Thang', title: 'Lead Pastor',
                 img: '/assets/mcaglive/lp1.jpg',
                 imgClass: 'w-full h-full object-cover object-[center_28%] scale-150',
+                bio: 'Born in Myanmar and raised in a family of faith, Pastor Abraham answered God\'s call to plant Miracle Center Assembly of God in Clarkston. He leads with boldness, a deep conviction for healing prayer, and an unwavering belief that God still performs miracles today.',
               },
               {
                 name: 'Pastor Sarah Muan Cing', title: 'Pastor',
                 img: '/assets/mcaglive/ap1.jpg',
                 imgClass: 'w-full h-full object-cover object-center',
+                bio: 'Pastor Sarah carries a special grace for the women and families of the congregation. She leads Women\'s Night, mentors young believers, and brings a compassionate, Spirit-led presence to everything she does.',
               },
-            ].map(({ name, title, img, imgClass }) => (
+            ].map(({ name, title, img, imgClass, bio }) => (
               <Card key={name} className="flex flex-col items-center text-center gap-4 overflow-hidden p-0">
                 <div className="w-full h-64 overflow-hidden shrink-0">
                   <img src={img} alt={name} className={imgClass} />
@@ -380,10 +422,7 @@ export default function Home() {
                     <h3 className="font-heading font-semibold text-xl text-text-primary">{name}</h3>
                     <p className="font-body text-sm text-brand-teal font-medium mt-0.5">{title}</p>
                   </div>
-                  <p className="font-body text-sm text-text-secondary leading-relaxed">
-                    A devoted servant of God with a heart for the community, called to shepherd this
-                    congregation with compassion, truth, and faith.
-                  </p>
+                  <p className="font-body text-sm text-text-secondary leading-relaxed">{bio}</p>
                   <Link to="/about" className="font-body text-sm text-brand-blue hover:underline">
                     Learn more
                   </Link>
@@ -392,6 +431,20 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Prayer Request Form */}
+      <section className="py-20 px-6 bg-surface">
+        <div className="max-w-xl mx-auto text-center mb-10">
+          <h2 className="font-heading font-bold text-3xl text-text-primary mb-3">
+            Prayer Requests
+          </h2>
+          <p className="font-body text-text-secondary">
+            We believe in the power of prayer. Share your request and our church family will
+            pray alongside you.
+          </p>
+        </div>
+        <PrayerRequestForm />
       </section>
 
       {/* Facebook CTA */}
