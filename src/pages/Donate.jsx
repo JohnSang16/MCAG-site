@@ -68,7 +68,7 @@ export default function Donate() {
         {/* Hero */}
         <div className="relative h-[460px] overflow-hidden">
           <img
-            src="/assets/stockimg/supportheministry.webp"
+            src="/assets/stockimg/support.webp"
             alt="Support the ministry"
             className="w-full h-full object-cover object-center"
           />
@@ -121,7 +121,7 @@ export default function Donate() {
             </FadeUp>
             <FadeUp delay={0.15}>
               <img
-                src="/assets/stockimg/prayer.jpg"
+                src="/assets/stockimg/geneorsity.avif"
                 alt="Prayer and giving"
                 className="w-full h-80 object-cover rounded-2xl shadow-lg"
               />

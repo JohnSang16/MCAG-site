@@ -35,11 +35,11 @@ export default function AboutHistory() {
         {/* Hero banner */}
         <div className="relative h-[420px] overflow-hidden">
           <img
-            src="/assets/mcaglive/groupimg2.jpg"
+            src="/assets/stockimg/ourhistory.jpg"
             alt="Church history"
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-brand-blue/70 flex flex-col items-center justify-center text-center px-6">
+          <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-6">
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -126,9 +126,9 @@ export default function AboutHistory() {
           <img
             src="/assets/mcaglive/groupimg2.jpg"
             alt="Miracle Center congregation"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-[center_30%]"
           />
-          <div className="absolute inset-0 bg-brand-teal/60 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
             <FadeUp>
               <p className="font-heading italic text-surface text-2xl text-center px-6 max-w-2xl">
                 "Jesus Christ is the same yesterday and today and forever." (Hebrews 13:8)

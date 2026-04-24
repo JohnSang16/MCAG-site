@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import { Navbar } from '../components/Navbar'
 import { Footer } from '../components/Footer'
 import { Card } from '../components/Card'
@@ -99,12 +100,12 @@ const TIPS = [
 ]
 
 const SPOTS = [
-  { name: 'Miracle Center Assembly of God', note: 'Open for individual prayer. Our doors are open to anyone seeking a quiet space with God.', address: '4113 Church St, Clarkston, GA 30021' },
-  { name: 'Clarkston Community Center Park', note: 'A quiet public green space ideal for walking prayer.', address: 'Clarkston, GA 30021' },
-  { name: 'Stone Mountain Park Trails', note: 'Wide open space with forest trails. Ideal for extended prayer walks away from noise.', address: 'Stone Mountain, GA 30083' },
-  { name: 'Redan Park', note: 'A calm neighborhood park suitable for quiet reflection.', address: 'Stone Mountain, GA 30088' },
-  { name: 'Clarkston International Bible Church Garden', note: 'A peaceful garden space open to the community for prayer and reflection.', address: 'Clarkston, GA 30021' },
-  { name: 'Your Local Library', note: 'Most Clarkston and DeKalb branch libraries have quiet study rooms available for free.', address: 'DeKalb County, GA' },
+  { name: 'Miracle Center Assembly of God', note: 'Open for individual prayer. Our doors are open to anyone seeking a quiet space with God.', address: '4113 Church St, Clarkston, GA 30021', img: '/assets/mcaglive/groupimg.jpg' },
+  { name: 'Clarkston Community Center Park', note: 'A quiet public green space ideal for walking prayer.', address: 'Clarkston, GA 30021', img: '/assets/mcaglive/bg9.jpg' },
+  { name: 'Stone Mountain Park Trails', note: 'Wide open space with forest trails. Ideal for extended prayer walks away from noise.', address: 'Stone Mountain, GA 30083', img: '/assets/mcaglive/bg5.jpg' },
+  { name: 'Redan Park', note: 'A calm neighborhood park suitable for quiet reflection.', address: 'Stone Mountain, GA 30088', img: '/assets/mcaglive/bg7.jpg' },
+  { name: 'Clarkston International Bible Church Garden', note: 'A peaceful garden space open to the community for prayer and reflection.', address: 'Clarkston, GA 30021', img: '/assets/stockimg/community.jpg' },
+  { name: 'Your Local Library', note: 'Most Clarkston and DeKalb branch libraries have quiet study rooms available for free.', address: 'DeKalb County, GA', img: '/assets/stockimg/scripture.jpg' },
 ]
 
 export default function Faithfulness() {
@@ -119,19 +120,67 @@ export default function Faithfulness() {
       <main className="flex-1">
 
         {/* Hero */}
-        <section className="py-20 px-6 text-center max-w-3xl mx-auto">
-          <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-4">
-            Daily Resource · Clarkston, GA
-          </p>
-          <h1 className="font-heading font-bold text-4xl md:text-5xl text-text-primary mb-5 leading-tight">
-            Faithfulness
-          </h1>
-          <p className="font-body text-text-secondary text-lg leading-relaxed">
-            We understand it is hard to stay focused sometimes, so we built this for you. One place for Scripture, prayer spots near you, and practical fuel for your daily walk with God.
-          </p>
-          <p className="font-body text-text-secondary text-sm mt-3">
-            Your single source of truth for the Christian life.
-          </p>
+        <div className="relative h-[420px] overflow-hidden">
+          <img
+            src="/assets/stockimg/worship.jpg"
+            alt="Faithfulness"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/75 flex flex-col items-center justify-center text-center px-6">
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="font-body text-brand-gold text-xs font-bold uppercase tracking-widest mb-4"
+            >
+              Daily Resource · Clarkston, GA
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="font-heading font-bold text-4xl md:text-5xl text-surface mb-5 leading-tight"
+            >
+              Faithfulness
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="font-body text-surface/80 text-lg leading-relaxed max-w-xl"
+            >
+              One place for Scripture, prayer spots near you, and practical fuel for your daily walk with God.
+            </motion.p>
+          </div>
+        </div>
+
+        {/* Image + intro strip */}
+        <section className="py-16 px-6" style={{ background: 'linear-gradient(160deg, #eaf0fb 0%, #f5f0e8 100%)' }}>
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <div>
+              <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-3">Your Daily Walk</p>
+              <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">Built for the Everyday Believer</h2>
+              <p className="font-body text-text-secondary leading-relaxed mb-3">
+                We understand it is hard to stay focused sometimes. Life is loud, the week is full, and the quiet moments slip by quickly. This page was built for exactly that struggle.
+              </p>
+              <p className="font-body text-text-secondary leading-relaxed">
+                Pick a theme, read the verses, take the tip into your day, and find a place near you to pray. Small acts of faithfulness, done consistently, are what God builds with.
+              </p>
+            </div>
+            <div className="relative rounded-2xl overflow-hidden shadow-lg h-64">
+              <img
+                src="/assets/mcaglive/papite.jpg"
+                alt="Congregation in prayer"
+                className="w-full h-full object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-blue/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 px-5 pb-5">
+                <p className="font-heading italic text-surface text-sm leading-relaxed max-w-xs">
+                  "Great is your faithfulness." (Lamentations 3:23)
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* Bento command center */}
@@ -217,24 +266,36 @@ export default function Faithfulness() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {/* Highlighted spot tied to selected verse */}
-                <div className="p-6 border-b md:border-b-0 md:border-r border-border bg-brand-blue/5">
-                  <p className="font-body text-xs font-bold uppercase tracking-widest text-brand-blue mb-3">Suggested for {activeTheme.label}</p>
-                  <h3 className="font-heading font-bold text-text-primary text-base mb-2">{activeSpot.name}</h3>
-                  <p className="font-body text-text-secondary text-sm leading-relaxed mb-3">{activeSpot.note}</p>
-                  <p className="font-body text-text-secondary text-xs">{activeSpot.address}</p>
+                <div className="border-b md:border-b-0 md:border-r border-border overflow-hidden flex flex-col">
+                  <div className="relative h-36 overflow-hidden shrink-0">
+                    <img src={activeSpot.img} alt={activeSpot.name} className="w-full h-full object-cover object-center" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    <span className="absolute bottom-2 left-3 font-body text-xs text-white/80 font-bold uppercase tracking-widest">Suggested for {activeTheme.label}</span>
+                  </div>
+                  <div className="p-5 bg-brand-blue/5 flex-1">
+                    <h3 className="font-heading font-bold text-text-primary text-base mb-2">{activeSpot.name}</h3>
+                    <p className="font-body text-text-secondary text-sm leading-relaxed mb-3">{activeSpot.note}</p>
+                    <p className="font-body text-text-secondary text-xs">{activeSpot.address}</p>
+                  </div>
                 </div>
 
                 {/* Other spots */}
                 <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2">
-                  {SPOTS.filter(s => s.name !== activeSpot.name).slice(0, 4).map((spot, i, arr) => (
+                  {SPOTS.filter(s => s.name !== activeSpot.name).slice(0, 4).map((spot, i) => (
                     <div
                       key={spot.name}
-                      className="p-5 border-b border-border last:border-b-0"
+                      className="flex flex-col border-b border-border last:border-b-0 overflow-hidden"
                       style={{ borderRight: i % 2 === 0 ? '1px solid #e5e0d8' : 'none' }}
                     >
-                      <h4 className="font-heading font-semibold text-text-primary text-sm mb-1">{spot.name}</h4>
-                      <p className="font-body text-text-secondary text-xs leading-relaxed mb-2">{spot.note}</p>
-                      <p className="font-body text-text-secondary text-xs opacity-60">{spot.address}</p>
+                      <div className="relative h-24 overflow-hidden shrink-0">
+                        <img src={spot.img} alt={spot.name} className="w-full h-full object-cover object-center" />
+                        <div className="absolute inset-0 bg-black/30" />
+                      </div>
+                      <div className="p-4 flex-1">
+                        <h4 className="font-heading font-semibold text-text-primary text-sm mb-1">{spot.name}</h4>
+                        <p className="font-body text-text-secondary text-xs leading-relaxed mb-2">{spot.note}</p>
+                        <p className="font-body text-text-secondary text-xs opacity-60">{spot.address}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
