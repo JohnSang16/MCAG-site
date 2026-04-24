@@ -218,7 +218,7 @@ export default function About() {
                   img: '/assets/mcaglive/ap1.jpg',
                   imgClass: 'w-full h-full object-cover object-center',
                   bio: [
-                    'Pastor Sarah has a deep heart for the youth and for anyone who feels broken. She believes that young people are not the future of the church. They are the church right now, and she pours into them accordingly.',
+                    'Pastor Sarah has a deep heart for the youth and for anyone who feels broken. She believes that young people do not have to wait to be part of what God is doing. They are full members of the body of Christ right now, and she pours into them accordingly.',
                     'She leads Women\'s Night every Friday and plays a central role in the Saturday youth service, where she helps create a space for young people to lead, share testimonies, speak Scripture, and grow in faith together. She wants every young person to leave knowing they are seen, known, and loved by God.',
                     'Her message to the hurting and the broken is the same every time: you are not too far gone. God specializes in restoring what looks beyond repair.',
                   ],
