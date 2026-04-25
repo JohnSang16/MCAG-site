@@ -79,7 +79,7 @@ const THEMES = [
     id: 'love',
     label: 'Love',
     tip: 'Reach out to one person today just to encourage them with no agenda.',
-    spot: 'Your Local Library',
+    spot: 'Clarkston Branch Library',
     verses: [
       { ref: '1 Corinthians 13:4-5', text: 'Love is patient, love is kind. It does not envy, it does not boast, it is not proud. It does not dishonor others, it is not self-seeking, it is not easily angered.' },
       { ref: 'John 3:16', text: 'For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.' },
@@ -100,12 +100,13 @@ const TIPS = [
 ]
 
 const SPOTS = [
+  { name: "Daniel's Prayer Garden", note: "Pastor Abraham's personal favorite. A quiet, tucked-away garden he returns to again and again for extended time with God. Come and see why.", address: '3430 Land Rd, Alpharetta, GA 30009', img: 'https://static.wixstatic.com/media/5211f4_88ae256387b54cf4822e336b587d2017~mv2.jpg/v1/fill/w_1200,h_800,al_c,q_90/PeterHo_20211015_16_edited.jpg', pastorPick: true },
   { name: 'Miracle Center Assembly of God', note: 'Open for individual prayer. Our doors are open to anyone seeking a quiet space with God.', address: '4113 Church St, Clarkston, GA 30021', img: '/assets/mcaglive/groupimg.jpg' },
-  { name: 'Clarkston Community Center Park', note: 'A quiet public green space ideal for walking prayer.', address: 'Clarkston, GA 30021', img: '/assets/mcaglive/bg9.jpg' },
-  { name: 'Stone Mountain Park Trails', note: 'Wide open space with forest trails. Ideal for extended prayer walks away from noise.', address: 'Stone Mountain, GA 30083', img: '/assets/mcaglive/bg5.jpg' },
-  { name: 'Redan Park', note: 'A calm neighborhood park suitable for quiet reflection.', address: 'Stone Mountain, GA 30088', img: '/assets/mcaglive/bg7.jpg' },
-  { name: 'Clarkston International Bible Church Garden', note: 'A peaceful garden space open to the community for prayer and reflection.', address: 'Clarkston, GA 30021', img: '/assets/stockimg/community.jpg' },
-  { name: 'Your Local Library', note: 'Most Clarkston and DeKalb branch libraries have quiet study rooms available for free.', address: 'DeKalb County, GA', img: '/assets/stockimg/scripture.jpg' },
+  { name: 'Clarkston Community Center Park', note: 'A quiet public green space ideal for walking prayer.', address: '3701 College Ave, Clarkston, GA 30021', img: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Milam_Park_Pool_at_Dusk.jpg' },
+  { name: 'Stone Mountain Park Trails', note: 'Wide open space with forest trails. Ideal for extended prayer walks away from noise.', address: 'Stone Mountain, GA 30083', img: 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Stone_mountain_walkup.jpg' },
+  { name: 'Redan Park', note: 'A calm neighborhood park with open fields, trails, and a disc golf course. Good for quiet walks.', address: '1839 Phillips Rd, Lithonia, GA 30058', img: 'https://upload.wikimedia.org/wikipedia/commons/3/30/Gresham_Park%2C_Gresham_Park%2C_Georgia_June_2017.jpg' },
+  { name: 'Clarkston International Bible Church Garden', note: 'A peaceful garden space open to the community for prayer and reflection.', address: '1000 Rowland St, Clarkston, GA 30021', img: 'https://cibcfamily.com/wp-content/uploads/2025/10/IMG_2214-scaled.jpg' },
+  { name: 'Clarkston Branch Library', note: 'The Clarkston branch has quiet rooms available for free. A peaceful place to read Scripture and pray.', address: '951 N Indian Creek Dr, Clarkston, GA 30021', img: 'https://dekalblibrary.org/images/branches/clar-ext-510x310_2021-09-29-154129_mmte.png' },
 ]
 
 export default function Faithfulness() {
@@ -122,9 +123,9 @@ export default function Faithfulness() {
         {/* Hero */}
         <div className="relative h-[420px] overflow-hidden">
           <img
-            src="/assets/stockimg/worship.jpg"
+            src="/assets/stockimg/faitfulnessbg.jpg"
             alt="Faithfulness"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-[70%_center]"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/75 flex flex-col items-center justify-center text-center px-6">
             <motion.p
@@ -169,7 +170,7 @@ export default function Faithfulness() {
             </div>
             <div className="relative rounded-2xl overflow-hidden shadow-lg h-64">
               <img
-                src="/assets/mcaglive/papite.jpg"
+                src="/assets/stockimg/faithfulness.jpg"
                 alt="Congregation in prayer"
                 className="w-full h-full object-cover object-center"
               />
@@ -183,6 +184,22 @@ export default function Faithfulness() {
           </div>
         </section>
 
+        {/* How to use — 3-step guide */}
+        <section className="px-4 pt-2 pb-8 max-w-6xl mx-auto">
+          <div className="flex flex-col items-start gap-3 pl-4">
+            {[
+              { step: '1', label: 'Pick a theme below' },
+              { step: '2', label: 'Read the verses' },
+              { step: '3', label: 'Find a place to pray' },
+            ].map((item) => (
+              <div key={item.step} className="flex items-center gap-2.5 w-52">
+                <span className="w-7 h-7 rounded-full bg-brand-teal text-white text-xs font-bold font-body flex items-center justify-center shrink-0">{item.step}</span>
+                <span className="font-body text-sm text-text-secondary">{item.label}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Bento command center */}
         <section className="px-4 pb-24 max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
@@ -193,7 +210,7 @@ export default function Faithfulness() {
                 <svg className="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
-                <span className="font-body text-xs font-bold uppercase tracking-widest text-text-secondary">Scripture Engine</span>
+                <span className="font-body text-xs font-bold uppercase tracking-widest text-text-secondary">Step 1 — Choose a Theme</span>
               </div>
 
               {/* Theme pills */}
@@ -202,12 +219,12 @@ export default function Faithfulness() {
                   <button
                     key={t.id}
                     onClick={() => setActiveTheme(t)}
-                    className="font-body text-xs px-4 py-1.5 rounded-full border transition-all duration-200"
+                    className="font-body text-xs px-4 py-1.5 rounded-full border transition-all duration-200 cursor-pointer hover:border-brand-teal hover:text-brand-teal"
                     style={{
-                      background: activeTheme.id === t.id ? '#0e7c6e' : 'transparent',
-                      color: activeTheme.id === t.id ? '#ffffff' : '#6b6b6b',
-                      borderColor: activeTheme.id === t.id ? '#0e7c6e' : '#e5e0d8',
-                      fontWeight: activeTheme.id === t.id ? 600 : 400,
+                      background: activeTheme.id === t.id ? '#0e7c6e' : '#ffffff',
+                      color: activeTheme.id === t.id ? '#ffffff' : '#1a1a1a',
+                      borderColor: activeTheme.id === t.id ? '#0e7c6e' : '#c5c0b8',
+                      fontWeight: activeTheme.id === t.id ? 600 : 500,
                     }}
                   >
                     {t.label}
@@ -232,7 +249,7 @@ export default function Faithfulness() {
                 <svg className="w-4 h-4 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
-                <span className="font-body text-xs font-bold uppercase tracking-widest text-text-secondary">Daily Fuel</span>
+                <span className="font-body text-xs font-bold uppercase tracking-widest text-text-secondary">Step 2 — Try This Today</span>
               </div>
 
               {/* Contextual tip tied to selected verse */}
@@ -260,7 +277,7 @@ export default function Faithfulness() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="font-body text-xs font-bold uppercase tracking-widest text-text-secondary">Prayer Locator</span>
+                <span className="font-body text-xs font-bold uppercase tracking-widest text-text-secondary">Step 3 — Find a Place to Pray</span>
                 <span className="ml-auto font-body text-xs text-text-secondary">Near Clarkston, GA</span>
               </div>
 
@@ -270,10 +287,17 @@ export default function Faithfulness() {
                   <div className="relative h-36 overflow-hidden shrink-0">
                     <img src={activeSpot.img} alt={activeSpot.name} className="w-full h-full object-cover object-center" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <span className="absolute bottom-2 left-3 font-body text-xs text-white/80 font-bold uppercase tracking-widest">Suggested for {activeTheme.label}</span>
+                    <span className="absolute bottom-3 left-3 font-body text-xs text-white font-bold uppercase tracking-widest bg-brand-teal/80 px-2.5 py-1 rounded-full">Suggested for {activeTheme.label}</span>
                   </div>
                   <div className="p-5 bg-brand-blue/5 flex-1">
-                    <h3 className="font-heading font-bold text-text-primary text-base mb-2">{activeSpot.name}</h3>
+                    <div className="flex items-start gap-2 mb-2">
+                      <h3 className="font-heading font-bold text-text-primary text-base">{activeSpot.name}</h3>
+                      {activeSpot.pastorPick && (
+                        <span className="shrink-0 mt-0.5 inline-flex items-center gap-1 bg-brand-gold/15 text-brand-gold border border-brand-gold/30 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider font-body">
+                          Pastor's Pick
+                        </span>
+                      )}
+                    </div>
                     <p className="font-body text-text-secondary text-sm leading-relaxed mb-3">{activeSpot.note}</p>
                     <p className="font-body text-text-secondary text-xs">{activeSpot.address}</p>
                   </div>
@@ -292,7 +316,14 @@ export default function Faithfulness() {
                         <div className="absolute inset-0 bg-black/30" />
                       </div>
                       <div className="p-4 flex-1">
-                        <h4 className="font-heading font-semibold text-text-primary text-sm mb-1">{spot.name}</h4>
+                        <div className="flex items-start gap-1.5 mb-1">
+                          <h4 className="font-heading font-semibold text-text-primary text-sm">{spot.name}</h4>
+                          {spot.pastorPick && (
+                            <span className="shrink-0 mt-0.5 inline-flex items-center bg-brand-gold/15 text-brand-gold border border-brand-gold/30 rounded-full px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider font-body">
+                              Pastor's Pick
+                            </span>
+                          )}
+                        </div>
                         <p className="font-body text-text-secondary text-xs leading-relaxed mb-2">{spot.note}</p>
                         <p className="font-body text-text-secondary text-xs opacity-60">{spot.address}</p>
                       </div>
