@@ -70,7 +70,7 @@ export default function Donate() {
           <img
             src="/assets/stockimg/support.webp"
             alt="Support the ministry"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-left"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/75 flex flex-col items-center justify-center text-center px-6">
             <motion.p
@@ -106,6 +106,11 @@ export default function Donate() {
             <FadeUp>
               <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-3">Why We Give</p>
               <h2 className="font-heading text-3xl font-bold text-text-primary mb-6">Generosity Is an Act of Worship</h2>
+              <img
+                src="/assets/stockimg/geneorsity.avif"
+                alt="Prayer and giving"
+                className="md:hidden w-full h-64 object-cover rounded-2xl shadow-lg mb-6"
+              />
               <p className="font-body text-text-secondary leading-relaxed mb-4">
                 When we give, we participate in God's work. We are not funding a program. We are investing in people, in healing, in outreach, and in the next generation of believers being raised up right here in Clarkston.
               </p>
@@ -123,7 +128,7 @@ export default function Donate() {
               <img
                 src="/assets/stockimg/geneorsity.avif"
                 alt="Prayer and giving"
-                className="w-full h-80 object-cover rounded-2xl shadow-lg"
+                className="hidden md:block w-full h-80 object-cover rounded-2xl shadow-lg"
               />
             </FadeUp>
           </div>
