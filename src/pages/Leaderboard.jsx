@@ -1,89 +1,172 @@
+import { motion } from 'framer-motion'
 import leaderboardData from '../data/leaderboard.json'
 import { Navbar } from '../components/Navbar'
 import { Footer } from '../components/Footer'
 import { LeaderboardTable } from '../components/LeaderboardTable'
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  show: (i = 0) => ({
+    opacity: 1, y: 0,
+    transition: { duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
+  }),
+}
+
 export default function Leaderboard() {
   return (
-    <div className="bg-ivory min-h-screen flex flex-col">
+    <div className="bg-surface min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1">
 
-        {/* Hero + Mission + Grand Prize — single unified section */}
+        {/* ── Hero ─────────────────────────────────────────────────── */}
         <section
-          className="relative px-6 pt-20 pb-16 overflow-hidden"
-          style={{ background: 'linear-gradient(135deg, #1a3aad 0%, #0e7c6e 100%)' }}
+          className="px-6 pt-16 pb-0"
+          style={{ background: '#07091d' }}
         >
-          {/* Decorative circles */}
-          <div className="absolute -top-20 -left-20 w-80 h-80 rounded-full opacity-10 bg-white pointer-events-none" />
-          <div className="absolute -bottom-24 -right-16 w-96 h-96 rounded-full opacity-10 bg-white pointer-events-none" />
+          <div className="max-w-5xl mx-auto">
 
-          <div className="relative max-w-5xl mx-auto">
+            {/* Label */}
+            <motion.div
+              variants={fadeUp} initial="hidden" animate="show" custom={0}
+              className="flex items-center gap-3 mb-8"
+            >
+              <div className="w-5 h-px bg-brand-gold" />
+              <p className="font-body text-brand-gold text-[10px] font-bold uppercase tracking-[0.3em]">
+                Bible Competition
+              </p>
+            </motion.div>
 
-            {/* Title block */}
-            <div className="text-center mb-14">
-              <p className="font-body text-brand-gold text-xs font-bold uppercase tracking-widest mb-4">Bible Competition</p>
-              <h1 className="font-heading text-4xl md:text-6xl font-black text-surface mb-4">Leaderboard</h1>
-              <p className="font-body text-surface/75 text-lg max-w-xl mx-auto">
+            {/* Title — one line, full width */}
+            <motion.h1
+              variants={fadeUp} initial="hidden" animate="show" custom={1}
+              className="font-heading font-black text-surface uppercase leading-none mb-10"
+              style={{ fontSize: 'clamp(3rem, 10vw, 7rem)', letterSpacing: '-0.01em' }}
+            >
+              Leaderboard
+            </motion.h1>
+
+            {/* Bottom strip — rule + tagline */}
+            <motion.div
+              variants={fadeUp} initial="hidden" animate="show" custom={2}
+              className="flex items-center justify-between pb-0 pt-5"
+            >
+              <p className="font-body text-[11px] uppercase tracking-[0.25em] text-white/60">
                 Study hard. Stay consistent. The crown is yours.
               </p>
-            </div>
-
-            {/* Mission text + Grand Prize card */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
-              {/* Left: mission */}
-              <div>
-                <p className="font-body text-brand-gold text-xs font-bold uppercase tracking-widest mb-3">The Mission</p>
-                <h2 className="font-heading text-2xl font-bold text-surface mb-5">The Whole Bible, Cover to Cover</h2>
-                <p className="font-body text-surface/75 leading-relaxed mb-4">
-                  We are journeying through the entire Bible, starting from Genesis, with the goal of teaching every member the full Word of God from cover to cover.
-                </p>
-                <p className="font-body text-surface/75 leading-relaxed mb-8">
-                  Every other week we take a test on the passages we have studied together, checking our understanding and keeping one another accountable to the Word. The leaderboard tracks cumulative scores across every test.
-                </p>
-                <div className="grid grid-cols-3 gap-3 text-center">
-                  {[
-                    { value: 'Genesis', label: 'Starting Point' },
-                    { value: 'Bi-weekly', label: 'Test Frequency' },
-                    { value: '$500', label: 'Grand Prize' },
-                  ].map(({ value, label }) => (
-                    <div key={label} className="rounded-2xl bg-white/10 border border-white/20 p-4">
-                      <p className="font-heading font-black text-lg text-white mb-1">{value}</p>
-                      <p className="font-body text-xs text-white/60 uppercase tracking-widest">{label}</p>
-                    </div>
-                  ))}
-                </div>
+              <div className="hidden sm:flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-brand-gold/60" />
+                <p className="font-body text-[11px] uppercase tracking-widest text-white/60">MCAG · Clarkston, GA</p>
               </div>
+            </motion.div>
 
-              {/* Right: grand prize card */}
-              <div className="flex flex-col items-center text-center bg-white/10 border border-white/20 rounded-3xl px-8 py-10">
-                <svg viewBox="0 0 80 80" className="w-24 h-24 drop-shadow-xl mb-4" fill="none">
-                  <circle cx="40" cy="40" r="38" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" strokeWidth="1.5" strokeDasharray="4 3" />
-                  <path d="M26 18h28v20c0 9-6 15-14 16v4h6v4H34v-4h6v-4C32 53 26 47 26 38V18z" fill="#C9A84C" />
-                  <path d="M30 22h4v14c0 5 2 9 6 11" stroke="#FFE066" strokeWidth="1.5" strokeLinecap="round" />
-                  <path d="M26 22h-5a5 5 0 000 10h5" stroke="#C9A84C" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-                  <path d="M54 22h5a5 5 0 010 10h-5" stroke="#C9A84C" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-                  <text x="34" y="26" fontSize="7" fill="#FFF8E0">★</text>
-                  <text x="42" y="22" fontSize="5" fill="#FFE066">★</text>
-                  <text x="44" y="30" fontSize="6" fill="#FFF8E0">★</text>
-                </svg>
-                <p className="font-body text-brand-gold text-xs font-bold tracking-widest uppercase mb-3">Grand Prize</p>
-                <div className="font-heading font-black text-surface leading-none mb-4"
-                  style={{ fontSize: 'clamp(4rem, 10vw, 6.5rem)' }}>
-                  $500
+            {/* Stats — flush to hero bottom, sharp top borders */}
+            <motion.div
+              variants={fadeUp} initial="hidden" animate="show" custom={3}
+              className="grid grid-cols-3 mt-0"
+            >
+              {[
+                { value: 'Genesis', label: 'Starting Book' },
+                { value: 'Revelation', label: 'Ending Book' },
+                { value: 'Bi-weekly', label: 'Test Frequency' },
+              ].map(({ value, label }, i) => (
+                <div
+                  key={label}
+                  className="py-6 px-4 text-center"
+                  style={{
+                    borderTop: '1px solid rgba(255,255,255,0.1)',
+                    borderRight: i < 2 ? '1px solid rgba(255,255,255,0.08)' : 'none',
+                  }}
+                >
+                  <p className="font-heading font-bold text-surface text-base mb-0.5">{value}</p>
+                  <p className="font-body text-[10px] uppercase tracking-widest text-white/60">{label}</p>
                 </div>
-                <p className="font-body text-surface/65 text-sm leading-relaxed">
-                  One winner. One Bible. Five hundred dollars. The highest cumulative score at the end of the competition takes it all.
-                </p>
-              </div>
-
-            </div>
+              ))}
+            </motion.div>
           </div>
         </section>
 
-        {/* Leaderboard table */}
-        <section className="py-16 px-4 max-w-4xl mx-auto">
+        {/* ── Mission + Grand Prize ─────────────────────────────────── */}
+        <section className="px-6 py-14 bg-surface">
+          <div className="max-w-5xl mx-auto">
+            <motion.div
+              variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
+              className="grid grid-cols-1 md:grid-cols-2 overflow-hidden"
+              style={{ border: '1px solid #e5e0d8' }}
+            >
+              {/* Left — Mission */}
+              <div
+                className="bg-surface px-10 py-10"
+                style={{ borderRight: '1px solid #e5e0d8', borderLeft: '4px solid #0e7c6e' }}
+              >
+                <p className="font-body text-brand-teal text-[10px] font-bold uppercase tracking-[0.25em] mb-4">The Mission</p>
+                <h2 className="font-heading text-2xl font-bold text-text-primary leading-snug mb-5">
+                  The Whole Bible,<br />Cover to Cover
+                </h2>
+                <p className="font-body text-text-secondary text-sm leading-relaxed mb-4">
+                  We are journeying through the entire Bible, from Genesis to Revelation, with the goal of teaching every member the full Word of God from cover to cover.
+                </p>
+                <p className="font-body text-text-secondary text-sm leading-relaxed">
+                  Every other week we take a test on the passages we have studied, checking our understanding and keeping one another accountable to the Word. The leaderboard tracks cumulative scores across every test.
+                </p>
+              </div>
+
+              {/* Right — Grand Prize */}
+              <div
+                className="relative flex flex-col items-center justify-center text-center px-10 py-12 overflow-hidden"
+                style={{ background: '#07091d' }}
+              >
+                {/* Mobile PRIZE */}
+                <span
+                  className="md:hidden absolute font-heading font-black italic text-white select-none pointer-events-none"
+                  style={{ fontSize: '7.6rem', opacity: 0.22, top: '44%', left: '45%', transform: 'translate(-50%, -50%) rotate(-8deg)', whiteSpace: 'nowrap' }}
+                >
+                  PRIZE
+                </span>
+                {/* Desktop PRIZE */}
+                <span
+                  className="hidden md:block absolute font-heading font-black italic text-white select-none pointer-events-none"
+                  style={{ fontSize: 'clamp(5.5rem, 17vw, 12rem)', opacity: 0.22, top: '44%', left: '45%', transform: 'translate(-50%, -50%) rotate(-8deg)', whiteSpace: 'nowrap' }}
+                >
+                  PRIZE
+                </span>
+
+                <p className="relative font-body text-[10px] font-bold tracking-[0.3em] uppercase mb-3 text-brand-gold">
+                  Grand Prize
+                </p>
+                <motion.p
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                  viewport={{ once: true }}
+                  className="relative leading-none"
+                  style={{ fontSize: 'clamp(5rem, 12vw, 8rem)', color: '#C9A84C', fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.02em' }}
+                >
+                  $500
+                </motion.p>
+                <div className="relative w-8 h-px bg-white/15 mx-auto mt-1 mb-4" />
+                <p className="relative font-body text-white/45 text-sm leading-relaxed" style={{ maxWidth: 200 }}>
+                  One winner. One Bible. Five hundred dollars. Highest cumulative score takes it all.
+                </p>
+              </div>
+
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ── Rankings ─────────────────────────────────────────────── */}
+        <section className="px-4 pb-24 max-w-4xl mx-auto">
+          <motion.div
+            variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
+            className="mb-8 flex items-end justify-between"
+          >
+            <div>
+              <p className="font-body text-brand-teal text-[10px] font-bold uppercase tracking-[0.25em] mb-2">Rankings</p>
+              <h2 className="font-heading text-2xl font-bold text-text-primary">
+                Current Standings
+              </h2>
+            </div>
+            <div className="hidden sm:block w-16 h-0.5 bg-brand-gold mb-1" />
+          </motion.div>
           <LeaderboardTable data={leaderboardData} />
         </section>
 

@@ -115,7 +115,7 @@ function OverallTable({ members, tests, search }) {
       <div className="hidden md:block overflow-hidden rounded-xl border border-border shadow-sm">
         <table className="w-full text-sm font-body">
           <thead>
-            <tr className="bg-gradient-to-r from-brand-blue to-brand-teal text-surface">
+            <tr className="bg-text-primary text-surface">
               <th className="text-left px-5 py-4 font-semibold tracking-wide text-xs uppercase">Rank</th>
               <th className="text-left px-5 py-4 font-semibold tracking-wide text-xs uppercase">Name</th>
               <th className="text-right px-5 py-4 font-semibold tracking-wide text-xs uppercase">Avg Score</th>
@@ -192,7 +192,7 @@ function PerTestTable({ members, test, search }) {
       <div className="hidden md:block overflow-hidden rounded-xl border border-border shadow-sm">
         <table className="w-full text-sm font-body">
           <thead>
-            <tr className="bg-gradient-to-r from-brand-blue to-brand-teal text-surface">
+            <tr className="bg-text-primary text-surface">
               <th className="text-left px-5 py-4 font-semibold tracking-wide text-xs uppercase">Rank</th>
               <th className="text-left px-5 py-4 font-semibold tracking-wide text-xs uppercase">Name</th>
               <th className="text-right px-5 py-4 font-semibold tracking-wide text-xs uppercase">Score</th>
