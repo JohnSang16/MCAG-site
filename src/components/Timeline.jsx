@@ -43,37 +43,31 @@ export function Timeline() {
       {/* Centre vertical line — desktop only */}
       <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px -translate-x-px bg-gradient-to-b from-brand-teal via-brand-blue to-brand-teal" />
 
-      <ol className="space-y-12">
+      {/* Mobile — simple column */}
+      <ol className="flex flex-col gap-6 md:hidden">
+        {milestones.map((m) => (
+          <li key={m.label}>
+            <Card m={m} withIcon />
+          </li>
+        ))}
+      </ol>
+
+      {/* Desktop — alternating zigzag */}
+      <ol className="hidden md:block space-y-12">
         {milestones.map((m, i) => {
           const isLeft = i % 2 === 0
           return (
-            <li key={m.label} className="relative grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-0">
-
-              {/* Left slot */}
-              <div className={isLeft ? 'md:pr-10 md:text-right' : 'hidden md:block'}>
+            <li key={m.label} className="relative grid grid-cols-[1fr_auto_1fr] items-center gap-0">
+              <div className={isLeft ? 'pr-10 text-right' : ''}>
                 {isLeft && <Card m={m} />}
               </div>
-
-              {/* Centre dot */}
-              <div className="hidden md:flex items-center justify-center w-14 h-14 rounded-full text-surface shadow-lg flex-shrink-0"
+              <div className="flex items-center justify-center w-14 h-14 rounded-full text-surface shadow-lg flex-shrink-0"
                 style={{ background: 'linear-gradient(135deg, #0e7c6e, #1a3aad)' }}>
                 {m.icon}
               </div>
-
-              {/* Right slot */}
-              <div className={!isLeft ? 'md:pl-10' : 'hidden md:block'}>
+              <div className={!isLeft ? 'pl-10' : ''}>
                 {!isLeft && <Card m={m} />}
               </div>
-
-              {/* Mobile — single column with dot on left */}
-              <div className="md:hidden flex items-start gap-4 col-span-1">
-                <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full text-surface shadow-md mt-1"
-                  style={{ background: 'linear-gradient(135deg, #0e7c6e, #1a3aad)' }}>
-                  {m.icon}
-                </div>
-                <Card m={m} />
-              </div>
-
             </li>
           )
         })}
@@ -82,13 +76,20 @@ export function Timeline() {
   )
 }
 
-function Card({ m }) {
+function Card({ m, withIcon = false }) {
+  const chapter = ['I','II','III','IV'][['The Calling','First Home Service','Growing Together','A Church of Our Own'].indexOf(m.label)]
   return (
     <div className="rounded-2xl border border-border bg-surface shadow-sm overflow-hidden w-full">
       <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #0e7c6e, #1a3aad)' }} />
       <div className="px-6 py-5">
+        {withIcon && (
+          <div className="flex items-center justify-center w-10 h-10 rounded-full text-surface shadow-sm mb-4"
+            style={{ background: 'linear-gradient(135deg, #0e7c6e, #1a3aad)' }}>
+            {m.icon}
+          </div>
+        )}
         <p className="font-body text-xs font-bold uppercase tracking-widest text-brand-teal mb-1">
-          Chapter {['I','II','III','IV'][['The Calling','First Home Service','Growing Together','A Church of Our Own'].indexOf(m.label)]}
+          Chapter {chapter}
         </p>
         <h4 className="font-heading text-xl font-bold text-text-primary mb-2">{m.label}</h4>
         <p className="font-body text-sm text-text-secondary leading-relaxed">{m.description}</p>
