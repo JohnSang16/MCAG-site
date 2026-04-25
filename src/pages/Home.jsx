@@ -9,25 +9,46 @@ import { FacebookCTAStrip } from '../components/FacebookCTAStrip'
 import { ContainerScroll, BentoGrid, BentoCell, ContainerScale } from '../components/HeroGalleryScroll'
 
 // size = diameter in px, top = vertical offset from top of section (px)
+const FLOAT_CIRCLES_DESKTOP = [
+  { img: '/assets/mcaglive/lp1.jpg',     size: 150, top: 30  },
+  { img: '/assets/mcaglive/bg1.jpg',     size: 110, top: 310 },
+  { img: '/assets/mcaglive/nupite.jpg',  size: 180, top: 180 },
+  { img: '/assets/mcaglive/bg2.jpg',     size: 95,  top: 420 },
+  { img: '/assets/mcaglive/ap1.jpg',     size: 130, top: 90  },
+  { img: '/assets/mcaglive/bg3.jpg',     size: 160, top: 250 },
+  { img: '/assets/mcaglive/papite.jpg',  size: 140, top: 370 },
+  { img: '/assets/mcaglive/bg4.jpg',     size: 100, top: 140 },
+  { img: '/assets/mcaglive/ap2.jpg',     size: 120, top: 460 },
+  { img: '/assets/mcaglive/bg5.jpg',     size: 165, top: 50  },
+  { img: '/assets/mcaglive/bg 6.jpg',    size: 115, top: 200 },
+  { img: '/assets/mcaglive/bg7.jpg',     size: 145, top: 340 },
+  { img: '/assets/mcaglive/bg8.jpg',     size: 90,  top: 110 },
+  { img: '/assets/mcaglive/bg9.jpg',     size: 155, top: 430 },
+  { img: '/assets/mcaglive/bg10.jpg',    size: 125, top: 270 },
+  { img: '/assets/mcaglive/bg11.jpg',    size: 170, top: 15  },
+  { img: '/assets/mcaglive/nupite.jpg',  size: 105, top: 390 },
+  { img: '/assets/mcaglive/bg3.jpg',     size: 135, top: 220 },
+]
+
 const FLOAT_CIRCLES = [
-  { img: '/assets/mcaglive/lp1.jpg',     objPos: 'object-[center_28%]', size: 150, top: 20  },
-  { img: '/assets/mcaglive/bg1.jpg',     objPos: 'object-center',        size: 110, top: 260 },
-  { img: '/assets/mcaglive/nupite.jpg',  objPos: 'object-center',        size: 180, top: 60  },
-  { img: '/assets/mcaglive/bg2.jpg',     objPos: 'object-center',        size: 95,  top: 360 },
-  { img: '/assets/mcaglive/ap1.jpg',     objPos: 'object-center',        size: 130, top: 150 },
-  { img: '/assets/mcaglive/bg3.jpg',     objPos: 'object-center',        size: 160, top: 10  },
-  { img: '/assets/mcaglive/papite.jpg',  objPos: 'object-center',        size: 140, top: 300 },
-  { img: '/assets/mcaglive/bg4.jpg',     objPos: 'object-center',        size: 100, top: 100 },
-  { img: '/assets/mcaglive/ap2.jpg',     objPos: 'object-center',        size: 120, top: 390 },
-  { img: '/assets/mcaglive/bg5.jpg',     objPos: 'object-center',        size: 165, top: 40  },
-  { img: '/assets/mcaglive/bg 6.jpg',    objPos: 'object-center',        size: 115, top: 220 },
-  { img: '/assets/mcaglive/bg7.jpg',     objPos: 'object-center',        size: 145, top: 330 },
-  { img: '/assets/mcaglive/bg8.jpg',     objPos: 'object-center',        size: 90,  top: 80  },
-  { img: '/assets/mcaglive/bg9.jpg',     objPos: 'object-center',        size: 155, top: 410 },
-  { img: '/assets/mcaglive/bg10.jpg',    objPos: 'object-center',        size: 125, top: 140 },
-  { img: '/assets/mcaglive/bg11.jpg',    objPos: 'object-center',        size: 170, top: 270 },
-  { img: '/assets/mcaglive/nupite.jpg',  objPos: 'object-center',        size: 105, top: 25  },
-  { img: '/assets/mcaglive/bg3.jpg',     objPos: 'object-center',        size: 135, top: 370 },
+  { img: '/assets/mcaglive/lp1.jpg',     objPos: 'object-[center_28%]', size: 150, top: 10  },
+  { img: '/assets/mcaglive/bg1.jpg',     objPos: 'object-center',        size: 110, top: 490 },
+  { img: '/assets/mcaglive/nupite.jpg',  objPos: 'object-center',        size: 180, top: 30  },
+  { img: '/assets/mcaglive/bg2.jpg',     objPos: 'object-center',        size: 95,  top: 520 },
+  { img: '/assets/mcaglive/ap1.jpg',     objPos: 'object-center',        size: 130, top: 80  },
+  { img: '/assets/mcaglive/bg3.jpg',     objPos: 'object-center',        size: 160, top: 460 },
+  { img: '/assets/mcaglive/papite.jpg',  objPos: 'object-center',        size: 140, top: 15  },
+  { img: '/assets/mcaglive/bg4.jpg',     objPos: 'object-center',        size: 100, top: 500 },
+  { img: '/assets/mcaglive/ap2.jpg',     objPos: 'object-center',        size: 120, top: 55  },
+  { img: '/assets/mcaglive/bg5.jpg',     objPos: 'object-center',        size: 165, top: 470 },
+  { img: '/assets/mcaglive/bg 6.jpg',    objPos: 'object-center',        size: 115, top: 5   },
+  { img: '/assets/mcaglive/bg7.jpg',     objPos: 'object-center',        size: 145, top: 510 },
+  { img: '/assets/mcaglive/bg8.jpg',     objPos: 'object-center',        size: 90,  top: 100 },
+  { img: '/assets/mcaglive/bg9.jpg',     objPos: 'object-center',        size: 155, top: 450 },
+  { img: '/assets/mcaglive/bg10.jpg',    objPos: 'object-center',        size: 125, top: 40  },
+  { img: '/assets/mcaglive/bg11.jpg',    objPos: 'object-center',        size: 170, top: 480 },
+  { img: '/assets/mcaglive/nupite.jpg',  objPos: 'object-center',        size: 105, top: 70  },
+  { img: '/assets/mcaglive/bg3.jpg',     objPos: 'object-center',        size: 135, top: 530 },
 ]
 
 const HEART_PATH = "M50,82 C50,82 8,55 8,30 C8,13 21,4 35,11 C42,14 47,21 50,27 C53,21 58,14 65,11 C79,4 92,13 92,30 C92,55 50,82 50,82 Z"
@@ -52,7 +73,7 @@ const HERO_IMAGES = [
   '/assets/mcaglive/nupite.jpg',
   '/assets/mcaglive/sundayschool2.jpg',
   '/assets/mcaglive/papite.jpg',
-  '/assets/mcaglive/groupimg.jpg',
+  '/assets/mcaglive/sundayschool1.jpg',
 ]
 
 export default function Home() {
@@ -76,14 +97,14 @@ export default function Home() {
 
         </BentoGrid>
 
-        <ContainerScale className="z-10 text-center flex flex-col items-center" style={{ width: 'min(100vw, 58rem)' }}>
+        <ContainerScale className="z-10 text-center flex flex-col items-center" style={{ width: 'clamp(20rem, 96vw, 58rem)' }}>
           {/* Frosted glass card */}
-          <div className="rounded-3xl px-10 py-10 flex flex-col items-center" style={{ background: 'rgba(234,240,251,0.88)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', boxShadow: '0 8px 40px rgba(26,58,173,0.10), inset 0 1px 0 rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.6)' }}>
+          <div className="rounded-3xl px-6 py-8 md:px-10 md:py-10 flex flex-col items-center" style={{ background: 'rgba(234,240,251,0.88)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', boxShadow: '0 8px 40px rgba(26,58,173,0.10), inset 0 1px 0 rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.6)' }}>
 
             {/* Eyebrow label */}
             <p
-              className="font-body font-bold tracking-widest uppercase mb-6"
-              style={{ fontSize: '0.72rem', letterSpacing: '0.22em', color: '#0e7c6e' }}
+              className="font-body font-bold tracking-widest uppercase mb-4"
+              style={{ fontSize: '0.65rem', letterSpacing: '0.22em', color: '#0e7c6e' }}
             >
               Clarkston, GA · Assemblies of God · Pentecostal
             </p>
@@ -95,7 +116,7 @@ export default function Home() {
             >
               <span className="block" style={{ fontWeight: 700, fontSize: '0.85em', marginBottom: '0.05em', color: 'rgb(90,115,203)' }}>Welcome to</span>
               <span className="block">MIRACLE CENTER</span>
-              <span className="block whitespace-nowrap">
+              <span className="block">
                 ASSEMBLY OF{' '}
                 <span
                   className="inline-block bg-brand-gold text-surface align-middle"
@@ -108,15 +129,15 @@ export default function Home() {
 
             {/* Verse */}
             <p
-              className="font-body text-text-secondary mt-8 leading-relaxed"
-              style={{ fontSize: '1rem', maxWidth: 480 }}
+              className="font-body text-text-secondary mt-5 leading-relaxed"
+              style={{ fontSize: '0.78rem', maxWidth: 480 }}
             >
               "Have I not commanded you? Be strong and courageous." (Joshua 1:9)
             </p>
 
             {/* CTA */}
             <a href="#services" onClick={scrollToServices} className="inline-block mt-8">
-              <button className="font-body font-semibold text-sm px-8 py-4 rounded-full bg-text-primary text-surface flex items-center gap-2 hover:bg-text-secondary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-text-primary">
+              <button className="font-body font-semibold text-xs px-6 py-3 rounded-full bg-text-primary text-surface flex items-center gap-2 hover:bg-text-secondary transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-text-primary">
                 JOIN US
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -128,10 +149,10 @@ export default function Home() {
       </ContainerScroll>
 
       {/* Intro Blurb */}
-      <section className="relative overflow-hidden" style={{ minHeight: 520, background: 'rgb(90, 115, 203)' }}>
+      <section className="relative overflow-hidden" style={{ minHeight: 640, background: 'rgb(90, 115, 203)' }}>
 
-        {/* Single carousel strip — all circles, all moving right to left, staggered vertically */}
-        <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 0 }}>
+        {/* Mobile carousel — hearts clustered top and bottom to avoid panel */}
+        <div className="md:hidden absolute inset-0 pointer-events-none" style={{ zIndex: 0 }}>
           <div
             className="absolute top-0 left-0 h-full flex items-start"
             style={{ width: 'max-content', animation: 'mcag-scroll-left 45s linear infinite' }}
@@ -144,14 +165,28 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Desktop carousel — hearts spread randomly across full section */}
+        <div className="hidden md:block absolute inset-0 pointer-events-none" style={{ zIndex: 0 }}>
+          <div
+            className="absolute top-0 left-0 h-full flex items-start"
+            style={{ width: 'max-content', animation: 'mcag-scroll-left 45s linear infinite' }}
+          >
+            {[...FLOAT_CIRCLES_DESKTOP, ...FLOAT_CIRCLES_DESKTOP].map((c, i) => (
+              <div key={i} style={{ marginTop: c.top, marginRight: 28, flexShrink: 0 }}>
+                <HeartImg src={c.img} size={c.size} idx={`d${i}`} />
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Fade left and right edges */}
         <div className="absolute inset-y-0 left-0 w-24 pointer-events-none" style={{ zIndex: 2, background: 'linear-gradient(to right, rgb(90, 115, 203), transparent)' }} />
         <div className="absolute inset-y-0 right-0 w-24 pointer-events-none" style={{ zIndex: 2, background: 'linear-gradient(to left, rgb(90, 115, 203), transparent)' }} />
 
         {/* Text — z-10 so circles behind it are at z-0, some visually overlap */}
-        <div className="relative z-10 flex items-center justify-center px-6 py-28" style={{ minHeight: 520 }}>
+        <div className="relative z-10 flex items-center justify-center px-6 py-28" style={{ minHeight: 640 }}>
           <div
-            className="relative max-w-3xl w-full text-center rounded-2xl px-12 py-14"
+            className="relative max-w-xl md:max-w-3xl w-full text-center rounded-2xl px-8 md:px-12 py-9 md:py-14"
             style={{
               background: 'rgba(255,255,255,0.08)',
               backdropFilter: 'blur(24px)',
@@ -168,7 +203,7 @@ export default function Home() {
             >
               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
             </svg>
-            <p className="font-body text-surface/90 text-xl leading-relaxed">
+            <p className="font-body text-surface/90 text-base md:text-xl leading-relaxed">
               We are a Spirit-filled Pentecostal church located in Clarkston, GA. Rooted in the Burmese and Chin (Zo) community. We believe in miracles. We believe God heals bodies, minds, and broken lives, and we named this church accordingly. People of every nationality and background are welcome here. Come as you are.
             </p>
           </div>
@@ -241,7 +276,7 @@ export default function Home() {
               <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-2">Come Join Us</p>
               <h2 className="font-heading font-bold text-3xl text-text-primary mb-8">Visit Us</h2>
 
-              {/* Congregation Times */}
+              {/* Service Times */}
               <div className="mb-6">
                 <div className="flex items-center gap-2 mb-4">
                   <div className="w-8 h-8 rounded-full bg-brand-blue flex items-center justify-center shrink-0">
@@ -249,7 +284,7 @@ export default function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <h3 className="font-heading font-semibold text-base text-text-primary tracking-wide uppercase">Congregation Times</h3>
+                  <h3 className="font-heading font-semibold text-base text-text-primary tracking-wide uppercase">Service Times</h3>
                 </div>
                 <div className="flex flex-col divide-y divide-border font-body rounded-xl overflow-hidden border border-border">
                   {[
@@ -348,7 +383,7 @@ export default function Home() {
           </p>
           <div className="mt-8 flex items-center justify-center gap-3">
             <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-surface/40 shrink-0">
-              <img src="/assets/mcaglive/lp1.jpg" alt="Pastor Abraham Thang" className="w-full h-full object-cover object-[center_28%] scale-150" />
+              <img src="/assets/mcaglive/leadpastorheadshot.jpg" alt="Pastor Abraham Thang" className="w-full h-full object-cover object-[center_20%]" />
             </div>
             <div className="text-left">
               <p className="font-body font-bold text-surface text-sm">Pastor Abraham Thang</p>
