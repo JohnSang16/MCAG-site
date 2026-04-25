@@ -79,6 +79,10 @@ export default function AboutJesus() {
 
         {/* Who is Jesus — text + image side by side */}
         <section className="py-20 px-4 max-w-5xl mx-auto">
+          {/* Title above image on mobile only */}
+          <FadeUp>
+            <h2 className="md:hidden font-heading text-3xl font-bold text-text-primary mb-6">Who Is Jesus?</h2>
+          </FadeUp>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <FadeUp delay={0.15}>
               <img
@@ -88,7 +92,7 @@ export default function AboutJesus() {
               />
             </FadeUp>
             <FadeUp>
-              <h2 className="font-heading text-3xl font-bold text-text-primary mb-6">Who Is Jesus?</h2>
+              <h2 className="hidden md:block font-heading text-3xl font-bold text-text-primary mb-6">Who Is Jesus?</h2>
               <div className="font-body text-text-secondary leading-relaxed space-y-4">
                 <p>
                   Jesus Christ is the Son of God, fully God and fully human, who entered history some 2,000
