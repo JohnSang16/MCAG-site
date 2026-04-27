@@ -149,10 +149,25 @@ export default function Home() {
       </ContainerScroll>
 
       {/* Intro Blurb */}
-      <section className="relative overflow-hidden" style={{ minHeight: 640, background: 'rgb(90, 115, 203)' }}>
+      <section
+        className="relative overflow-hidden min-h-[640px]"
+        style={{ background: 'linear-gradient(to right, #1a3aad 0%, #0e7c6e 100%)' }}
+      >
+        {/* Gold top accent bar */}
+        <div className="absolute top-0 left-0 right-0 h-[3px] bg-brand-gold z-[5]" />
 
-        {/* Mobile carousel — hearts clustered top and bottom to avoid panel */}
-        <div className="md:hidden absolute inset-0 pointer-events-none" style={{ zIndex: 0 }}>
+        {/* Watermark — ghost "MIRACLE" behind everything */}
+        <div className="absolute inset-0 flex items-center justify-center -translate-y-16 pointer-events-none select-none z-[1]">
+          <span
+            className="font-heading font-black uppercase text-white whitespace-nowrap"
+            style={{ fontSize: 'clamp(6rem, 18vw, 19rem)', opacity: 0.045, letterSpacing: '-0.02em' }}
+          >
+            MIRACLE
+          </span>
+        </div>
+
+        {/* Heart carousel — mobile */}
+        <div className="md:hidden absolute inset-0 pointer-events-none z-[2] opacity-60">
           <div
             className="absolute top-0 left-0 h-full flex items-start"
             style={{ width: 'max-content', animation: 'mcag-scroll-left 45s linear infinite' }}
@@ -165,8 +180,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Desktop carousel — hearts spread randomly across full section */}
-        <div className="hidden md:block absolute inset-0 pointer-events-none" style={{ zIndex: 0 }}>
+        {/* Heart carousel — desktop */}
+        <div className="hidden md:block absolute inset-0 pointer-events-none z-[2] opacity-50">
           <div
             className="absolute top-0 left-0 h-full flex items-start"
             style={{ width: 'max-content', animation: 'mcag-scroll-left 45s linear infinite' }}
@@ -179,33 +194,38 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Fade left and right edges */}
-        <div className="absolute inset-y-0 left-0 w-24 pointer-events-none" style={{ zIndex: 2, background: 'linear-gradient(to right, rgb(90, 115, 203), transparent)' }} />
-        <div className="absolute inset-y-0 right-0 w-24 pointer-events-none" style={{ zIndex: 2, background: 'linear-gradient(to left, rgb(90, 115, 203), transparent)' }} />
+        {/* Edge fades — match gradient endpoints */}
+        <div className="absolute inset-y-0 left-0 w-16 pointer-events-none z-[3]" style={{ background: 'linear-gradient(to right, #1a3aad80, transparent)' }} />
+        <div className="absolute inset-y-0 right-0 w-32 pointer-events-none z-[3]" style={{ background: 'linear-gradient(to left, #0e7c6e, transparent)' }} />
 
-        {/* Text — z-10 so circles behind it are at z-0, some visually overlap */}
-        <div className="relative z-10 flex items-center justify-center px-6 py-28" style={{ minHeight: 640 }}>
-          <div
-            className="relative max-w-xl md:max-w-3xl w-full text-center rounded-2xl px-8 md:px-12 py-9 md:py-14"
-            style={{
-              background: 'rgba(255,255,255,0.08)',
-              backdropFilter: 'blur(24px)',
-              WebkitBackdropFilter: 'blur(24px)',
-              border: '1px solid rgba(255,255,255,0.18)',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.12)',
-            }}
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="white"
-              className="absolute top-3 right-4 w-5 h-5 opacity-60"
-              aria-hidden="true"
+        {/* Content — open editorial layout, no frosted glass box */}
+        <div className="relative z-[4] flex items-center justify-center px-6 py-28 min-h-[640px]">
+          <div className="max-w-3xl w-full text-center flex flex-col items-center">
+
+            {/* Main headline */}
+            <h2
+              className="font-heading font-black text-surface uppercase leading-none mb-8"
+              style={{ fontSize: 'clamp(2.6rem, 6.5vw, 5.5rem)', letterSpacing: '-0.025em' }}
             >
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-            </svg>
-            <p className="font-body text-surface/90 text-base md:text-xl leading-relaxed">
+              Born to Carry<br />
+              <span className="text-brand-gold">Miracles</span>
+            </h2>
+
+            {/* Cross divider */}
+            <div className="flex items-center gap-5 mb-10 w-full max-w-xs">
+              <div className="h-px flex-1 bg-white/20" />
+              <svg className="w-4 h-6 text-brand-gold shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" viewBox="0 0 24 36" aria-hidden="true">
+                <path d="M12 2v32M4 12h16" />
+              </svg>
+              <div className="h-px flex-1 bg-white/20" />
+            </div>
+
+            {/* Body text */}
+            <p className="font-body text-surface/80 text-base md:text-lg leading-relaxed max-w-2xl">
               We are a Spirit-filled Pentecostal church located in Clarkston, GA. Rooted in the Burmese and Chin (Zo) community. We believe in miracles. We believe God heals bodies, minds, and broken lives, and we named this church accordingly. People of every nationality and background are welcome here. Come as you are.
             </p>
+
+
           </div>
         </div>
       </section>
