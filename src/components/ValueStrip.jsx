@@ -39,7 +39,7 @@ export function ValueStrip({ className = 'py-20' }) {
         {/* Section header */}
         <div className="text-center mb-12">
           <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-3">What We Are Built On</p>
-          <h2 className="font-heading font-bold text-3xl text-text-primary">Our Core Values</h2>
+          <h2 className="font-heading font-bold text-4xl text-text-primary">Our Core Values</h2>
           <p className="font-body text-text-secondary mt-4 max-w-xl mx-auto leading-relaxed">
             Everything we do flows from these three convictions. They shape how we gather, how we serve, and how we grow.
           </p>
@@ -48,7 +48,7 @@ export function ValueStrip({ className = 'py-20' }) {
         {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {values.map(({ label, description, img, icon }) => (
-            <div key={label} className="group relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 h-80">
+            <div key={label} className="group relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 h-96">
               {/* Background image */}
               <img
                 src={img}
@@ -67,8 +67,8 @@ export function ValueStrip({ className = 'py-20' }) {
 
                 {/* Label + description bottom */}
                 <div>
-                  <h3 className="font-heading font-bold text-2xl text-surface mb-2">{label}</h3>
-                  <p className="font-body text-surface/80 text-sm leading-relaxed">{description}</p>
+                  <h3 className="font-heading font-bold text-3xl text-surface mb-2">{label}</h3>
+                  <p className="font-body text-surface/80 text-base leading-relaxed">{description}</p>
                 </div>
               </div>
             </div>
