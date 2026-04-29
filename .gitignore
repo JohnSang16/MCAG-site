@@ -7,3 +7,9 @@ dist/
 
 .vercel
 .env*.local
+
+# Claude Code internal files
+.claude/
+
+# Dev-time screenshot references (not production assets)
+*.png
