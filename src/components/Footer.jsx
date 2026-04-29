@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { FACEBOOK_URL, CONTACT_EMAIL } from '../config'
+import { FACEBOOK_URL, CONTACT_EMAIL, ZELLE_NUMBER } from '../config'
 
 export function Footer() {
   return (
@@ -30,8 +30,11 @@ export function Footer() {
               href={`mailto:${CONTACT_EMAIL}`}
               className="font-body text-sm text-gray-300 hover:text-surface transition-colors"
             >
-              {CONTACT_EMAIL}
+              Email: {CONTACT_EMAIL}
             </a>
+            <p className="font-body text-sm text-gray-300">
+              Contact: {ZELLE_NUMBER}
+            </p>
             <a
               href={FACEBOOK_URL !== 'TBD' ? FACEBOOK_URL : '#'}
               target="_blank"
