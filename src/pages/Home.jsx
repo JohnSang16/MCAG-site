@@ -1,3 +1,5 @@
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Navbar } from '../components/Navbar'
 import { Footer } from '../components/Footer'
@@ -7,6 +9,22 @@ import { ValueStrip } from '../components/ValueStrip'
 import { PrayerRequestForm } from '../components/PrayerRequestForm'
 import { FacebookCTAStrip } from '../components/FacebookCTAStrip'
 import { ContainerScroll, BentoGrid, BentoCell, ContainerScale } from '../components/HeroGalleryScroll'
+import { ZELLE_NUMBER } from '../config'
+
+function FadeUp({ children, delay = 0 }) {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-80px' })
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 32 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay, ease: 'easeOut' }}
+    >
+      {children}
+    </motion.div>
+  )
+}
 
 // size = diameter in px, top = vertical offset from top of section (px)
 const FLOAT_CIRCLES_DESKTOP = [
@@ -233,10 +251,12 @@ export default function Home() {
       {/* Upcoming Events */}
       <section className="py-16 px-6 bg-ivory">
         <div className="max-w-5xl mx-auto">
+          <FadeUp>
           <div className="text-center mb-10">
             <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-3">Mark Your Calendar</p>
             <h2 className="font-heading font-bold text-3xl text-text-primary">Upcoming Events</h2>
           </div>
+          </FadeUp>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
               {
@@ -255,8 +275,9 @@ export default function Home() {
                 img: '/assets/stockimg/fathersday.webp',
                 accent: '#1a3aad',
               },
-            ].map(({ date, day, title, description, img, accent }) => (
-              <div key={title} className="rounded-2xl border border-border bg-surface shadow-sm overflow-hidden flex flex-col">
+            ].map(({ date, day, title, description, img, accent }, i) => (
+              <FadeUp key={title} delay={i * 0.1}>
+              <div className="rounded-2xl border border-border bg-surface shadow-sm overflow-hidden flex flex-col">
                 <div className="relative h-44 overflow-hidden">
                   <img src={img} alt={title} className="w-full h-full object-cover object-center" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
@@ -279,6 +300,7 @@ export default function Home() {
                   <p className="font-body text-xs text-text-secondary">4:00 – 6:30 pm · 4113 Church St, Clarkston, GA</p>
                 </div>
               </div>
+              </FadeUp>
             ))}
           </div>
         </div>
@@ -287,7 +309,7 @@ export default function Home() {
       {/* Visit Us + What We Believe */}
       <section id="services" className="py-24 px-6" style={{ background: 'linear-gradient(160deg, #eaf0fb 0%, #f5f0e8 60%, #e6f4f1 100%)' }}>
         <div className="max-w-5xl mx-auto">
-
+          <FadeUp>
           {/* Two-column card panel */}
           <div className="rounded-3xl shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-2" style={{ background: '#ffffff' }}>
 
@@ -385,6 +407,7 @@ export default function Home() {
             </div>
 
           </div>
+          </FadeUp>
         </div>
       </section>
 
@@ -393,12 +416,13 @@ export default function Home() {
 
       {/* Featured Quote */}
       <section
-        className="relative py-24 px-6 overflow-hidden"
+        className="relative py-12 px-6 overflow-hidden"
         style={{ background: 'linear-gradient(135deg, #0e7c6e 0%, #1a3aad 100%)' }}
       >
+        <FadeUp>
         <div className="relative z-10 max-w-[680px] mx-auto text-center">
           <span className="font-heading text-brand-gold text-7xl leading-none select-none">&ldquo;</span>
-          <p className="font-heading italic text-surface text-xl leading-relaxed -mt-4">
+          <p className="font-heading italic text-surface text-2xl leading-relaxed -mt-4">
             We started with a living room and a calling. God has been faithful every step of the way, and we are just getting started.
           </p>
           <div className="mt-8 flex items-center justify-center gap-3">
@@ -411,21 +435,54 @@ export default function Home() {
             </div>
           </div>
         </div>
+        </FadeUp>
       </section>
 
       {/* Donation CTA */}
-      <section className="py-20 px-6 bg-ivory">
+      <section className="py-20 px-6" style={{ background: 'linear-gradient(160deg, #eaf0fb 0%, #f5f0e8 60%, #e6f4f1 100%)' }}>
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <FadeUp>
           <div>
-            <h2 className="font-heading font-bold text-3xl text-text-primary mb-4">Support the Ministry</h2>
+            <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-3">Generosity</p>
+            <h2 className="font-heading font-bold text-3xl text-text-primary mb-6">Support the Ministry</h2>
+            <img
+              src="/assets/stockimg/supportheministry.webp"
+              alt="Supporting the ministry"
+              className="md:hidden w-full h-56 object-cover rounded-2xl shadow-lg mb-6"
+            />
             <p className="font-body text-text-secondary leading-relaxed mb-6">
               Your generosity fuels everything we do, from outreach in Clarkston to discipleship, worship,
               and serving families in need. Every gift, large or small, is an act of faith that advances
               the Kingdom of God.
             </p>
-            <p className="font-body text-sm text-text-secondary mb-8">
-              <span className="font-medium text-text-primary">Zelle:</span> 404-207-6509
-            </p>
+            <blockquote className="border-l-4 border-brand-gold pl-5 py-1 mb-8">
+              <p className="font-heading italic text-text-primary leading-relaxed">
+                "Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver."
+              </p>
+              <cite className="font-body text-text-secondary text-sm not-italic mt-2 block">2 Corinthians 9:7</cite>
+            </blockquote>
+            <div className="flex flex-col gap-3 mb-8">
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5" style={{ background: 'linear-gradient(135deg, #0e7c6e, #1a3aad)' }}>
+                  <svg className="w-4 h-4 text-surface" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                  </svg>
+                </div>
+                <p className="font-body text-text-secondary leading-relaxed text-sm">
+                  <span className="font-semibold text-text-primary">Card or bank transfer:</span> Give securely online with Stripe, including ACH for large gifts.
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5" style={{ background: 'linear-gradient(135deg, #0e7c6e, #1a3aad)' }}>
+                  <svg className="w-4 h-4 text-surface" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <p className="font-body text-text-secondary leading-relaxed text-sm">
+                  <span className="font-semibold text-text-primary">Zelle (no fees):</span> {ZELLE_NUMBER}
+                </p>
+              </div>
+            </div>
             <Link
               to="/donate"
               className="inline-block font-body font-semibold text-sm px-8 py-4 rounded-full bg-brand-gold text-text-primary hover:bg-brand-gold/90 transition-colors duration-200"
@@ -433,26 +490,32 @@ export default function Home() {
               Give Now →
             </Link>
           </div>
-          <div className="relative">
-            <img
-              src="/assets/stockimg/supportheministry.webp"
-              alt="Supporting the ministry"
-              className="w-full h-72 object-cover rounded-2xl shadow-lg"
-            />
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-brand-blue/40 to-transparent" />
-          </div>
+          </FadeUp>
+          <FadeUp delay={0.15}>
+          <img
+            src="/assets/stockimg/supportheministry.webp"
+            alt="Supporting the ministry"
+            className="hidden md:block w-full h-80 object-cover rounded-2xl shadow-lg"
+          />
+          </FadeUp>
         </div>
       </section>
 
       {/* Meet the Pastors */}
-      <section className="py-20 px-6 bg-ivory">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="font-heading font-bold text-3xl text-text-primary text-center mb-2">
-            Meet the Pastors
-          </h2>
-          <p className="font-body text-text-secondary text-center mb-10">
-            Servant leaders called to build this congregation with love and obedience.
-          </p>
+      <section className="pt-8 pb-20 px-6 bg-ivory">
+        <div className="max-w-5xl mx-auto">
+          <FadeUp>
+          <div className="flex justify-center mb-10">
+            <div className="w-36 h-0.5 bg-brand-gold rounded-full" />
+          </div>
+          <div className="text-center mb-12">
+            <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-3">Leadership</p>
+            <h2 className="font-heading font-bold text-3xl text-text-primary mb-4">Meet the Pastors</h2>
+            <p className="font-body text-text-secondary max-w-xl mx-auto leading-relaxed">
+              Servant leaders called to build this congregation with love and obedience.
+            </p>
+          </div>
+          </FadeUp>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
               {
@@ -467,22 +530,24 @@ export default function Home() {
                 imgClass: 'w-full h-full object-cover object-center',
                 bio: 'Pastor Sarah carries a special grace for the women and families of the congregation. She leads Women\'s Night, mentors young believers, and brings a compassionate, Spirit-led presence to everything she does.',
               },
-            ].map(({ name, title, img, imgClass, bio }) => (
-              <Card key={name} className="flex flex-col items-center text-center gap-4 overflow-hidden p-0">
-                <div className="w-full h-64 overflow-hidden shrink-0">
+            ].map(({ name, title, img, imgClass, bio }, i) => (
+              <FadeUp key={name} delay={i * 0.1}>
+              <Card className="flex flex-col items-center text-center gap-4 overflow-hidden p-0">
+                <div className="w-full h-80 overflow-hidden shrink-0">
                   <img src={img} alt={name} className={imgClass} />
                 </div>
-                <div className="px-6 pb-6 flex flex-col items-center gap-3">
+                <div className="px-8 pb-8 flex flex-col items-center gap-4">
                   <div>
-                    <h3 className="font-heading font-semibold text-xl text-text-primary">{name}</h3>
-                    <p className="font-body text-sm text-brand-teal font-medium mt-0.5">{title}</p>
+                    <h3 className="font-heading font-semibold text-2xl text-text-primary">{name}</h3>
+                    <p className="font-body text-sm text-brand-teal font-medium mt-1">{title}</p>
                   </div>
-                  <p className="font-body text-sm text-text-secondary leading-relaxed">{bio}</p>
+                  <p className="font-body text-base text-text-secondary leading-relaxed">{bio}</p>
                   <Link to="/about" className="font-body text-sm text-brand-blue hover:underline">
                     Learn more
                   </Link>
                 </div>
               </Card>
+              </FadeUp>
             ))}
           </div>
         </div>
@@ -490,6 +555,7 @@ export default function Home() {
 
       {/* Prayer Request Form */}
       <section className="py-20 px-6 bg-surface">
+        <FadeUp>
         <div className="max-w-xl mx-auto text-center mb-10">
           <h2 className="font-heading font-bold text-3xl text-text-primary mb-3">
             Prayer Requests
@@ -499,6 +565,7 @@ export default function Home() {
             pray alongside you.
           </p>
         </div>
+        </FadeUp>
         <PrayerRequestForm />
       </section>
 
