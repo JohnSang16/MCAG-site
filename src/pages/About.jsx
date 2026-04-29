@@ -337,7 +337,7 @@ export default function About() {
               <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-3">Our Story</p>
               <h2 className="font-heading text-3xl font-bold text-text-primary mb-4">Where We Came From</h2>
               <p className="font-body text-text-secondary leading-relaxed mb-8 max-w-xl mx-auto">
-                From a living room in Clarkston to a growing congregation, the story of Miracle Center is a story of faith, obedience, and a God who keeps his promises.
+                Founded in 2021, the story of Miracle Center is a story of faith, obedience, and a God who keeps his promises. From a living room in Clarkston to a growing congregation, every step has been led by his hand.
               </p>
               <Link
                 to="/about/history"
