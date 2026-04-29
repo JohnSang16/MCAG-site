@@ -5,6 +5,7 @@ import { Navbar } from '../components/Navbar'
 import { Footer } from '../components/Footer'
 import { FacebookCTAStrip } from '../components/FacebookCTAStrip'
 import { PrayerRequestForm } from '../components/PrayerRequestForm'
+import { DonationForm } from '../components/DonationForm'
 
 function FadeUp({ children, delay = 0 }) {
   const ref = useRef(null)
@@ -163,6 +164,22 @@ export default function Donate() {
           </div>
         </section>
 
+        {/* Give Online — Stripe */}
+        <section className="py-20 px-6 bg-surface">
+          <div className="max-w-lg mx-auto">
+            <FadeUp>
+              <p className="font-body text-brand-blue text-xs font-bold uppercase tracking-widest mb-3 text-center">Give Online</p>
+              <h2 className="font-heading text-3xl font-bold text-text-primary mb-3 text-center">Card or Bank Transfer</h2>
+              <p className="font-body text-text-secondary text-center mb-10">
+                Give securely with a credit card or ACH bank transfer. Large gifts save on fees with ACH (0.8%, capped at $5).
+              </p>
+              <div className="rounded-3xl border border-border bg-ivory p-8 shadow-lg">
+                <DonationForm />
+              </div>
+            </FadeUp>
+          </div>
+        </section>
+
         {/* Give via Zelle */}
         <section className="py-20 px-6 bg-ivory">
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
@@ -170,7 +187,7 @@ export default function Donate() {
             {/* Steps */}
             <FadeUp>
               <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-3">How to Give</p>
-              <h2 className="font-heading text-3xl font-bold text-text-primary mb-3">Give via Zelle</h2>
+              <h2 className="font-heading text-3xl font-bold text-text-primary mb-3">Give via Zelle (No Fees)</h2>
               <p className="font-body text-text-secondary mb-8">
                 Zelle is free, instant, and available inside most major banking apps. No account setup required.
               </p>
