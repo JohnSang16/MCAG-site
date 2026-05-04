@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-23",
+  "lastUpdated": "2026-05-03",
   "members": [
     { "id": 1, "name": "Benjamin" },
     { "id": 2, "name": "David" },
@@ -38,6 +38,27 @@
         { "memberId": 13, "score": 55 },
         { "memberId": 14, "score": 59 },
         { "memberId": 15, "score": 73 }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Test 2 — 2nd Test",
+      "date": "2026-05-03",
+      "scores": [
+        { "memberId": 1, "score": 86 },
+        { "memberId": 3, "score": 80 },
+        { "memberId": 4, "score": 100 },
+        { "memberId": 5, "score": 26 },
+        { "memberId": 6, "score": 80 },
+        { "memberId": 7, "score": 13 },
+        { "memberId": 8, "score": 93 },
+        { "memberId": 9, "score": 40 },
+        { "memberId": 10, "score": 93 },
+        { "memberId": 11, "score": 86 },
+        { "memberId": 12, "score": 40 },
+        { "memberId": 13, "score": 93 },
+        { "memberId": 14, "score": 73 },
+        { "memberId": 15, "score": 86 }
       ]
     }
   ]
