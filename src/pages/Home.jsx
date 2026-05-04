@@ -253,7 +253,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto">
           <FadeUp>
           <div className="text-center mb-10">
-            <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-3">Mark Your Calendar</p>
+            <p className="font-body text-brand-teal text-sm font-bold uppercase tracking-widest mb-3">Mark Your Calendar</p>
             <h2 className="font-heading font-bold text-3xl text-text-primary">Upcoming Events</h2>
           </div>
           </FadeUp>
@@ -315,7 +315,7 @@ export default function Home() {
 
             {/* Left — Visit Us */}
             <div className="p-8 lg:p-10 flex flex-col border-b lg:border-b-0 lg:border-r border-border">
-              <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-2">Come Join Us</p>
+              <p className="font-body text-brand-teal text-sm font-bold uppercase tracking-widest mb-2">Come Join Us</p>
               <h2 className="font-heading font-bold text-3xl text-text-primary mb-8">Visit Us</h2>
 
               {/* Service Times */}
@@ -379,7 +379,7 @@ export default function Home() {
 
             {/* Right — What We Believe */}
             <div className="p-8 lg:p-10 flex flex-col">
-              <p className="font-body text-brand-blue text-xs font-bold uppercase tracking-widest mb-2">Our Faith</p>
+              <p className="font-body text-brand-blue text-sm font-bold uppercase tracking-widest mb-2">Our Faith</p>
               <h2 className="font-heading font-bold text-3xl text-text-primary mb-8">What We Believe</h2>
               <div className="flex flex-col gap-5 flex-1">
                 <Link to="/about/jesus" className="block group flex-1">
@@ -443,7 +443,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <FadeUp>
           <div>
-            <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-3">Generosity</p>
+            <p className="font-body text-brand-teal text-sm font-bold uppercase tracking-widest mb-3">Generosity</p>
             <h2 className="font-heading font-bold text-3xl text-text-primary mb-6">Support the Ministry</h2>
             <img
               src="/assets/stockimg/supportheministry.webp"
@@ -509,7 +509,7 @@ export default function Home() {
             <div className="w-36 h-0.5 bg-brand-gold rounded-full" />
           </div>
           <div className="text-center mb-12">
-            <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-3">Leadership</p>
+            <p className="font-body text-brand-teal text-sm font-bold uppercase tracking-widest mb-3">Leadership</p>
             <h2 className="font-heading font-bold text-3xl text-text-primary mb-4">Meet the Pastors</h2>
             <p className="font-body text-text-secondary max-w-xl mx-auto leading-relaxed">
               Servant leaders called to build this congregation with love and obedience.

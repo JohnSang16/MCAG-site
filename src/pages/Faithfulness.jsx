@@ -132,7 +132,7 @@ export default function Faithfulness() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="font-body text-brand-gold text-xs font-bold uppercase tracking-widest mb-4"
+              className="font-body text-brand-gold text-sm font-bold uppercase tracking-widest mb-4"
             >
               Daily Resource · Clarkston, GA
             </motion.p>
@@ -159,7 +159,7 @@ export default function Faithfulness() {
         <section className="py-16 px-6" style={{ background: 'linear-gradient(160deg, #eaf0fb 0%, #f5f0e8 100%)' }}>
           <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <div>
-              <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-3">Your Daily Walk</p>
+              <p className="font-body text-brand-teal text-sm font-bold uppercase tracking-widest mb-3">Your Daily Walk</p>
               <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">Built for the Everyday Believer</h2>
               <p className="font-body text-text-secondary leading-relaxed mb-3">
                 We understand it is hard to stay focused sometimes. Life is loud, the week is full, and the quiet moments slip by quickly. This page was built for exactly that struggle.
@@ -210,7 +210,7 @@ export default function Faithfulness() {
                 <svg className="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
-                <span className="font-body text-xs font-bold uppercase tracking-widest text-text-secondary">Step 1 — Choose a Theme</span>
+                <span className="font-body text-sm font-bold uppercase tracking-widest text-text-secondary">Step 1 — Choose a Theme</span>
               </div>
 
               {/* Theme pills */}
@@ -236,7 +236,7 @@ export default function Faithfulness() {
               <div className="overflow-y-auto divide-y divide-border" style={{ maxHeight: 380 }}>
                 {activeTheme.verses.map((v, i) => (
                   <div key={i} className="px-6 py-5">
-                    <p className="font-body text-xs font-bold uppercase tracking-widest text-brand-teal mb-2">{v.ref}</p>
+                    <p className="font-body text-sm font-bold uppercase tracking-widest text-brand-teal mb-2">{v.ref}</p>
                     <p className="font-heading text-text-primary text-base leading-relaxed italic">"{v.text}"</p>
                   </div>
                 ))}
@@ -249,7 +249,7 @@ export default function Faithfulness() {
                 <svg className="w-4 h-4 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
-                <span className="font-body text-xs font-bold uppercase tracking-widest text-text-secondary">Step 2 — Try This Today</span>
+                <span className="font-body text-sm font-bold uppercase tracking-widest text-text-secondary">Step 2 — Try This Today</span>
               </div>
 
               {/* Contextual tip tied to selected verse */}
@@ -277,7 +277,7 @@ export default function Faithfulness() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="font-body text-xs font-bold uppercase tracking-widest text-text-secondary">Step 3 — Find a Place to Pray</span>
+                <span className="font-body text-sm font-bold uppercase tracking-widest text-text-secondary">Step 3 — Find a Place to Pray</span>
                 <span className="ml-auto font-body text-xs text-text-secondary">Near Clarkston, GA</span>
               </div>
 

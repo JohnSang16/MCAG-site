@@ -38,7 +38,7 @@ export function ValueStrip({ className = 'py-20' }) {
 
         {/* Section header */}
         <div className="text-center mb-12">
-          <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-3">What We Are Built On</p>
+          <p className="font-body text-brand-teal text-sm font-bold uppercase tracking-widest mb-3">What We Are Built On</p>
           <h2 className="font-heading font-bold text-4xl text-text-primary">Our Core Values</h2>
           <p className="font-body text-text-secondary mt-4 max-w-xl mx-auto leading-relaxed">
             Everything we do flows from these three convictions. They shape how we gather, how we serve, and how we grow.

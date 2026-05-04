@@ -88,7 +88,7 @@ function Card({ m, withIcon = false }) {
             {m.icon}
           </div>
         )}
-        <p className="font-body text-xs font-bold uppercase tracking-widest text-brand-teal mb-1">
+        <p className="font-body text-sm font-bold uppercase tracking-widest text-brand-teal mb-1">
           Chapter {chapter}
         </p>
         <h4 className="font-heading text-xl font-bold text-text-primary mb-2">{m.label}</h4>

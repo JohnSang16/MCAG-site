@@ -78,7 +78,7 @@ export default function Donate() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
-              className="font-body text-brand-gold text-xs font-bold uppercase tracking-widest mb-4"
+              className="font-body text-brand-gold text-sm font-bold uppercase tracking-widest mb-4"
             >
               Generosity
             </motion.p>
@@ -105,7 +105,7 @@ export default function Donate() {
         <section className="py-20 px-6" style={{ background: 'linear-gradient(160deg, #eaf0fb 0%, #f5f0e8 60%, #e6f4f1 100%)' }}>
           <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <FadeUp>
-              <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-3">Why We Give</p>
+              <p className="font-body text-brand-teal text-sm font-bold uppercase tracking-widest mb-3">Why We Give</p>
               <h2 className="font-heading text-3xl font-bold text-text-primary mb-6">Generosity Is an Act of Worship</h2>
               <img
                 src="/assets/stockimg/geneorsity.avif"
@@ -139,7 +139,7 @@ export default function Donate() {
         <section className="py-20 px-6 bg-surface">
           <div className="max-w-5xl mx-auto">
             <FadeUp>
-              <p className="font-body text-brand-blue text-xs font-bold uppercase tracking-widest mb-3 text-center">Impact</p>
+              <p className="font-body text-brand-blue text-sm font-bold uppercase tracking-widest mb-3 text-center">Impact</p>
               <h2 className="font-heading text-3xl font-bold text-text-primary mb-3 text-center">Where Your Gift Goes</h2>
               <p className="font-body text-text-secondary text-center mb-12 max-w-xl mx-auto">
                 Your generosity fuels everything we do, from worship on Sunday to outreach throughout the week.
@@ -168,7 +168,7 @@ export default function Donate() {
         <section className="py-20 px-6 bg-surface">
           <div className="max-w-lg mx-auto">
             <FadeUp>
-              <p className="font-body text-brand-blue text-xs font-bold uppercase tracking-widest mb-3 text-center">Give Online</p>
+              <p className="font-body text-brand-blue text-sm font-bold uppercase tracking-widest mb-3 text-center">Give Online</p>
               <h2 className="font-heading text-3xl font-bold text-text-primary mb-3 text-center">Card or Bank Transfer</h2>
               <p className="font-body text-text-secondary text-center mb-10">
                 Give securely with a credit card or ACH bank transfer. Large gifts save on fees with ACH (0.8%, capped at $5).
@@ -186,7 +186,7 @@ export default function Donate() {
 
             {/* Steps */}
             <FadeUp>
-              <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-3">How to Give</p>
+              <p className="font-body text-brand-teal text-sm font-bold uppercase tracking-widest mb-3">How to Give</p>
               <h2 className="font-heading text-3xl font-bold text-text-primary mb-3">Give via Zelle (No Fees)</h2>
               <p className="font-body text-text-secondary mb-8">
                 Zelle is free, instant, and available inside most major banking apps. No account setup required.

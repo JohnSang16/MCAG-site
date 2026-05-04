@@ -144,7 +144,7 @@ export default function About() {
         <section className="py-20 px-6" style={{ background: 'linear-gradient(160deg, #eaf0fb 0%, #f5f0e8 60%, #e6f4f1 100%)' }}>
           <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <FadeUp>
-              <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-3">Our Community</p>
+              <p className="font-body text-brand-teal text-sm font-bold uppercase tracking-widest mb-3">Our Community</p>
               <h2 className="font-heading text-3xl font-bold text-text-primary mb-6">Who We Are</h2>
               <p className="font-body text-text-secondary leading-relaxed mb-4">
                 Miracle Center Assembly of God is a Spirit-filled Pentecostal church in Clarkston, Georgia. We are rooted in the Burmese and Chin (Zo) community. Many of our members are immigrants and refugees who carried their faith across oceans to plant it here in the American South.
@@ -174,7 +174,7 @@ export default function About() {
         >
           <div className="relative z-10 max-w-3xl mx-auto text-center">
             <FadeUp>
-              <p className="font-body text-brand-gold text-xs font-bold uppercase tracking-widest mb-4">Why We Exist</p>
+              <p className="font-body text-brand-gold text-sm font-bold uppercase tracking-widest mb-4">Why We Exist</p>
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-surface mb-8">Our Vision</h2>
               <p className="font-body text-surface/90 text-lg leading-relaxed mb-6">
                 The name "Miracle Center Assembly of God" was chosen intentionally. From the very beginning, God gave our founders a bold vision: that this church would be a center of miracles.
@@ -193,7 +193,7 @@ export default function About() {
         <section className="py-20 px-6 bg-surface">
           <div className="max-w-5xl mx-auto">
             <FadeUp>
-              <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-3 text-center">Leadership</p>
+              <p className="font-body text-brand-teal text-sm font-bold uppercase tracking-widest mb-3 text-center">Leadership</p>
               <h2 className="font-heading text-3xl font-bold text-text-primary mb-3 text-center">Meet the Pastors</h2>
               <p className="font-body text-text-secondary text-center mb-12 max-w-xl mx-auto">
                 Servant leaders who said yes to a calling before they knew what it would cost, and have never looked back.
@@ -251,7 +251,7 @@ export default function About() {
         <section className="py-20 px-6 bg-ivory">
           <div className="max-w-5xl mx-auto">
             <FadeUp>
-              <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-3 text-center">How We Gather</p>
+              <p className="font-body text-brand-teal text-sm font-bold uppercase tracking-widest mb-3 text-center">How We Gather</p>
               <h2 className="font-heading text-3xl font-bold text-text-primary mb-3 text-center">Our Ministries</h2>
               <p className="font-body text-text-secondary text-center mb-12 max-w-xl mx-auto">
                 Every service is an opportunity to encounter God. Here is how we meet throughout the week.
@@ -284,7 +284,7 @@ export default function About() {
         <section className="py-20 px-6 bg-surface">
           <div className="max-w-5xl mx-auto">
             <FadeUp>
-              <p className="font-body text-brand-blue text-xs font-bold uppercase tracking-widest mb-3 text-center">Our Faith</p>
+              <p className="font-body text-brand-blue text-sm font-bold uppercase tracking-widest mb-3 text-center">Our Faith</p>
               <h2 className="font-heading text-3xl font-bold text-text-primary mb-3 text-center">What We Believe</h2>
               <p className="font-body text-text-secondary text-center mb-12 max-w-xl mx-auto">
                 As a member church of the Assemblies of God, our beliefs are rooted in Scripture and Pentecostal tradition. Here is what we stand on.
@@ -334,7 +334,7 @@ export default function About() {
         <section className="py-20 px-6 bg-ivory">
           <div className="max-w-3xl mx-auto text-center">
             <FadeUp>
-              <p className="font-body text-brand-teal text-xs font-bold uppercase tracking-widest mb-3">Our Story</p>
+              <p className="font-body text-brand-teal text-sm font-bold uppercase tracking-widest mb-3">Our Story</p>
               <h2 className="font-heading text-3xl font-bold text-text-primary mb-4">Where We Came From</h2>
               <p className="font-body text-text-secondary leading-relaxed mb-8 max-w-xl mx-auto">
                 Founded in 2021, the story of Miracle Center is a story of faith, obedience, and a God who keeps his promises. From a living room in Clarkston to a growing congregation, every step has been led by his hand.
