@@ -184,22 +184,6 @@ export default function Faithfulness() {
           </div>
         </section>
 
-        {/* How to use — 3-step guide */}
-        <section className="px-4 pt-2 pb-8 max-w-6xl mx-auto">
-          <div className="flex flex-col items-start gap-3 pl-4">
-            {[
-              { step: '1', label: 'Pick a theme below' },
-              { step: '2', label: 'Read the verses' },
-              { step: '3', label: 'Find a place to pray' },
-            ].map((item) => (
-              <div key={item.step} className="flex items-center gap-2.5 w-52">
-                <span className="w-7 h-7 rounded-full bg-brand-teal text-white text-xs font-bold font-body flex items-center justify-center shrink-0">{item.step}</span>
-                <span className="font-body text-sm text-text-secondary">{item.label}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* Bento command center */}
         <section className="px-4 pb-24 max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
