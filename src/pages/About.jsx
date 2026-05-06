@@ -331,12 +331,12 @@ export default function About() {
         </section>
 
         {/* History CTA */}
-        <section className="py-20 px-6 bg-ivory">
+        <section className="pt-6 pb-10 md:py-20 px-6 bg-ivory">
           <div className="max-w-3xl mx-auto text-center">
             <FadeUp>
-              <p className="font-body text-brand-teal text-sm font-bold uppercase tracking-widest mb-3">Our Story</p>
-              <h2 className="font-heading text-3xl font-bold text-text-primary mb-4">Where We Came From</h2>
-              <p className="font-body text-text-secondary leading-relaxed mb-8 max-w-xl mx-auto">
+              <p className="font-body text-brand-teal text-sm font-bold uppercase tracking-widest mb-2">Our Story</p>
+              <h2 className="font-heading text-2xl md:text-3xl font-bold text-text-primary mb-3">Where We Came From</h2>
+              <p className="font-body text-text-secondary leading-relaxed mb-6 max-w-xl mx-auto">
                 Founded in 2021, the story of Miracle Center is a story of faith, obedience, and a God who keeps his promises. From a living room in Clarkston to a growing congregation, every step has been led by his hand.
               </p>
               <Link

@@ -60,12 +60,12 @@ export default function AboutHistory() {
         </div>
 
         {/* Story + side images */}
-        <section className="py-20 px-4 max-w-5xl mx-auto">
+        <section className="pt-4 pb-16 md:py-20 px-4 max-w-5xl mx-auto">
           <FadeUp>
-            <h2 className="font-heading text-3xl font-bold text-text-primary mb-12 text-center">Our Story</h2>
+            <h2 className="font-heading text-3xl font-bold text-text-primary mb-6 md:mb-12 text-center">Our Story</h2>
           </FadeUp>
 
-          <div className="space-y-20">
+          <div className="space-y-8 md:space-y-20">
             {[
               {
                 heading: 'A Calling, Not a Building',
@@ -93,9 +93,10 @@ export default function AboutHistory() {
               },
             ].map(({ heading, body, img, reverse }, i) => (
               <FadeUp key={heading} delay={0.1}>
-                <div className={`grid grid-cols-1 md:grid-cols-2 gap-10 items-center ${reverse ? 'md:[direction:rtl]' : ''}`}>
+                {i > 0 && <hr className="border-border mb-8 md:mb-20" />}
+                <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center ${reverse ? 'md:[direction:rtl]' : ''}`}>
                   <div className={reverse ? '[direction:ltr]' : ''}>
-                    <h3 className="font-heading text-2xl font-bold text-text-primary mb-4">{heading}</h3>
+                    <h3 className="font-heading text-xl md:text-2xl font-bold text-text-primary mb-3">{heading}</h3>
                     <p className="font-body text-text-secondary leading-relaxed">{body}</p>
                   </div>
                   <div className={reverse ? '[direction:ltr]' : ''}>

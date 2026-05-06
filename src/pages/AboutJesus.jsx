@@ -78,7 +78,7 @@ export default function AboutJesus() {
         </div>
 
         {/* Who is Jesus — text + image side by side */}
-        <section className="py-20 px-4 max-w-5xl mx-auto">
+        <section className="pt-4 pb-16 md:py-20 px-4 max-w-5xl mx-auto">
           {/* Title above image on mobile only */}
           <FadeUp>
             <h2 className="md:hidden font-heading text-3xl font-bold text-text-primary mb-6">Who Is Jesus?</h2>
@@ -115,7 +115,7 @@ export default function AboutJesus() {
         </section>
 
         {/* Belief cards with images */}
-        <section className="py-20 px-4 relative overflow-hidden" style={{ background: 'linear-gradient(160deg, #f5f0e8 0%, #eaf0fb 60%, #e6f4f1 100%)' }}>
+        <section className="pt-6 pb-20 md:py-20 px-4 relative overflow-hidden" style={{ background: 'linear-gradient(160deg, #f5f0e8 0%, #eaf0fb 60%, #e6f4f1 100%)' }}>
           {/* Decorative faint cross */}
           <svg className="absolute right-0 top-0 w-[420px] h-[520px] opacity-[0.045] pointer-events-none select-none" viewBox="0 0 200 260" fill="none">
             <rect x="88" y="0" width="24" height="260" rx="4" fill="#1a3aad" />
