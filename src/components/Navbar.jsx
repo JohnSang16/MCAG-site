@@ -69,7 +69,10 @@ export function Navbar() {
             className="h-12 w-auto"
             onError={e => { e.target.style.display = 'none' }}
           />
-          <span className="font-heading font-semibold text-text-primary text-sm leading-tight hidden lg:block">
+          <span className="font-heading font-semibold text-text-primary text-sm leading-tight block md:hidden">
+            Miracle Center AG
+          </span>
+          <span className="font-heading font-semibold text-text-primary text-base leading-tight hidden lg:block">
             Miracle Center Assembly of God
           </span>
         </Link>
