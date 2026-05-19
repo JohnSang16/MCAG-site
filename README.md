@@ -2,7 +2,7 @@
 
 Official website for **Miracle Center Assembly of God**, a Spirit-filled, predominantly Burmese/Chin (Zo) congregation in Clarkston, GA, open to people of every background. The church was founded on the belief that God called them to be a center of miracles: healing the sick, restoring the broken, and bringing wholeness physically, mentally, emotionally, and spiritually.
 
-**Live site:** [miraclecenterag.com](https://miraclecenterag.com)
+**Live site:** [mcagatl.org](https://www.mcagatl.org)
 
 ---
 
