@@ -1,6 +1,6 @@
-# Miracle Center Assembly of God — Website
+# Miracle Center Assembly of God Website
 
-Official website for **Miracle Center Assembly of God**, a Spirit-filled, predominantly Burmese/Chin (Zo) congregation in Clarkston, GA, open to people of every background. The church was founded on the belief that God called them to be a center of miracles: healing the sick, restoring the broken, and bringing wholeness — physically, mentally, emotionally, and spiritually.
+Official website for **Miracle Center Assembly of God**, a Spirit-filled, predominantly Burmese/Chin (Zo) congregation in Clarkston, GA, open to people of every background. The church was founded on the belief that God called them to be a center of miracles: healing the sick, restoring the broken, and bringing wholeness physically, mentally, emotionally, and spiritually.
 
 **Live site:** [miraclecenterag.com](https://miraclecenterag.com)
 
@@ -8,13 +8,13 @@ Official website for **Miracle Center Assembly of God**, a Spirit-filled, predom
 
 ## Features
 
-- **Home** — Animated hero gallery, service times, pastor bios with portrait photos, upcoming events, prayer request form, and donation CTA
-- **About** — Founding story, church history timeline, core beliefs, and Who Is Jesus page
-- **Bible Faithfulness Leaderboard** — Live-computed rankings from a JSON data file; per-test and overall views with Pastor's Pick badges
-- **Give** — Zelle donation card and Stripe donation form with preset amounts and ACH support
-- **Prayer Request Form** — Submits directly to Formspree; no backend required
-- **Scroll animations** — FadeUp entrance animations via Framer Motion across key sections
-- **Fully responsive** — Separate mobile and desktop layouts where needed (e.g. Timeline)
+- **Home:** Animated hero gallery, service times, pastor bios with portrait photos, upcoming events, prayer request form, and donation CTA
+- **About:** Founding story, church history timeline, core beliefs, and Who Is Jesus page
+- **Bible Faithfulness Leaderboard:** Live-computed rankings from a JSON data file; per-test and overall views with Pastor's Pick badges
+- **Give:** Zelle donation card and Stripe donation form with preset amounts and ACH support
+- **Prayer Request Form:** Submits directly to Formspree; no backend required
+- **Scroll animations:** FadeUp entrance animations via Framer Motion across key sections
+- **Fully responsive:** Separate mobile and desktop layouts where needed (e.g. Timeline)
 
 ---
 
@@ -24,7 +24,7 @@ Official website for **Miracle Center Assembly of God**, a Spirit-filled, predom
 |---|---|
 | **React 19 + Vite 8** | SPA framework and dev/build tooling |
 | **React Router v7** | Client-side routing |
-| **Tailwind CSS v3** | All styling — no CSS modules or inline styles |
+| **Tailwind CSS v3** | All styling, no CSS modules or inline styles |
 | **Framer Motion** | Scroll-triggered animations |
 | **Stripe + React Stripe.js** | Donation form with card and ACH support |
 | **Formspree** | Prayer request form submissions (no backend) |
@@ -98,7 +98,7 @@ VITE_FORMSPREE_ID=your_formspree_endpoint_id
 VITE_STRIPE_PUBLISHABLE_KEY=pk_live_...
 ```
 
-The Stripe secret key must only be set in Vercel environment variables — never in `.env` or committed to the repo.
+The Stripe secret key must only be set in Vercel environment variables, never in `.env` or committed to the repo.
 
 | Variable | Purpose | Where to get it |
 |---|---|---|
@@ -142,7 +142,7 @@ Edit `src/data/leaderboard.json` directly:
 }
 ```
 
-Push to `main` and Vercel auto-deploys. Ranks and averages are computed at runtime — never store rank in the JSON.
+Push to `main` and Vercel auto-deploys. Ranks and averages are computed at runtime; never store rank in the JSON.
 
 ### Swapping Hero Gallery Images
 
@@ -151,9 +151,9 @@ Update the `HERO_IMAGES` array in `src/pages/Home.jsx`. Drop new images into `pu
 ### Updating Global Constants
 
 Edit `src/config.js` for:
-- `FACEBOOK_URL` — church Facebook page URL
-- `ZELLE_NUMBER` — Zelle donation phone number (`404-207-6509`)
-- `CONTACT_EMAIL` — contact email address (`johnsang1970@gmail.com`)
+- `FACEBOOK_URL`: church Facebook page URL
+- `ZELLE_NUMBER`: Zelle donation phone number (`404-207-6509`)
+- `CONTACT_EMAIL`: contact email address (`johnsang1970@gmail.com`)
 
 ### Going Live with Stripe
 
